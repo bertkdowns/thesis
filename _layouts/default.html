@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ page.title }}</title>
+    
+</head>
+
+<body>
+    <div style="display:flex">
+        {% include sidebar.html %}
+        <main style="width:80%">
+            {{ content }}
+        </main>
+    </div>
+</body>
+
+</html>

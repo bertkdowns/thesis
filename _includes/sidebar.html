@@ -1,0 +1,14 @@
+<div style="width: 20%;" class="p-5">
+  <ul>
+    {% assign sorted_pages = site.pages | sort: "path" %}
+    {% for page in sorted_pages %}
+      {% if page.path contains '.md' %}
+        <li>
+          <a href="{{ page.url | relative_url }}">
+            {{ page.path | remove: '.md' | replace: '/', ' > ' }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
