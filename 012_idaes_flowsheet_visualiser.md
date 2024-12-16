@@ -48,3 +48,11 @@ A demo flowsheet is avaliable at [demo_flowsheet.json](https://github.com/IDAES/
 Is the .json file enough to create an IDAES model? or do you still need the idaes model constructed in python first?
 
 # Potential applications
+
+We could add functionality to create this model type directly - but is that pointless if we can already generate the idaes code itself? the idaes code can be used to generate the model easily enough.
+
+Or, idaes service could be used to generate a model for opening in the flowsheet visualiser - but it only makes sense if the .json file alone is enough to create an idaes model.
+
+Or, should we support importing from these flowsheet visualiser files directly into our platform?
+
+Is there anything about the data structure that could be useful for us to consider?
