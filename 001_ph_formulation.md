@@ -4,7 +4,7 @@ could be an example of some of the challenges of building a chemical simulation 
 
 # Purpose
 
-There are tradeoffs between FTPx and FCPh, see https://github.com/waikato-ahuora-smart-energy-systems/Ahuora-Adaptive-Digital-Twin-Platform/issues/676
+There are tradeoffs between FTPx and FCPh, see [This internal github issue](https://github.com/waikato-ahuora-smart-energy-systems/Ahuora-Adaptive-Digital-Twin-Platform/issues/676)
 
 However, generally Pressure and Enthalpy is a better formulation of state, because they are continuous variables, and a lot smoother.
 
@@ -81,3 +81,4 @@ T = 140 - 0.001 * (h - calculated_h)
 # Discussion
 
 
+See also: [013 Switch to FPhx](./013_switch_to_fphx.md)

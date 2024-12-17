@@ -16,7 +16,7 @@ dt.report_structural_issues()
 
 The idaes model diagnostics toolbox is pretty good, but requires a bit more understanding on how everything works. You can probably figure it out as you go though.
 
-https://idaes-examples.readthedocs.io/en/2.3.0/docs/diagnostics/diagnostics_toolbox_doc.html 
+[Diagnostics Toolbox](https://idaes-examples.readthedocs.io/en/2.3.0/docs/diagnostics/diagnostics_toolbox_doc.html) 
 
 # Specific types of solver results
 
