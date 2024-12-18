@@ -31,7 +31,7 @@ FAILED property_packages/tests/test_mixer_bt_pr.py::test_mixer - OverflowError: 
 
 (tested using idaes 2.8.0dev0).
 
-I think this could be because of some divide by zero errors, as some variables appear to be set to an initial value of zero. 
+I think this could be because of some divide by zero errors, as some variables appear to be set to an initial value of zero. Another potential reason is state bounds - perhaps the state bounds are too large for the problem. To fix this would require coming up with a heuristic for minimum and maximum enthalpy to use.
 
 So far, this has not been fixed.
 
