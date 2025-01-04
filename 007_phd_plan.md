@@ -1,6 +1,8 @@
 # PhD plan - next steps
 
-Four research questions are identified. Some next steps for each:
+See also: [Phd Cohesiveness](014_phd_cohesiveness.md)
+
+From the [Proposal](https://raw.githubusercontent.com/bertkdowns/honours-dissertation/refs/heads/main/phdproposal/main.pdf), Four research questions are identified. Some next steps for each:
 
 ## How does the level of abstraction impact the effort required to design and implement a Digital Twin for an industrial chemical process? To what extent does it enable wider applicability of Digital Twin tools and techniques?
 
@@ -77,39 +79,30 @@ https://www.sigsoft.org/dissertations.html
 https://erlang.org/download/armstrong_thesis_2003.pdf
 
 
-# Ahuora Development Goals
+# Things to Lit review
 
-Property Packages
-- Generalise to support mass streams, energy streams, without compounds
-- Start looking at reaction property packages
+## Building Background Knowledge
 
-Optimisation
-- How to write an objective/objective block (similar to a control block?)
+> General principles from field's I'm not so familiar with.
 
-Dynamics
-- Make a ui prototype to support dynamics
-- Plan how to store all the dynamic data
-- How to switch to/from dynamic mode as seamlessly as possible
+- Control Theory
+- Other Software PhD theses
+- Software Engineering Design Theory
+- Relevant chemical processes I might design
+- Process engineering Design theory
+- Process engineering Operation Theory
+- General ML techniques
 
-Multi-Steady-state
-- Better visualisation of results
-- Store in the backend (seperate to history?)
-- Modify history to be specifically for live streaming?
+## "On the edge of understanding"
 
-Surrogate Modelling
-- Use Shean's UI and develop it in the platform
-- Find a way to handle data processing:
-    - Storage in the platform
-    - training a model
-    - running a surrogate model
-- Should surrogate models be seperate to a flowsheet? can you import them from other flowsheets?
+> Latest research that I want to continue on from to find novelty.
 
-UI Tweaks
-- Refactor the frontend (minimize stuff)
-- undo/redo
-- search bar
-- auto close/ auto open stuff
+- RBON, operator networks, etc (see RQ above)
+- Digital twin applications & case studies
+- Existing simulation tools and techniques
+- Existing DT development practices
+- All the new IDAES papers
+- Surrogate modelling
+- Multi-fidelity modelling
+- Live data processing techniques
 
-P-Graph
-- Multi-solving
-- Storing/displaying results from different pgraph solves
