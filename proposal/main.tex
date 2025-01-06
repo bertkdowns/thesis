@@ -1,0 +1,113 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper, portrait, margin=2cm]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[page,toc,titletoc,title]{appendix}
+\usepackage{mathptmx}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{listings}
+\usepackage{makecell}
+
+
+\onehalfspacing
+\newcolumntype{L}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\RaggedLeft\hspace{0pt}}p{#1}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+
+\title{ \includegraphics[width=0.2\textwidth]{uow_logo.png} \\
+A Software Engineering Approach to the Design and
+Application of Digital Twins in Industrial Chemical
+Processes \\
+}
+
+\author{Bert Downs  \\ 
+Supervised by Tim Walmsley, Jason Kurz, Mark Apperley }
+
+\date{March 2025}
+
+\begin{document}
+
+\pagenumbering{roman}
+
+
+\maketitle
+
+
+\chapter*{Abstract}
+
+
+
+
+\chapter*{Acknowledgements}
+
+I would like to thank my supervisors, Tim Walmsley, Jason Kurz, and Mark Apperley, for their guidance and support throughout this project. I would also like to thank the Ahuora project team for their assistance and feedback. Finally, I would like to thank my family and friends for their encouragement and support.
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\section*{List of Abbreviations}
+
+\begin{tabular}{lL{13cm}}
+    IDAES-PSE & Institute for the Design of Advanced Energy Systems - Process Simulation Environment \\
+    SCADA & Supervisory Data Aquisition and Control \\
+    PYOMO & PYthon Optimisation MOdelling language \\
+    PDE & Partial Differential Equation \\
+    RBF & Radial Basis Function \\
+    RBON & Radial Basis Operator Network \\
+    PYSMO & Python-based Surrogate Modelling Objects \\
+    OMLT & Optimization and Machine Learning Toolkit \\
+\end{tabular}
+
+\newpage
+\pagenumbering{arabic}
+
+
+
+
+\include{introduction}
+
+\include{litreview}
+
+
+\bibliographystyle{unsrt}
+\bibliography{refs} % Entries are in the refs.bib file
+
+\begin{appendices}
+
+\end{appendices}
+\end{document}
