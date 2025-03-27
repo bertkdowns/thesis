@@ -1,13 +1,18 @@
 ---
+id: 76qasm5p97px2kgkxpgauth
+title: Unitop_structure
+desc: ''
+updated: 1743118600013
+created: 1743117524964
 ---
 
 There are a number of components in idaes, which is based on pyomo: [basic pyomo components](https://pyomo.readthedocs.io/en/6.8.0/pyomo_modeling_components/index.html). This is assuming you have some understanding of variables and constraints and expressions.
 
 
-![Key for diagram](res/idaes_key.drawio.svg)
+![Key for diagram](assets/idaes_key.drawio.svg)
 
 
-![Structure of inside a heater, with the control block, ports, inlets and outlets.](res/idaes_heater_insides.drawio.svg)
+![Structure of inside a heater, with the control block, ports, inlets and outlets.](assets/idaes_heater_insides.drawio.svg)
 
 
 This is an example of one of the simplest unit operations in IDAES. The heater is added to a  flowsheet like so:
@@ -41,7 +46,7 @@ Then we can unfix the `flow_mol` variable, and the solver can use it's solving p
 
 to make things easier, we've added a block inside the state block to store the constraints:
 
-![State Block, fully specified with 2 variables fixed and one constraint](res/idaes_custom_sb_constraints.drawio.svg)
+![State Block, fully specified with 2 variables fixed and one constraint](assets/idaes_custom_sb_constraints.drawio.svg)
 
 All the constraints can be accessed in the `.constraints` sub_block, e.g `sb.constraints.flow_mass`
 
@@ -50,4 +55,4 @@ One constraint is defined, `sb.constraints.flow_mass`, that sets the value of an
 
 This is used to calculate the flow_mol, and then all the other expressions are defined based on those variables and can be calculated.
 
-However, this has problems for initialisation (see 009).
+However, this has problems for initialisation [[idaes.initialisation]].

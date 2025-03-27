@@ -1,3 +1,10 @@
+---
+id: ic5nyf8x64zgtf3k9kw273u
+title: Goals
+desc: ''
+updated: 1743117525011
+created: 1743117525011
+---
 
 # Ahuora Development Goals
 

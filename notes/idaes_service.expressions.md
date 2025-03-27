@@ -1,3 +1,10 @@
+---
+id: e6uv8tsty5snggpwyu1stqe
+title: Expressions
+desc: ''
+updated: 1743117524933
+created: 1743117524933
+---
 # IDAES service expressions
 
 

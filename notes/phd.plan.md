@@ -1,6 +1,13 @@
+---
+id: mqlzh63ghvhngtp1e8az3i1
+title: Plan
+desc: ''
+updated: 1743118007764
+created: 1743117524949
+---
 # PhD plan - next steps
 
-See also: [Phd Cohesiveness](014_phd_cohesiveness.md)
+See also:[[phd.cohesiveness]]
 
 From the [Proposal](https://raw.githubusercontent.com/bertkdowns/honours-dissertation/refs/heads/main/phdproposal/main.pdf), Four research questions are identified. Some next steps for each:
 

@@ -1,3 +1,10 @@
+---
+id: a0jgvj1rsffix8gbht7t967
+title: Debugging_tips
+desc: ''
+updated: 1743117824630
+created: 1743117524982
+---
 
 # First Step: verify degrees of freedom
 
@@ -36,7 +43,7 @@ We're also trying to add extra constraints to allow you to specify more chemical
 
 This could be because you have provided actual infeasible chemical properties. Double check that chemical is at a reasonable state at that temperature/enthalpy/pressure. Double check that there's enough mcp in that heat flow stream that the heat exchanger can reasonably heat/cool the other stream to that temperature, etc
 
-It also could be because of discontinuities in the solution. E.g when you're solving with a fixed temperature and it's trying to calculate the enth_mol, as in [001](001_ph_formulation.md). 
+It also could be because of discontinuities in the solution. E.g when you're solving with a fixed temperature and it's trying to calculate the enth_mol, as in [[idaes.ph_formulation]]. 
 
 It also could be the true value of a variable is outside of the bounds - check for this, the variable will be right on the limit - either it's maximum or minimum value.
 

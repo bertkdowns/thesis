@@ -1,6 +1,13 @@
+---
+id: orhg59c4avva87wswim5jka
+title: Initialisation
+desc: ''
+updated: 1743118600017
+created: 1743117524973
+---
 
 
-![State Block, fully specified with 2 variables fixed and one constraint](res/idaes_custom_sb_constraints.drawio.svg)
+![State Block, fully specified with 2 variables fixed and one constraint](assets/idaes_custom_sb_constraints.drawio.svg)
 
 In this example (see the previous section) a constraint is used to define a state block.
 

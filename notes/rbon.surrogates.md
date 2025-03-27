@@ -1,3 +1,10 @@
+---
+id: gbknw0xzjaihjzzcc3m3mp9
+title: Surrogates
+desc: ''
+updated: 1743117524928
+created: 1743117524928
+---
 # Background
 
 Surrogate modelling is pretty easy to do in steady state systems using PySMO or OMLT. However, dynamic systems also have a time element, which make them a lot more complex to model in terms of parameters. Instead of mapping data-to-data, they map function-to-function. In effect, they are solving an ODE or PDE.

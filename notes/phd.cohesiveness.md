@@ -1,6 +1,13 @@
+---
+id: h2yb4yml3mmhmzobu19bofy
+title: Cohesiveness
+desc: ''
+updated: 1743117894685
+created: 1743117525003
+---
 # PhD Cohesiveness
 
-See also: [007 Phd Plan](./007_phd_plan.md)
+See also: [[phd.plan]]
 
 ## What gap does my research fill?
 
@@ -10,7 +17,7 @@ They arent "mass-produced". The goal is to build a framework, methodology, or pr
 
 ## What is the research question?
 
-Some more specific questions are mentioned in [007 Phd Plan](007_phd_plan.md).
+Some more specific questions are mentioned in [[phd.plan]].
 
 I need to determine by analysis or design the fundamental properties (axioms, core principles, design laws, constraints) of the Ahuora Digital Twin Platform. Then, from those fundamental properties, I need to analyse how they interact, and what emergent properties come as a result of those axioms/design choices? Are these properties benifical or not? 
 

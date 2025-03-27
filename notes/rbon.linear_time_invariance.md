@@ -1,3 +1,10 @@
+---
+id: 9wsgvtj7u3ojf7xg42bcg3p
+title: Linear_time_invariance
+desc: ''
+updated: 1743117524930
+created: 1743117524930
+---
 # LTI Systems
 
 Linear Time Invariant systems are common in signal processing.

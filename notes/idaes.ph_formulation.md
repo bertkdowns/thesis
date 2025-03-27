@@ -1,3 +1,10 @@
+---
+id: y17ul1ymg7c6d00ya29d0ec
+title: Ph_formulation
+desc: ''
+updated: 1743117524902
+created: 1743117524902
+---
 # How this might link to other stuff
 
 could be an example of some of the challenges of building a chemical simulation platform

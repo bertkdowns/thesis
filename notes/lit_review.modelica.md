@@ -1,3 +1,10 @@
+---
+id: 0uxp8k7ie0jzychzzs57abz
+title: Modelica
+desc: ''
+updated: 1743117525020
+created: 1743117525020
+---
 # Thoughts on modelica
 
 Based on initial research, I was unsure whether modelica is a good fit for the project.

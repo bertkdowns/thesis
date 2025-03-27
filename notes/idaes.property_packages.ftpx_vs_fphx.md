@@ -1,3 +1,10 @@
+---
+id: md0drbeqz34i3cx4totmqo9
+title: Ftpx_vs_fphx
+desc: ''
+updated: 1743117960800
+created: 1743117524994
+---
 # Switching to FPhx
 
 FPhx is an alternative state definition that is supported by the modular property packages framework in idaes [(Docs here)](https://idaes-pse.readthedocs.io/en/2.5.0/explanations/components/property_package/general/state_definition.html).
@@ -14,7 +21,7 @@ Enthalpy is a relative measure, unlike temperature which is absolute. This means
 
 # Constraints
 
-Just like in [009_idaes_initialisation](./009_idaes_initialisation.md), we need to extend/inherit the state block to support constraints for other properties. However, unlike the Helmholtz Property package, Temperature is still a variable even though the state definition doesn't include temperature. So the initialisation code must be modified to handle extra variables being fixed, in the same way that extra constraints can be fixed. The file [modular_extended.py](https://github.com/waikato-ahuora-smart-energy-systems/PropertyPackages/blob/332a9909b405583ccd996f8bbb0bcf39fcb1c7fb/property_packages/modular/modular_extended.py) was added to handle this. (Note that the initialise method has a lot of extra print statements to try help with debugging)
+Just like in [[idaes.initialisation]] , we need to extend/inherit the state block to support constraints for other properties. However, unlike the Helmholtz Property package, Temperature is still a variable even though the state definition doesn't include temperature. So the initialisation code must be modified to handle extra variables being fixed, in the same way that extra constraints can be fixed. The file [modular_extended.py](https://github.com/waikato-ahuora-smart-energy-systems/PropertyPackages/blob/332a9909b405583ccd996f8bbb0bcf39fcb1c7fb/property_packages/modular/modular_extended.py) was added to handle this. (Note that the initialise method has a lot of extra print statements to try help with debugging)
 
 # Bounds
 State definition parameters require  bounds to be set. After trial and error, bounds were set to include the minimum and maximum enthalpy that was needed to get the tests to pass. However, this probably messes up the scaling of other problems - some compounds appear to have quite low enthalpies, and some have much higher enthalpies.

@@ -1,4 +1,9 @@
 ---
+id: 81u0q3glh8ld6dq8yo2hyjw
+title: Erlang
+desc: ''
+updated: 1743117524977
+created: 1743117524977
 ---
 # Erlang
 

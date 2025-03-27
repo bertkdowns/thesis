@@ -1,3 +1,10 @@
+---
+id: g5aiigguqnthzu281jloki4
+title: Optimisation
+desc: ''
+updated: 1743117524925
+created: 1743117524925
+---
 # What
 
 Being able to globally optimise a RBON based on input data to find the best parameters for rbf centers and sigmas, as well as weights and the affine transformation

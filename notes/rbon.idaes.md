@@ -1,3 +1,10 @@
+---
+id: dew8oru9mfpiytmnxz0e5rw
+title: Idaes
+desc: ''
+updated: 1743117524913
+created: 1743117524913
+---
 # How this might link to other stuff
 
 Dynamics, Surrogate modelling
