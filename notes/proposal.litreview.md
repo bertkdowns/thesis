@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: ''
-updated: 1743126912094
+updated: 1743146834237
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -16,39 +16,44 @@ Then, some existing and emerging technologies are reviewed that may be helpful i
 
 ## An Overview of Digital Twins
 
-Digital Twins are a broad concept that has been used in many disciplines. This article shall use a general definition: A Digital Twin is a set of digital data that mirrors a physical object or system.
+Digital Twins are a broad concept that has been used in many disciplines. It was introduced by Michael Grieves as a way to utilize the wealth of data avaliable from modern digital systems in a way that helps us replicate, visualise, and analyse the physical system without the constraints of the physical realm [[@grieves2014digital]]. 
 
-The fundamental characteristics of a digital twin system are that:
+The broadest definition of a Digital Twin is *a set of digital data that mirrors a physical object or system.* However, different authors have interpreted this differently, and the usage of the word has changed over time. It is becoming more associated with the concept of bi-directional communication between a physical and virtual model. <!--- citation needed -->
 
-- A digital twin represents one physical system - i.e., the specific physical object must be identifiable [[@minerva_digital_2020]].
-- It stores some "state" that defines key attributes of the physical system.
-- It is updated to reflect changes in the physical system.
+The bi-directional communication of a Digital Twin can be better viewed from the perspective of control systems.  The fundamental characteristics of such a Digital Twin include:
 
-There are a number of characteristics that are strongly associated with digital twin technology. In different contexts, these properties may be assumed to be part of a Digital Twin, and in consequence, different articles may be describing quite different pieces of technology under the same label of "Digital Twin."
+![Feedback loop between Digital Twin and Physical System, when viewed from a Control Theory Perspective](assets/dt_feedback_loop.drawio.svg)
 
-These include:
 
-- **Real-time state updates**: Digital Twins are often updated in real-time, or near real-time, to reflect changes in the physical system.
-- **Modelling capabilities**: Rather than just storing the state of the system, many Digital Twins also store the constraints and equations that govern the system. This could be implemented with mathematical models or machine learning methods.
-- **Real-time model updates**: A specific case of real-time state updates, where the constraints and equations that govern the system are updated in real-time. This borders on the field of self-adaptive systems.
-- **Simulation capabilities**: The ability to use a model to predict what would happen to the state of the system under different conditions.
-- **Bi-directional communication**: Some Digital Twin systems also include control systems, and thus are able to influence the state of the physical system.
-- **Context**: The Digital Twin may also store context of the environment the physical system is in.
-- **Agentic ability**: The Digital Twin may be designed to work in a multi-agent system, interacting with other digital twins or acting on behalf of the physical system.
+- **Physical System & Context Awareness**: A digital twin represents one physical system - i.e., the specific physical object must be identifiable [[@minerva_digital_2020]]. It also may represent the environment of the physical system.
+- **Real-time Updates through Data Collection and Online Learning**: Digital Twins are updated as often as necessary to reflect changes in the physical system. It also stores and updates some "state" that defines key attributes of the physical system. 
+- **Digital Modelling and Simulation**: Digital Twins incorporate models—mathematical, machine learning, or hybrid—that represent the system's behavior and can simulate future states under different conditions.
+- **Control and Actuation**: Digital Twins can communicate with the physical system through control mechanisms.
 
-### Examples
+Together, these form a type of control or feedback loop.
 
-- A Digital Twin of an IoT weather station may receive real-time updates from the weather station. It can then respond to queries for information in the same manner the weather station would, reducing load on the servers and data link of the IoT device. This would be a simple digital twin system, with real-time state updates, a model of the weather station's response to queries, and rudimentary agentic ability.
+![Evolution of Control Systems](assets/dt_history_control.drawio.svg)
 
-- A Chemical Engineer may create a mathematical first-principles model of a factory, designed to represent the factory's current state of operations, including degradation of equipment and current feedstock. This could also be considered a rudimentary digital twin, which does not have real-time updates but accurately models the system and can be used to simulate changes to the system.
+<!--- 
+Write a cited paragraph about how these control systems link together. 
+You're gonna have to research what they are first.
 
-- Google Maps can be considered a digital twin of the traffic system. It contains a model of the road network and uses traffic data as context in real-time to model and predict journey times. It can use this to suggest the best route to take, a form of agentic ability.
+-->
 
-- A Digital Twin of a mechanical robot may be able to model and simulate the robot's response to different control inputs, and then pass the best control inputs to the robot to execute. This would be a digital twin with real-time state updates, simulation capabilities, and bi-directional communication.
+
+### Examples of Digital Twin Technology
+
+- **Chemical Factory Model**: A mathematical model of a factory represents its operations, including equipment degradation, and simulates changes to optimally control processes.
+- **Traffic System (Google Maps)**: Models road networks and uses real-time traffic data to predict journey times and suggest optimal routes, effectively controlling traffic flow.
+- **Mechanical Robot**: Simulates the robot's response to control inputs, selects the best inputs, and sends them to the robot for execution, combining real-time updates, simulation, and control.
+
 
 ## Adjacent Technologies
 
-These technologies may not strictly define a digital twin, but they run parallel to some of the goals of digital twins and are often used together.
+There are a number of ongoing areas of research that are relevant to Digital Twins. 
+
+<!--- Summarize them after you've written about them and found a flow -->
+
 
 ### Data Collection & History
 
@@ -64,7 +69,11 @@ Sensor fusion combines data from multiple sensors to produce a more accurate rep
 
 ### Control
 
-A digital twin can be used to control the physical system by simulating the effects of different control inputs and then choosing the best input to apply. This is often the domain of Model Predictive Control.
+A digital twin can be viewed as a form of Model Predictive Control, as it is used to control the physical system by simulating the effects of different controlling actions and choosing the best action to apply.
+
+<!---
+look at https://www.do-mpc.com/en/latest/theory_mhe.html and also find some papers.
+-->
 
 ### 3D Modelling and Simulation
 
@@ -78,15 +87,37 @@ In Machine Learning, Online Learning refers to updating a model in real-time as 
 
 Digital Twins may be designed to work in multi-agent systems, interacting with other digital twins or acting on behalf of the physical system.
 
+### Virtualisation
+
+Virtualisation is similar in concept to a Digital Twin. It is the ability to create a piece of digital software that can replicate how a physical system would behave. It is comonly used in computers and networking, as well as in IoT: A virtual computer can run the same code as a physical computer, and a virtual sensor can respond in the same way that a physical sensor can [[@khan_virtualisation_wireless]]. 
+
+Virtualised systems may not have a single, identifiable real-world counterpart in the same way as Digital Twins. However, the ability to accurately simulate a physical system is essential to Digital Twins, so many concepts and tools can be applied from this field. It can be considered analogous to modelling.
+
+
+### Digital Twins for Visualisation
+
+
+### Digital Twins for Maintenance and Optimisation
+
+
+
+
 ## Usage in Chemical and Process Engineering
 
-Digital Twins are used in chemical and process engineering for various purposes, such as optimizing operations, predicting system behavior, and improving safety. Success metrics may include accuracy, efficiency, and adaptability.
+
+
+## Gaps
+
+<!--- Put this where it should be, not sure yet-->
+
+
+A survey by Kritzinger et al. [[@KRITZINGER20181016]] found that many articles that discussed Digital Twins in manufacturing only discussed Digital Models, which do not communicate with a real plant, and Digital Shadows, which recieve data from a real system but do not communicate back. Literature that truly analysed Digital Twin systems is much more scarce, and most literature found were on the topic was reviews and conceptual models. This shows that the field is still relatively new, and designing a Digital Twin is still a complex challenge.
 
 ## Digital Twin Development Methodologies
 
 ### Case Studies
 
-- **Case Study 1**: ...
+- **Case Study 1**: [[@bottani2017cyber]]
 - **Case Study 2**: ...
 - **Case Study 3**: ...
 
@@ -96,6 +127,12 @@ Digital Twins are used in chemical and process engineering for various purposes,
 - Challenges in building a digital twin system, such as compatibility, complexity, security, and privacy.
 
 ## Digital Twin Development Tools in Chemical Engineering
+
+### Standardisation Efforts
+
+[[@duan2020development]]
+
+[[@kugler2021method]]
 
 ### Equation-Oriented Modelling Tools
 
