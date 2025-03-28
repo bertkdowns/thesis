@@ -1,4 +1,10 @@
-\chapter{Introduction}
+---
+id: a4hbyhqg1kreohraq049sd7
+title: Introduction
+desc: ''
+updated: 1743126144673
+created: 1743126139930
+---
 
 The major innovations of the industrial revolution were not new products. Textiles, clothing, paper, iron and agricultural products all existed prior. The innovation lay in the method of creating textiles, clothes, and other goods through factories, assembly lines, and mass production.
 
