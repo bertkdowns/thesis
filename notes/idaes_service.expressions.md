@@ -2,7 +2,7 @@
 id: e6uv8tsty5snggpwyu1stqe
 title: Expressions
 desc: ''
-updated: 1743117524933
+updated: 1743146976556
 created: 1743117524933
 ---
 # IDAES service expressions
@@ -20,6 +20,7 @@ How does modelling property packages and everything else affect the simplicity a
 
 Update the IDAES Service tests to reflect the new architecture:
 
+```
 {
     "pp1":{
         "Type": "property package"
@@ -61,7 +62,7 @@ properties[0,{
         "units":"pa" 
     }
 }]
-
+```
 
 
 Because this treats property packages the same as other unit operations, some codebase restructuring will be needed.
