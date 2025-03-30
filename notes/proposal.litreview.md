@@ -1,8 +1,8 @@
 ---
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
-desc: ''
-updated: 1743146834237
+desc: 
+updated: 1743378503507
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -18,22 +18,34 @@ Then, some existing and emerging technologies are reviewed that may be helpful i
 
 Digital Twins are a broad concept that has been used in many disciplines. It was introduced by Michael Grieves as a way to utilize the wealth of data avaliable from modern digital systems in a way that helps us replicate, visualise, and analyse the physical system without the constraints of the physical realm [[@grieves2014digital]]. 
 
-The broadest definition of a Digital Twin is *a set of digital data that mirrors a physical object or system.* However, different authors have interpreted this differently, and the usage of the word has changed over time. It is becoming more associated with the concept of bi-directional communication between a physical and virtual model. <!--- citation needed -->
+The term "Digital Twin" is used in a variety of industries. In construction and smart cities, DTs of buildings are used for planning, construction and operation, and to keep track of changes over time - a natural extension to traditional floor plans. In Healthcare, "Digital Twins" are used for personalised medicine prescription. In Manufacturing, Energy Generation, and Aerospace, DTs are used for performance modelling and fault analysis. In Robotics and Automotive industries, DTs are used for real-time decision making, simulation, and training [[@applications_singh_2022]]. 
 
-The bi-directional communication of a Digital Twin can be better viewed from the perspective of control systems.  The fundamental characteristics of such a Digital Twin include:
+# Digital Twins from a Control Perspective
+
+The broadest definition of a Digital Twin is *a set of digital data that mirrors a physical object or system.* Different authors have interpreted this differently, and the usage of the word differs across industries. Michael Grieves categorized Digital Twin Development in phases, where the simplest forms of Digital Twins only modeled the form of a product, and more advanced DT systems modelled behaviour, could integrate with other systems, and could use the data to make predictions and act autonomously [[@grieves2023digital]]. In other literature, it is strongly associated with the concept of bi-directional communication between a physical and virtual model [[@agrawaldtconcepttopractice]]. 
+<!--- citation needed -->
+
+
+In the field of Chemical and Process Engineering, Digital Twins are most commonly associated with high fidelity modelling, bi-directional communication, and the resulting adaptivity [[@energy_yu_2022]]. This article will focus on these types of DT systems, rather than DTs used for design or offline analysis.
+
+
+The bi-directional communication of an autonomous Digital Twin can be better viewed from the perspective of control systems. The fundamental characteristics of such a Digital Twin include:
 
 ![Feedback loop between Digital Twin and Physical System, when viewed from a Control Theory Perspective](assets/dt_feedback_loop.drawio.svg)
 
 
-- **Physical System & Context Awareness**: A digital twin represents one physical system - i.e., the specific physical object must be identifiable [[@minerva_digital_2020]]. It also may represent the environment of the physical system.
+- **Physical System & Context Awareness**: This type of Digital Twin represents one physical system - i.e., the specific physical object must be identifiable [[@minerva_digital_2020]]. It also may represent the environment of the physical system. 
 - **Real-time Updates through Data Collection and Online Learning**: Digital Twins are updated as often as necessary to reflect changes in the physical system. It also stores and updates some "state" that defines key attributes of the physical system. 
 - **Digital Modelling and Simulation**: Digital Twins incorporate models—mathematical, machine learning, or hybrid—that represent the system's behavior and can simulate future states under different conditions.
 - **Control and Actuation**: Digital Twins can communicate with the physical system through control mechanisms.
 
-Together, these form a type of control or feedback loop.
+Together, these form a control or feedback loop, where the Digital Twin is used to predict the future state of the system, and controlling actions are tested on the Digital Twin before being implemented on the physical asset.
+
 
 ![Evolution of Control Systems](assets/dt_history_control.drawio.svg)
 
+
+In this way, a digital twin can be viewed as a natural progression of existing control systems.
 <!--- 
 Write a cited paragraph about how these control systems link together. 
 You're gonna have to research what they are first.
@@ -136,12 +148,12 @@ A survey by Kritzinger et al. [[@KRITZINGER20181016]] found that many articles t
 
 ### Equation-Oriented Modelling Tools
 
-| Tool                  | Features                                                                 |
-|-----------------------|-------------------------------------------------------------------------|
-| Modelica              | Extensive libraries, integration with platforms like Modelon.          |
-| Julia ModelingToolkit | Modern, good integration with solvers.                                 |
-| Python Pyomo          | Flexible, supports various modeling and optimization tasks.            |
-
+| Tool                  | Features                                                      |
+| --------------------- | ------------------------------------------------------------- |
+| Modelica              | Extensive libraries, integration with platforms like Modelon. |
+| Julia ModelingToolkit | Modern, good integration with solvers.                        |
+| Python Pyomo          | Flexible, supports various modeling and optimization tasks.   |
+[[@applications_singh_2022]]
 ### Digital Twin Platforms
 
 | Platform      | Features                                                                 |

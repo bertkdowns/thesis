@@ -1,6 +1,6 @@
 ---
 id: g5aiigguqnthzu281jloki4
-title: Optimisation
+title: Multivariable_optimisation
 desc: ''
 updated: 1743117524925
 created: 1743117524925

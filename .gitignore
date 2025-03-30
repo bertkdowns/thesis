@@ -6,6 +6,8 @@ seeds
 .next
 pods/service-connections
 
+.obsidian
+
 _site
 .jekyll-cache
 
