@@ -1,4 +1,82 @@
+@article{dexpi_summary,
+  url={https://www.theseus.fi/bitstream/handle/10024/809906/Paavilainen_Joel.pdf?sequence=2&isAllowed=y},
 
+}
+/*
+"The DEXPI was launched to address the challenges of data exchange and
+integration in the process industry. It promotes the use of a standardized
+information model and data exchange format based on industry-specific
+standards such as ISO 15926 and ISO 18629. The goal is to enable efficient
+data exchange between different engineering disciplines and software tools
+involved in the lifecycle of a process plant, including process design, simulation,
+operation, and maintenance.
+
+One of the key advantages of DEXPI is its ability to enable seamless data
+exchange between various software applications used in different stages of a
+process plant's lifecycle"
+
+*/
+
+@ARTICLE{azango_dt_pid_generation,
+  author={Azangoo, Mohammad and Sorsamäki, Lotta and Sierla, Seppo A. and Mätäsniemi, Teemu and Rantala, Miia and Rainio, Kari and Vyatkin, Valeriy},
+  journal={IEEE Access}, 
+  title={A Methodology for Generating a Digital Twin for Process Industry: A Case Study of a Fiber Processing Pilot Plant}, 
+  year={2022},
+  volume={10},
+  number={},
+  pages={58787-58810},
+  keywords={Digital twins;Data models;Steady-state;Industries;Software;Fourth Industrial Revolution;Adaptation models;Digital twin;process industry;modeling;steady state simulation;image recognition;text recognition;directed graph;piping and instrumentation diagram;flowsheet population},
+  doi={10.1109/ACCESS.2022.3178424},
+  url={https://ieeexplore.ieee.org/document/9783203}
+  }
+/*
+This article talks about how to get a PID
+Diagram and convert it into a simulation using the
+BALAS simualtion software and a couple custom tools.
+
+This is really interesting, and we need to think about it a lot more.
+We could implement some of these techniques.
+
+There is some manual stuff to do, but their usage of steady-state is similar to ours.
+
+See Figure 2 in the publication : 
+
+Some Links:
+
+DEXPI is a digital standard for PID diagrams, the first step is making the PID PDF converted to dexpi.
+DEXPI github: https://gitlab.com/dexpi
+DEXPI Specification: https://dexpi.org/specifications/
+
+Then a graph model is created using some software called Graph_Generator, which I presume is custom.
+Simplification of the P&ID is also done using some custom software called Component_selector
+
+I assume hardcoded software specific mapping rules are used, then Flowsheet_Populator is used to convert it into a digital model in Balas.
+
+VTT BALAS overview: (may not be helpful) https://www.vttresearch.com/en/explore/vtt-balas-conceptual-process-design-optimise-resource-efficiency
+Simantics platforms: May also be a parent organisation of BALAS https://www.simantics.org/demonstration/
+Their stuff also includes a system dynamics tool and APROS 6 another simulation environment. 
+Their github includes the core platform https://gitlab.simantics.org/simantics and instructions to compile it, libraries to work with Functional Mockup Units, District Network Modelling, etc. These guys seem to have a platform similar to ours, written in Java, with PGraph integration, district network modelling, and 3d modelling, automation, and dynamics. Gonna try build it locally when I can.
+A paper on their platform is found at https://sarjaweb.vtt.fi/julkaisut/muut/2012/S1793962312500043.pdf 
+
+VTT has a whitepaper on modelling and simulation,
+https://www.vttresearch.com/sites/default/files/2023-11/WHITEPAPER_CARO_Process_modelling_and_simulation_guide_2021.pdf
+
+
+This work is part of an old research group called SEED, which does a bunch of stuff, and we can see some of their old work summarised in Posters here:
+https://web.archive.org/web/20220202103631/https://seedecosystem.fi/app/uploads/2022/02/seed-research-posters.pdf
+and their paper topics here: https://seedforest.fi/2022/02/01/from-research-excellence-to-impact-building-solid-value-of-digitalisation-in-forest-industry-within-seed-ecosystem/ 
+
+
+Initialisation and connection to a physical plant is not covered.
+*/
+
+@article{vttbalas,
+  url={https://www.vttresearch.com/en/explore/vtt-balas-conceptual-process-design-optimise-resource-efficiency},
+  title={VTT BALAS: Conceptual process design to optimise resource efficiency},
+  author={VTT},
+  year={2025},
+
+}
 
 @article{energy_yu_2022,
 	title = {Energy digital twin technology for industrial energy management: Classification, challenges and future},
@@ -8,7 +86,10 @@
 	year = {2022},
 	litmapsId = {228745260}
 }
-
+/*
+Ahuora article. Helps to understand the different types of digital twins
+scale, fidelity, etc.
+**/
 @article{WALMSLEY2024100139,
 title = {Adaptive digital twins for energy-intensive industries and their local communities},
 journal = {Digital Chemical Engineering},
@@ -22,6 +103,10 @@ author = {Timothy Gordon Walmsley and Panos Patros and Wei Yu and Brent R. Young
 keywords = {Digital twin, Process simulation, Machine learning, Self-adative systems, Process control, Process integration},
 abstract = {Digital Twins (DTs) are high-fidelity virtual models that behave-like, look-like and connect-to a physical system. In this work, the physical systems are operations and processes from energy-intensive industrial plants and their local communities. The creation of DTs demands expertise not just in engineering, but also in computer science, data science, and artificial intelligence. Here, we introduce the Adaptive Digital Twins (ADT) concept, anchored in five attributes inspired by the self-adaptive systems field from software engineering. These attributes are self-learning, self-optimizing, self-evolving, self-monitoring, and self-protection. This new approach merges cutting-edge computing with pragmatic engineering needs. ADTs can enhance decision-making in both the design phase and real-time operation of industrial facilities and allow for versatile 'what-if' scenario simulations. Seven applications within the energy-intensive industries are described where ADTs could be transformative.}
 }
+/*
+Ahuora article. Helps to understand the different types of digital twins
+scale, fidelity, etc.
+**/
 
 @article{minerva_digital_2020,
 	title = {Digital {Twin} in the {IoT} {Context}: {A} {Survey} on {Technical} {Features}, {Scenarios}, and {Architectural} {Models}},
@@ -69,6 +154,10 @@ author = {Werner Kritzinger and Matthias Karner and Georg Traar and Jan Henjes a
 keywords = {Digital Model, Digital Shadow, Digital Twin, Production, Manufacturing, Literature Review},
 abstract = {The Digital Twin (DT) is commonly known as a key enabler for the digital transformation, however, in literature is no common understanding concerning this term. It is used slightly different over the disparate disciplines. The aim of this paper is to provide a categorical literature review of the DT in manufacturing and to classify existing publication according to their level of integration of the DT. Therefore, it is distinct between Digital Model (DM), Digital Shadow (DS) and Digital Twin. The results are showing, that literature concerning the highest development stage, the DT, is scarce, whilst there is more literature about DM and DS.}
 }
+/*
+Has a very specific definition of a digital twin, and some good summary charts
+on how it's used.
+*/
 
 @incollection{grieves2023digital,
   title={Digital twins: past, present, and future},
@@ -78,7 +167,15 @@ abstract = {The Digital Twin (DT) is commonly known as a key enabler for the dig
   year={2023},
   publisher={Springer}
 }
+/*
+Easier read, opinionated article on how digital twins should be used.
+Takes a broader definition, including digital twins that don't necessarially 
+link to one physical object. Emphasises design etc as well.
 
+ARCWeb does a good article about this, emphasizing hte difference between project digital twins and performance digital twins.
+
+https://www.arcweb.com/blog/creating-deploying-digital-twins-process-industries
+*/
 
 @article{applications_singh_2022,
 	title = {Applications of Digital Twin across Industries: A Review},
@@ -88,6 +185,9 @@ abstract = {The Digital Twin (DT) is commonly known as a key enabler for the dig
 	year = {2022},
 	litmapsId = {202745486}
 }
+/*
+Good for overall, where's they're used, what tasks they do.
+*/
 
 @article{JIANG2022103645,
 title = {Digital twin enabled sustainable urban road planning},
@@ -102,7 +202,9 @@ author = {Feng Jiang and Ling Ma and Tim Broyd and Weiya Chen and Hanbin Luo},
 keywords = {Sustainable urban road planning, Digital twin, MCDM, Alignment selection, Building demolition, Land use, Traffic congestion, Driving route selection habits, Air quality, Noise},
 abstract = {Sustainable urban road planning should endeavor to meet current and future traffic-related demands and achieve financial, environmental, and social benefits, which is a complex and interdisciplinary issue that needs to consider various factors and data. Multi-criteria decision making (MCDM) can provide reasonable solutions, and some existing studies integrated MCDM with geographic information system (GIS) technology. This paper presents an urban road planning approach based on digital twin (DT), MCDM, and GIS called DT-MCDM-GIS framework. DT can digitalize the physical world to provide various data for the whole process; MCDM can provide criteria and evaluation methods; GIS can provide an integrated environment for analysis. Building demolition and land use, traffic congestion, driving route selection habits, air quality, and noise are all considered in the framework for urban road planning. The proposed approach can provide a functional, economic, people-friendly, eco-friendly urban road planning scheme considering new road construction and existing old road widening to alleviate traffic congestion and provide an alternative route for drivers that conforms to their habits.}
 }
-
+/*
+May not quite be as relevant because it's on roads
+*/
 
 
 @article{agrawaldtconcepttopractice,
@@ -120,6 +222,9 @@ eprint = {https://ascelibrary.org/doi/pdf/10.1061/%28ASCE%29ME.1943-5479.0001034
 ,
     abstract = { Recent technological developments and advances in artificial intelligence (AI) have enabled sophisticated capabilities to be a part of digital twins (DTs), virtually making it possible to introduce automation into all aspects of work processes. Given these possibilities that DT can offer, practitioners are facing increasingly difficult decisions regarding what capabilities to select when deploying a DT in practice. The lack of research in this field has not helped. It has resulted in the rebranding and reuse of emerging technological capabilities such as prediction, simulation, AI, and machine learning (ML) as necessary constituents of DT. Inappropriate selection of capabilities in a DT can result in missed opportunities, strategic misalignments, inflated expectations, and the risk of it being rejected as hype by the practitioners. To alleviate this challenge, this paper proposes a digitalization framework, designed and developed by following a design science research (DSR) methodology over a period of 18\&nbsp;months. The framework can help practitioners select an appropriate level of sophistication in a DT by weighing the pros and cons for each level, determining evaluation criteria for the digital twin system, and assessing the implications of the selected DT on the organizational processes and strategies and value creation. Three real-life case studies illustrated the application and usefulness of the framework. }
 }
+/*
+Talks about chooosing the right scale, not so much how to implement.
+*/
 
 @article{duan2020development,
   title={The development of standardized models of digital twin},
@@ -163,3 +268,8 @@ eprint = {https://ascelibrary.org/doi/pdf/10.1061/%28ASCE%29ME.1943-5479.0001034
   pages={553-576},
   keywords={Wireless sensor networks;Virtualization;Sensors;Context modeing;Urban areas;Message systems;Fires;Wireless Sensor Network (WSN),;Internet-of-Things (IoT);Virtualization, Node-level Virtualization;Network-level Virtualization;Wireless Sensor Network (WSN);Internet-of-Things (IoT);virtualization;node-level virtualization;network-level virtualization},
   doi={10.1109/COMST.2015.2412971}}
+  /*
+  Probably not that relevant, but talks about getting a virtual system
+  to respond in the same way as a physical one. 
+  Virtual PLCs etc could be a good way to integrate with existing systems?
+  */

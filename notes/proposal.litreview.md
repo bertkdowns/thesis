@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743388779143
+updated: 1743464265630
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -22,13 +22,14 @@ The term "Digital Twin" is used in a variety of industries. In construction and 
 
 
 
-The broadest definition of a Digital Twin is *a set of digital data that mirrors a physical object or system.* Different authors have interpreted this differently, and the usage of the word differs across industries. Michael Grieves categorized Digital Twin Development in phases, where the simplest forms of Digital Twins only modeled the form of a product, and more advanced DT systems modelled behaviour, could integrate with other systems, and could use the data to make predictions and act autonomously [[@grieves2023digital]]. In other literature, it is strongly associated with the concept of bi-directional communication between a physical and virtual model [[@agrawaldtconcepttopractice]]. 
+The broadest definition of a Digital Twin is *a set of digital data that mirrors a physical object or system.* Different authors have interpreted this differently, and the usage of the word differs across industries. Michael Grieves categorized Digital Twin Development in phases, where the simplest forms of Digital Twins only modeled the form of a product, and more advanced DT systems modelled behaviour, could integrate with other systems, and could use the data to make predictions and act autonomously [[@grieves2023digital]]. In other literature, it is strongly associated with the concept of bi-directional communication between a physical and virtual model [[@agrawaldtconcepttopractice]][[@KRITZINGER20181016]]. 
 
 ![Digital Twin System Classifications (See also [[@WALMSLEY2024100139]], [[@energy_yu_2022]] and [[@applications_singh_2022]] )](assets/dt_focus.drawio.svg)
 
 
 
-In the field of Chemical and Process Engineering, Digital Twins are most commonly associated with high fidelity behavioural modelling, and bi-directional communication, [[@energy_yu_2022]]. This article will focus on these types of DT systems, rather than DTs used for design or offline analysis.
+In the field of Chemical and Process Engineering, Digital Twins are most commonly associated with high fidelity behavioural modelling, and bi-directional communication, [[@energy_yu_2022]]. A whitepaper from ArcWeb differentiates between "Project Digital Twins" used for offline analysis in design and construction, and "Performance Digital Twins" used for operations and maintenance. 
+A DT system could be made or adapted for either, but bi-directional communication is a characteristic of Performance Digital Twins by nature of requiring a physical system running at the same time. This article will focus on this kind of Digital Twin system, though the attributes of Performance Digital Twins and Project Digital Twins strongly intersect. 
 
 
 ## Digital Twins from a Control Perspective
@@ -65,6 +66,16 @@ To gain an understanding of how Digital Twins are currently being built in Liter
 This survey specifically focuses on the Tools, frameworks, Software, and Standards used in the case studies to build the Digital Twin. This aims to answer the questions "How does software and technology assist the creation of Digital Twins?" and "What challenges do current techniques face that increase the cost of building a Digital Twin of a chemical process?"
 
 
+### Fiber Processing Plant
+
+Azangoo et Al. [[@azango_dt_pid_generation]] demonstrated a methodology to generate a Digital Twin from Process & Instrumentation Diagrams (P&ID) using text recognition and image processing technologies, and a user interface to allow an engineer to link up anything that wasn't automatically recognised. 
+
+The raw file was converted to the DEXPI file format [[@dexpi_summary]] ^[Examples of DEXPI files and the specification can be found at [https://gitlab.com/dexpi](https://gitlab.com/dexpi)], and this was converted into an intermediate Graph Model designed to make importing and mapping operations easier. 
+This model was then imported into the BALAS simulation software [[@vttbalas]], which was used for steady-state simulation. In theory, an integration could be easily written for other simulation software as well. 
+
+This is a good technique for building a Digital Twin where no digital models are already present, particularly for systems designed before the rise of Industry 4.0 techniques. It dramatically reduces the amount of manual work required to recreate the plant. Even for newer systems, using data from a DEXPI file as a starting point could reduce the cost of building a Digital Twin. However, this study focuses on building the model; interconnection with the plant's data control system (DCS) was not included.
+
+###
 
 
 ## Adjacent Technologies
@@ -136,7 +147,7 @@ Virtualised systems may not have a single, identifiable real-world counterpart i
 
 ### Case Studies
 
-- **Case Study 1**: [[@bottani2017cyber]]
+- **Case Study 1**: 
 - **Case Study 2**: ...
 - **Case Study 3**: ...
 
