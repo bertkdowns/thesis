@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743378503507
+updated: 1743388779143
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -20,14 +20,18 @@ Digital Twins are a broad concept that has been used in many disciplines. It was
 
 The term "Digital Twin" is used in a variety of industries. In construction and smart cities, DTs of buildings are used for planning, construction and operation, and to keep track of changes over time - a natural extension to traditional floor plans. In Healthcare, "Digital Twins" are used for personalised medicine prescription. In Manufacturing, Energy Generation, and Aerospace, DTs are used for performance modelling and fault analysis. In Robotics and Automotive industries, DTs are used for real-time decision making, simulation, and training [[@applications_singh_2022]]. 
 
-# Digital Twins from a Control Perspective
+
 
 The broadest definition of a Digital Twin is *a set of digital data that mirrors a physical object or system.* Different authors have interpreted this differently, and the usage of the word differs across industries. Michael Grieves categorized Digital Twin Development in phases, where the simplest forms of Digital Twins only modeled the form of a product, and more advanced DT systems modelled behaviour, could integrate with other systems, and could use the data to make predictions and act autonomously [[@grieves2023digital]]. In other literature, it is strongly associated with the concept of bi-directional communication between a physical and virtual model [[@agrawaldtconcepttopractice]]. 
-<!--- citation needed -->
+
+![Digital Twin System Classifications (See also [[@WALMSLEY2024100139]], [[@energy_yu_2022]] and [[@applications_singh_2022]] )](assets/dt_focus.drawio.svg)
 
 
-In the field of Chemical and Process Engineering, Digital Twins are most commonly associated with high fidelity modelling, bi-directional communication, and the resulting adaptivity [[@energy_yu_2022]]. This article will focus on these types of DT systems, rather than DTs used for design or offline analysis.
 
+In the field of Chemical and Process Engineering, Digital Twins are most commonly associated with high fidelity behavioural modelling, and bi-directional communication, [[@energy_yu_2022]]. This article will focus on these types of DT systems, rather than DTs used for design or offline analysis.
+
+
+## Digital Twins from a Control Perspective
 
 The bi-directional communication of an autonomous Digital Twin can be better viewed from the perspective of control systems. The fundamental characteristics of such a Digital Twin include:
 
@@ -52,17 +56,20 @@ You're gonna have to research what they are first.
 
 -->
 
+## A Survey of Digital Twin Development Methodologies
 
-### Examples of Digital Twin Technology
+A survey by Kritzinger et al. [[@KRITZINGER20181016]] found that many articles that discussed Digital Twins in manufacturing only discussed Digital Models, which do not communicate with a real plant, and Digital Shadows, which recieve data from a real system but do not communicate back. Literature that truly analysed Digital Twin systems is much more scarce, and most literature found were on the topic was reviews and conceptual models. The field is still relatively new, and designing a Digital Twin is still a complex challenge.
 
-- **Chemical Factory Model**: A mathematical model of a factory represents its operations, including equipment degradation, and simulates changes to optimally control processes.
-- **Traffic System (Google Maps)**: Models road networks and uses real-time traffic data to predict journey times and suggest optimal routes, effectively controlling traffic flow.
-- **Mechanical Robot**: Simulates the robot's response to control inputs, selects the best inputs, and sends them to the robot for execution, combining real-time updates, simulation, and control.
+To gain an understanding of how Digital Twins are currently being built in Literature, this section surveys a number of recent articles published with the keywords "Digital Twin Case Study". The articles were chosen to focus on Manufacturing and Process Engineering fields, on Digital Twins used during operation for real-time monitoring, optimisation, and control. Particular attention is given to those with bi-directional communication between the Digital Twin and Physical asset.
+
+This survey specifically focuses on the Tools, frameworks, Software, and Standards used in the case studies to build the Digital Twin. This aims to answer the questions "How does software and technology assist the creation of Digital Twins?" and "What challenges do current techniques face that increase the cost of building a Digital Twin of a chemical process?"
+
+
 
 
 ## Adjacent Technologies
 
-There are a number of ongoing areas of research that are relevant to Digital Twins. 
+There are a number of ongoing areas of research mentioned or adjacent to the tools used  in the previous case studies. This section summarises the state-of-the-art in each of the more frequently mentioned tools, and discusses how they are applied in building a Digital Twin, or how their application could assist in building Digital Twins of Chemical Processes.
 
 <!--- Summarize them after you've written about them and found a flow -->
 
@@ -123,7 +130,7 @@ Virtualised systems may not have a single, identifiable real-world counterpart i
 <!--- Put this where it should be, not sure yet-->
 
 
-A survey by Kritzinger et al. [[@KRITZINGER20181016]] found that many articles that discussed Digital Twins in manufacturing only discussed Digital Models, which do not communicate with a real plant, and Digital Shadows, which recieve data from a real system but do not communicate back. Literature that truly analysed Digital Twin systems is much more scarce, and most literature found were on the topic was reviews and conceptual models. This shows that the field is still relatively new, and designing a Digital Twin is still a complex challenge.
+
 
 ## Digital Twin Development Methodologies
 
