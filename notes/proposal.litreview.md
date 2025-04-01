@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743548194638
+updated: 1743550868878
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -16,19 +16,19 @@ Then, some existing and emerging technologies are reviewed that may be helpful i
 
 ## An Overview of Digital Twins
 
-Digital Twins are a broad concept that has been used in many disciplines. It was introduced by Michael Grieves as a way to utilize the wealth of data avaliable from modern digital systems in a way that helps us replicate, visualise, and analyse the physical system without the constraints of the physical realm [[@grieves2014digital]]. 
+Digital Twins are a broad concept that has been used in many disciplines. It was introduced by Michael Grieves as a way to utilize the wealth of data avaliable from modern digital systems in a way that helps us replicate, visualise, and analyse the physical system without the constraints of the physical realm [@grieves2014digital]. 
 
-The term "Digital Twin" is used in a variety of industries. In construction and smart cities, DTs of buildings are used for planning, construction and operation, and to keep track of changes over time - a natural extension to traditional floor plans. In Healthcare, "Digital Twins" are used for personalised medicine prescription. In Manufacturing, Energy Generation, and Aerospace, DTs are used for performance modelling and fault analysis. In Robotics and Automotive industries, DTs are used for real-time decision making, simulation, and training [[@applications_singh_2022]]. 
-
-
-
-The broadest definition of a Digital Twin is *a set of digital data that mirrors a physical object or system.* Different authors have interpreted this differently, and the usage of the word differs across industries. Michael Grieves categorized Digital Twin Development in phases, where the simplest forms of Digital Twins only modeled the form of a product, and more advanced DT systems modelled behaviour, could integrate with other systems, and could use the data to make predictions and act autonomously [[@grieves2023digital]]. In other literature, it is strongly associated with the concept of bi-directional communication between a physical and virtual model [[@agrawaldtconcepttopractice]][[@KRITZINGER20181016]]. 
-
-![Digital Twin System Classifications (See also [[@WALMSLEY2024100139]], [[@energy_yu_2022]] and [[@applications_singh_2022]] )](assets/dt_focus.drawio.svg)
+The term "Digital Twin" is used in a variety of industries. In construction and smart cities, DTs of buildings are used for planning, construction and operation, and to keep track of changes over time - a natural extension to traditional floor plans. In Healthcare, "Digital Twins" are used for personalised medicine prescription. In Manufacturing, Energy Generation, and Aerospace, DTs are used for performance modelling and fault analysis. In Robotics and Automotive industries, DTs are used for real-time decision making, simulation, and training [@applications_singh_2022]. 
 
 
 
-In the field of Chemical and Process Engineering, Digital Twins are most commonly associated with high fidelity behavioural modelling, and bi-directional communication, [[@energy_yu_2022]]. A whitepaper from ArcWeb differentiates between "Project Digital Twins" used for offline analysis in design and construction, and "Performance Digital Twins" used for operations and maintenance. 
+The broadest definition of a Digital Twin is *a set of digital data that mirrors a physical object or system.* Different authors have interpreted this differently, and the usage of the word differs across industries. Michael Grieves categorized Digital Twin Development in phases, where the simplest forms of Digital Twins only modeled the form of a product, and more advanced DT systems modelled behaviour, could integrate with other systems, and could use the data to make predictions and act autonomously [@grieves2023digital]. In other literature, it is strongly associated with the concept of bi-directional communication between a physical and virtual model [@agrawaldtconcepttopractice][@KRITZINGER20181016]. 
+
+![Digital Twin System Classifications (See also [@WALMSLEY2024100139], [@energy_yu_2022] and [@applications_singh_2022] )](assets/dt_focus.drawio.svg)
+
+
+
+In the field of Chemical and Process Engineering, Digital Twins are most commonly associated with high fidelity behavioural modelling, and bi-directional communication, [@energy_yu_2022]. A whitepaper from ArcWeb differentiates between "Project Digital Twins" used for offline analysis in design and construction, and "Performance Digital Twins" used for operations and maintenance. 
 A DT system could be made or adapted for either, but bi-directional communication is a characteristic of Performance Digital Twins by nature of requiring a physical system running at the same time. This article will focus on this kind of Digital Twin system, though the attributes of Performance Digital Twins and Project Digital Twins strongly intersect. 
 
 
@@ -39,7 +39,7 @@ The bi-directional communication of an autonomous Digital Twin can be better vie
 ![Feedback loop between Digital Twin and Physical System, when viewed from a Control Theory Perspective](assets/dt_feedback_loop.drawio.svg)
 
 
-- **Physical System & Context Awareness**: This type of Digital Twin represents one physical system - i.e., the specific physical object must be identifiable [[@minerva_digital_2020]]. It also may represent the environment of the physical system. 
+- **Physical System & Context Awareness**: This type of Digital Twin represents one physical system - i.e., the specific physical object must be identifiable [@minerva_digital_2020]. It also may represent the environment of the physical system. 
 - **Real-time Updates through Data Collection and Online Learning**: Digital Twins are updated as often as necessary to reflect changes in the physical system. It also stores and updates some "state" that defines key attributes of the physical system. 
 - **Digital Modelling and Simulation**: Digital Twins incorporate models—mathematical, machine learning, or hybrid—that represent the system's behavior and can simulate future states under different conditions.
 - **Control and Actuation**: Digital Twins can communicate with the physical system through control mechanisms.
@@ -59,7 +59,7 @@ You're gonna have to research what they are first.
 
 ## A Survey of Digital Twin Development Methodologies
 
-A survey by Kritzinger et al. [[@KRITZINGER20181016]] found that many articles that discussed Digital Twins in manufacturing only discussed Digital Models, which do not communicate with a real plant, and Digital Shadows, which recieve data from a real system but do not communicate back. Literature that truly analysed Digital Twin systems is much more scarce, and most literature found were on the topic was reviews and conceptual models. The field is still relatively new, and designing a Digital Twin is still a complex challenge.
+A survey by Kritzinger et al. [@KRITZINGER20181016] found that many articles that discussed Digital Twins in manufacturing only discussed Digital Models, which do not communicate with a real plant, and Digital Shadows, which recieve data from a real system but do not communicate back. Literature that truly analysed Digital Twin systems is much more scarce, and most literature found were on the topic was reviews and conceptual models. The field is still relatively new, and designing a Digital Twin is still a complex challenge.
 
 To gain an understanding of how Digital Twins are currently being built in Literature, this section surveys a number of recent articles published with the keywords "Digital Twin Case Study". The articles were chosen to focus on Manufacturing and Process Engineering fields, on Digital Twins used during operation for real-time monitoring, optimisation, and control. Particular attention is given to those with bi-directional communication between the Digital Twin and Physical asset.
 
@@ -68,32 +68,32 @@ This survey specifically focuses on the Tools, frameworks, Software, and Standar
 
 ### Fiber Processing Plant
 
-Azangoo et Al. [[@azango_dt_pid_generation]] demonstrated a methodology to generate a Digital Twin from Process & Instrumentation Diagrams (P&ID) using text recognition and image processing technologies, and a user interface to allow an engineer to link up anything that wasn't automatically recognised. 
+Azangoo et Al. [@azango_dt_pid_generation] demonstrated a methodology to generate a Digital Twin from Process & Instrumentation Diagrams (P&ID) using text recognition and image processing technologies, and a user interface to allow an engineer to link up anything that wasn't automatically recognised. 
 
-The raw file was converted to the DEXPI file format [[@dexpi_summary]] ^[Examples of DEXPI files and the specification can be found at [https://gitlab.com/dexpi](https://gitlab.com/dexpi)], and this was converted into an intermediate Graph Model designed to make importing and mapping operations easier. 
-This model was then imported into the BALAS simulation software [[@vttbalas]], which was used for steady-state simulation. In theory, an integration could be easily written for other simulation software as well. 
+The raw file was converted to the DEXPI file format [@dexpi_summary] ^[Examples of DEXPI files and the specification can be found at [https://gitlab.com/dexpi](https://gitlab.com/dexpi)], and this was converted into an intermediate Graph Model designed to make importing and mapping operations easier. 
+This model was then imported into the BALAS simulation software [@vttbalas], which was used for steady-state simulation. In theory, an integration could be easily written for other simulation software as well. 
 
 This is a good technique for building a Digital Twin where no digital models are already present, particularly for systems designed before the rise of Industry 4.0 techniques. It dramatically reduces the amount of manual work required to recreate the plant. Even for newer systems, using data from a DEXPI file as a starting point could reduce the cost of building a Digital Twin. However, this study focuses on building the model; interconnection with the plant's data control system (DCS) was not included.
 
 ### Brewery
 
-The application of Digital Twins to Food Processing Industries was discussed by Kolouris et al. [[@KOULOURIS2021317]] using a brewery as a case study. Because of the complex chemical composition, modelling chemical and thermophysical characteristics using material and energy balances is much less feasible. 
+The application of Digital Twins to Food Processing Industries was discussed by Kolouris et al. [@KOULOURIS2021317] using a brewery as a case study. Because of the complex chemical composition, modelling chemical and thermophysical characteristics using material and energy balances is much less feasible. 
 However, as a brewery is a batched process, the major source of inefficiency is in scheduling. The DT focused on defining the characteristics of the plant, and the brewing recipe, so that schedules could be automatically generated. Based on live data from the plant, as soon as delays are encountered, the future schedule could be automatically recalculated from the constraints present in the Digital Twin. Uncertianty could also be modelled using Monte-Carlo techniques.
 
 ### Tissue Paper Mill
 
-A whitepaper by VTT on Process modelling and Simulation [[@caro_vtt_process_modelling_whitepaper]] outlines how an existing paper mill was retrofitted to cut water consuption. A reference model was able to provide a baseline of performance, and this could be validated using sensor data. This enabled greater visibility into the cause for problems, and helped narrow down the cause of water consumption so that improvements could be made. Design changes could be tested on the virtual systems before applying them to the physica systems.
+A whitepaper by VTT on Process modelling and Simulation [@caro_vtt_process_modelling_whitepaper] outlines how an existing paper mill was retrofitted to cut water consuption. A reference model was able to provide a baseline of performance, and this could be validated using sensor data. This enabled greater visibility into the cause for problems, and helped narrow down the cause of water consumption so that improvements could be made. Design changes could be tested on the virtual systems before applying them to the physica systems.
 
 
 ### Thermoforming Machine
 
-Turan et al. discuss a case study where a DT is created using Finite Element Simulation of a thermoforming process [[@digital_turan_2022]]. The DT collects data in real time from the physical twin, such as temperatures, material thickness, compressed air pressure, and deflection. It optimises those parameters that can be changed, such as the heating power load and the process timing.  These are then sent to the physical twin via the Programmable Logic Controller (PLC). This was able to decrease the failure rate, and thus the material consumption. 
+Turan et al. discuss a case study where a DT is created using Finite Element Simulation of a thermoforming process [@digital_turan_2022]. The DT collects data in real time from the physical twin, such as temperatures, material thickness, compressed air pressure, and deflection. It optimises those parameters that can be changed, such as the heating power load and the process timing.  These are then sent to the physical twin via the Programmable Logic Controller (PLC). This was able to decrease the failure rate, and thus the material consumption. 
 
 Finite Element Modelling was performed from first principles in this study, which may not be scalable up to larger systems without the aid of other tools. However, the data collection pipeline discussed using node-RED as a tool for manipulating the various incoming data streams into a required format. This technique could be generalized to other DT applications.
 
 ### Heat Production Plant
 
-Martinez et al. discuss tracking systems [[@martinez_tracking_simulation]], which are used to update a First Principles model based on real-time feedback. A design-time model can be adapted by using optimisation techniques to adjust the model parameters to minimize the difference between model results and physical plant results. This can then be performed continuously as new data is collected, while at the same time the model can be used to predict future performance. OPC UA was used as the communication mechanism, because it enables both real-time and historical data access functionalities [[@opc_spec]].
+Martinez et al. discuss tracking systems [@martinez_tracking_simulation], which are used to update a First Principles model based on real-time feedback. A design-time model can be adapted by using optimisation techniques to adjust the model parameters to minimize the difference between model results and physical plant results. This can then be performed continuously as new data is collected, while at the same time the model can be used to predict future performance. OPC UA was used as the communication mechanism, because it enables both real-time and historical data access functionalities [@opc_spec].
 
 Adjusting a model to minimise the difference between model results and physical plant results would be a common requirement of DT sytems.
 These techniques could systematized to reduce the cost of developing a DT model. 
@@ -153,11 +153,11 @@ Digital Twins may be designed to work in multi-agent systems, interacting with o
 
 ### Virtualisation / Emulation
 
-Virtualisation is similar in concept to a Digital Twin. It is the ability to create a piece of digital software that can replicate how a physical system would behave. It is comonly used in computers and networking, as well as in IoT: A virtual computer can run the same code as a physical computer, and a virtual sensor can respond in the same way that a physical sensor can [[@khan_virtualisation_wireless]]. 
+Virtualisation is similar in concept to a Digital Twin. It is the ability to create a piece of digital software that can replicate how a physical system would behave. It is comonly used in computers and networking, as well as in IoT: A virtual computer can run the same code as a physical computer, and a virtual sensor can respond in the same way that a physical sensor can [@khan_virtualisation_wireless]. 
 
 Virtualised systems may not have a single, identifiable real-world counterpart in the same way as Digital Twins. However, the ability to accurately simulate a physical system is essential to Digital Twins, so many concepts and tools can be applied from this field.
 
-For example, a Digital Twin could emulate a physical sensor, PLC system, or SCADA system, sending data to the same visualisation and control tools that the factory uses to monitor the physical system . This would enable operators to view the simulations' response to changes in the same way as they would view the real process's responses [[@sixlayer_redelinghuys_2020]], and would enable the digital twin to communicate with outside systems through already-standard protocols.
+For example, a Digital Twin could emulate a physical sensor, PLC system, or SCADA system, sending data to the same visualisation and control tools that the factory uses to monitor the physical system . This would enable operators to view the simulations' response to changes in the same way as they would view the real process's responses [@sixlayer_redelinghuys_2020], and would enable the digital twin to communicate with outside systems through already-standard protocols.
 
 
 
@@ -194,7 +194,8 @@ For example, a Digital Twin could emulate a physical sensor, PLC system, or SCAD
 #### Standards for Modelling
 
 | Tool | Type |
-
+| --- | ---- |
+|     |      |
 
 <!--
 TODO: Go through a list of tools and make the table, including
@@ -215,6 +216,8 @@ Design/Operation
 #### Standards for Communication
 
 | Tool | Type |
+| --- | ---- |
+|     |      |
 
 
 <!--
@@ -256,9 +259,9 @@ E.g simantics, idaes, modelica, Balas, etc
 -->
 
 
-[[@duan2020development]]
+[@duan2020development]
 
-[[@kugler2021method]]
+[@kugler2021method]
 
 ### Equation-Oriented Modelling Tools
 
@@ -267,7 +270,11 @@ E.g simantics, idaes, modelica, Balas, etc
 | Modelica              | Extensive libraries, integration with platforms like Modelon. |
 | Julia ModelingToolkit | Modern, good integration with solvers.                        |
 | Python Pyomo          | Flexible, supports various modeling and optimization tasks.   |
-[[@applications_singh_2022]]
+
+
+[@applications_singh_2022]
+
+
 ### Digital Twin Platforms
 
 | Platform      | Features                                                                 |

@@ -2,13 +2,15 @@
 id: v4ldx838htpgelf1gof0jee
 title: Proposal
 desc: ''
-updated: 1743548283330
+updated: 1743551022124
 created: 1743126005812
 ---
 
-# ![University Logo](assets/uow_logo.png)
+# A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
 
-## A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
+![University Logo](assets/uow_logo.png)
+
+
 
 ### Author
 **Bert Downs**  

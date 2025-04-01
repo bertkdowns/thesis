@@ -1,0 +1,8 @@
+
+# You need sudo apt install pandoc pandoc-citeproc texlive-full
+
+pandoc proposal.*.md \
+--pdf-engine=context \
+--bibliography=assets/refs.bib \
+--toc \
+-o build/proposal.pdf 
