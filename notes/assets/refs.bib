@@ -1,3 +1,18 @@
+@article{KOULOURIS2021317,
+title = {Applications of process and digital twin models for production simulation and scheduling in the manufacturing of food ingredients and products},
+journal = {Food and Bioproducts Processing},
+volume = {126},
+pages = {317-333},
+year = {2021},
+issn = {0960-3085},
+doi = {https://doi.org/10.1016/j.fbp.2021.01.016},
+url = {https://www.sciencedirect.com/science/article/pii/S0960308521000183},
+author = {Alexandros Koulouris and Nikiforos Misailidis and Demetri Petrides},
+keywords = {Food process industries, Digital twins, Process simulation, Production scheduling, Throughput analysis},
+abstract = {Food Processing Industries are bound to increasingly adopt digital technologies in order to ensure product safety and quality, minimize costs in the face of low profit margins, shorten lead times and guarantee timely delivery of an increasing number of products despite production dead times and uncertainties. The concept of a digital twin put forward in the context of Industry 4.0 encompasses a digital model of the production model that mimics the physical system, interacts with it and can be used to design, monitor and optimize its performance. In this paper, the application of integrated process and digital twin models in food processing is discussed in the context of process simulation and production scheduling. The modeling challenges, opportunities and special characteristics that distinguish food from other process industries are also discussed. The potential benefits from implementing a digital modeling approach on a food process are presented with the help of a large-scale brewery case study.}
+}
+
+
 @article{dexpi_summary,
   url={https://www.theseus.fi/bitstream/handle/10024/809906/Paavilainen_Joel.pdf?sequence=2&isAllowed=y},
 
@@ -46,6 +61,9 @@ Some Links:
 DEXPI is a digital standard for PID diagrams, the first step is making the PID PDF converted to dexpi.
 DEXPI github: https://gitlab.com/dexpi
 DEXPI Specification: https://dexpi.org/specifications/
+a better article that educates about DEXPI so you don't have to just 
+read the spec: https://www.theseus.fi/bitstream/handle/10024/809906/Paavilainen_Joel.pdf?sequence=2&isAllowed=y
+
 
 Then a graph model is created using some software called Graph_Generator, which I presume is custom.
 Simplification of the P&ID is also done using some custom software called Component_selector
@@ -78,6 +96,12 @@ Initialisation and connection to a physical plant is not covered.
 
 }
 
+
+@article{caro_vtt_process_modelling_whitepaper,
+url= {https://www.vttresearch.com/sites/default/files/2023-11/WHITEPAPER_CARO_Process_modelling_and_simulation_guide_2021.pdf},
+title={Process modelling and simulation guide},
+author={VTT},
+}
 @article{energy_yu_2022,
 	title = {Energy digital twin technology for industrial energy management: Classification, challenges and future},
 	doi = {10.1016/j.rser.2022.112407},
@@ -273,3 +297,76 @@ Talks about chooosing the right scale, not so much how to implement.
   to respond in the same way as a physical one. 
   Virtual PLCs etc could be a good way to integrate with existing systems?
   */
+
+
+@article{sixlayer_redelinghuys_2020,
+	title = {A six-layer architecture for the digital twin: a manufacturing case study implementation},
+	doi = {10.1007/s10845-019-01516-6},
+	author = {Redelinghuys, A. and Basson, A. and Kruger, K.},
+	journal = {Journal of Intelligent Manufacturing},
+	year = {2020},
+	litmapsId = {31087538}
+}
+/*
+Has some good discussion about virtualisation. The architechure is 
+more focused on robotics. Heavily uses OPC-UA for data transfer.
+Case study is on a robot gripper
+*/
+
+
+@article{digital_aheleroff_2021,
+	title = {Digital Twin as a Service (DTaaS) in Industry 4.0: An Architecture Reference Model},
+	doi = {10.1016/j.aei.2020.101225},
+	author = {Aheleroff, Shohin and Xu, Xun and Zhong, Ray Y. and Lu, Yuqian},
+	journal = {Advanced Engineering Informatics},
+	year = {2021},
+	litmapsId = {3575071}
+}
+/*
+UoA paper discussing wetlands. Has reference to the DIKW hierarchy,
+\uses AR and 3d modelling heavily 
+not quite relevant to CAPE
+*/
+
+
+
+@article{digital_turan_2022,
+	title = {Digital twin modelling for optimizing the material consumption: A case study on sustainability improvement of thermoforming process},
+	doi = {10.1016/j.suscom.2022.100655},
+	author = {Turan, Erhan and Konuşkan, Yiğit and Yıldırım, Nihan and Tunçalp, Deniz and İnan, Mehmet and Yasin, Oğuz and Turan, Büryan and Kerimoğlu, Vügar},
+	journal = {Sustainable Computing: Informatics and Systems},
+	year = {2022},
+	litmapsId = {35635441},
+  url={https://doi.org/10.1016/j.suscom.2022.100655}
+}
+/*
+Mentions node-RED as a programming tool for wiring together hardware devices, apis, and online services.
+*/
+
+/**
+DATA COLLECTION AND DATA CONTROL
+papers on data collection and data control
+
+Talking about how we can build a system that connects to a live factory.
+
+*/
+
+@ARTICLE{martinez_tracking_simulation,
+  author={Martínez, Gerardo Santillán and Karhela, Tommi A. and Ruusu, Reino J. and Sierla, Seppo A. and Vyatkin, Valeriy},
+  journal={IEEE Access}, 
+  title={An Integrated Implementation Methodology of a Lifecycle-Wide Tracking Simulation Architecture}, 
+  year={2018},
+  volume={6},
+  number={},
+  url={https://ieeexplore.ieee.org/document/8306506},
+  pages={15391-15407},
+  keywords={Adaptation models;Estimation;Predictive models;Process control;Monitoring;Target tracking;Optimization methods;Online simulation;OPC UA;process simulation;tracking simulation;simulation architecture},
+  doi={10.1109/ACCESS.2018.2811845}
+}
+/**
+TODO
+Tracking systems might seem a little different, but they are similar to digital twins. 
+- Gives a method for creating tracking simulation models (maybe use it?)
+- A good use case - DTs can be used in the same way/ allow easily creating tracking simulation models. for optimisation/control?
+*/
+

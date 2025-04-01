@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743464265630
+updated: 1743537834648
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -75,7 +75,33 @@ This model was then imported into the BALAS simulation software [[@vttbalas]], w
 
 This is a good technique for building a Digital Twin where no digital models are already present, particularly for systems designed before the rise of Industry 4.0 techniques. It dramatically reduces the amount of manual work required to recreate the plant. Even for newer systems, using data from a DEXPI file as a starting point could reduce the cost of building a Digital Twin. However, this study focuses on building the model; interconnection with the plant's data control system (DCS) was not included.
 
-###
+### Brewery
+
+The application of Digital Twins to Food Processing Industries was discussed by Kolouris et al. [[@KOULOURIS2021317]] using a brewery as a case study. Because of the complex chemical composition, modelling chemical and thermophysical characteristics using material and energy balances is much less feasible. 
+However, as a brewery is a batched process, the major source of inefficiency is in scheduling. The DT focused on defining the characteristics of the plant, and the brewing recipe, so that schedules could be automatically generated. Based on live data from the plant, as soon as delays are encountered, the future schedule could be automatically recalculated from the constraints present in the Digital Twin. Uncertianty could also be modelled using Monte-Carlo techniques.
+
+### Tissue Paper Mill
+
+A whitepaper by VTT on Process modelling and Simulation [[@caro_vtt_process_modelling_whitepaper]] outlines how an existing paper mill was retrofitted to cut water consuption. A reference model was able to provide a baseline of performance, and this could be validated using sensor data. This enabled greater visibility into the cause for problems, and helped narrow down the cause of water consumption so that improvements could be made. Design changes could be tested on the virtual systems before applying them to the physica systems.
+
+
+### Thermoforming Machine
+
+Turan et al. discuss a case study where a DT is created using Finite Element Simulation of a thermoforming process [[@digital_turan_2022]]. The DT collects data in real time from the physical twin, such as temperatures, material thickness, compressed air pressure, and deflection. It optimises those parameters that can be changed, such as the heating power load and the process timing.  These are then sent to the physical twin via the Programmiable Logic Controller (PLC). This was able to decrease the failure rate, and thus the material consumption. 
+
+Finite Element Modelling was performed from first principles in this study, which may not be scalable up to larger systems without the aid of other tools. However, the data collection pipeline discussed using node-RED as a tool for manipulating the various incoming data streams into a required format. This technique could be generalized to other DT appliccations.
+
+
+
+<!--
+### Thermal Incubator
+https://arxiv.org/pdf/2102.10390
+
+A example of a small scale DT system, which focuses on how to build the DT. The interesting part is defining the difference between a DT and a cyber physical system - in a DT there are two cyber physical systems, the physical CPS and the virtual CPS.
+Also helpful is the fact that it says DT are also called self-adaptive systems, autonomic computing, Industry 4.0, models@runtime, and supervisory controllers.
+
+-->
+
 
 
 ## Adjacent Technologies
@@ -117,11 +143,14 @@ In Machine Learning, Online Learning refers to updating a model in real-time as 
 
 Digital Twins may be designed to work in multi-agent systems, interacting with other digital twins or acting on behalf of the physical system.
 
-### Virtualisation
+### Virtualisation / Emulation
 
 Virtualisation is similar in concept to a Digital Twin. It is the ability to create a piece of digital software that can replicate how a physical system would behave. It is comonly used in computers and networking, as well as in IoT: A virtual computer can run the same code as a physical computer, and a virtual sensor can respond in the same way that a physical sensor can [[@khan_virtualisation_wireless]]. 
 
-Virtualised systems may not have a single, identifiable real-world counterpart in the same way as Digital Twins. However, the ability to accurately simulate a physical system is essential to Digital Twins, so many concepts and tools can be applied from this field. It can be considered analogous to modelling.
+Virtualised systems may not have a single, identifiable real-world counterpart in the same way as Digital Twins. However, the ability to accurately simulate a physical system is essential to Digital Twins, so many concepts and tools can be applied from this field.
+
+For example, a Digital Twin could emulate a physical sensor, PLC system, or SCADA system, sending data to the same visualisation and control tools that the factory uses to monitor the physical system . This would enable operators to view the simulations' response to changes in the same way as they would view the real process's responses [[@sixlayer_redelinghuys_2020]], and would enable the digital twin to communicate with outside systems through already-standard protocols.
+
 
 
 ### Digital Twins for Visualisation
@@ -159,6 +188,33 @@ Virtualised systems may not have a single, identifiable real-world counterpart i
 ## Digital Twin Development Tools in Chemical Engineering
 
 ### Standardisation Efforts
+
+
+
+<!---
+We could break this down into:
+
+
+Standards and Protocols
+For describing behaviour
+For describing Process interconnection, layout, etc
+For Communication with a physical system  (data collection)
+For control
+E.g Modelica spec, DEXPI, Chemical Markup Language, TMML, IDEAS library
+FMI, OPC UA, ISO 15926, CAPE-OPEN
+
+Look at the bottom part of:
+https://chatgpt.com/share/67eb2789-a450-8005-a003-1c80dabe2a58
+
+
+
+Modelling  & Simulation tools
+- Equation oriented modelling tools?
+- DT Platforms?
+E.g simantics, idaes, modelica, Balas, etc
+
+-->
+
 
 [[@duan2020development]]
 
