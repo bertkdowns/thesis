@@ -2,7 +2,7 @@
 id: v4ldx838htpgelf1gof0jee
 title: Proposal
 desc: ''
-updated: 1743126060529
+updated: 1743548283330
 created: 1743126005812
 ---
 
@@ -58,9 +58,9 @@ I would like to thank my supervisors, Tim Walmsley, Jason Kurz, and Mark Apperle
 
 ## Chapters
 
-- [Introduction](introduction.md)
-- [Literature Review](litreview.md)
-- [Proposal](proposal.md)
+- [[proposal.introduction]]
+- [[proposal.litreview]]
+- [[proposal.proposal]]
 
 ---
 
