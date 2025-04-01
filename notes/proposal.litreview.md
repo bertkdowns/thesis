@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743537834648
+updated: 1743539193911
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -87,9 +87,17 @@ A whitepaper by VTT on Process modelling and Simulation [[@caro_vtt_process_mode
 
 ### Thermoforming Machine
 
-Turan et al. discuss a case study where a DT is created using Finite Element Simulation of a thermoforming process [[@digital_turan_2022]]. The DT collects data in real time from the physical twin, such as temperatures, material thickness, compressed air pressure, and deflection. It optimises those parameters that can be changed, such as the heating power load and the process timing.  These are then sent to the physical twin via the Programmiable Logic Controller (PLC). This was able to decrease the failure rate, and thus the material consumption. 
+Turan et al. discuss a case study where a DT is created using Finite Element Simulation of a thermoforming process [[@digital_turan_2022]]. The DT collects data in real time from the physical twin, such as temperatures, material thickness, compressed air pressure, and deflection. It optimises those parameters that can be changed, such as the heating power load and the process timing.  These are then sent to the physical twin via the Programmable Logic Controller (PLC). This was able to decrease the failure rate, and thus the material consumption. 
 
-Finite Element Modelling was performed from first principles in this study, which may not be scalable up to larger systems without the aid of other tools. However, the data collection pipeline discussed using node-RED as a tool for manipulating the various incoming data streams into a required format. This technique could be generalized to other DT appliccations.
+Finite Element Modelling was performed from first principles in this study, which may not be scalable up to larger systems without the aid of other tools. However, the data collection pipeline discussed using node-RED as a tool for manipulating the various incoming data streams into a required format. This technique could be generalized to other DT applications.
+
+### Heat Production Plant
+
+Martinez et al. discuss tracking systems [[@martinez_tracking_simulation]], which are used to update a First Principles model based on real-time feedback. A design-time model can be adapted by using optimisation techniques to adjust the model parameters to minimize the difference between model results and physical plant results. This can then be performed continuously as new data is collected, while at the same time the model can be used to predict future performance. OPC UA was used as the communication mechanism, because it enables both real-time and historical data access functionalities [[@opc_spec]].
+
+Adjusting a model to minimise the difference between model results and physical plant results would be a common requirement of DT sytems.
+These techniques could systematized to reduce the cost of developing a DT model. 
+
 
 
 
