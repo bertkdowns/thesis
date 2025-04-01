@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743539193911
+updated: 1743548194638
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -182,12 +182,6 @@ For example, a Digital Twin could emulate a physical sensor, PLC system, or SCAD
 
 ## Digital Twin Development Methodologies
 
-### Case Studies
-
-- **Case Study 1**: 
-- **Case Study 2**: ...
-- **Case Study 3**: ...
-
 ### Discussion
 
 - Common elements of the design process.
@@ -196,6 +190,44 @@ For example, a Digital Twin could emulate a physical sensor, PLC system, or SCAD
 ## Digital Twin Development Tools in Chemical Engineering
 
 ### Standardisation Efforts
+
+#### Standards for Modelling
+
+| Tool | Type |
+
+
+<!--
+TODO: Go through a list of tools and make the table, including
+references.
+then describe what you mean by each type, and how it is relevant.
+
+Type can include:
+Equation Oriented
+Steady State
+Dynamic
+Commercial/Open Source
+Process/Unit Operation/Site/Energy
+Scheduling/Thermodynamic
+Design/Operation
+-->
+
+
+#### Standards for Communication
+
+| Tool | Type |
+
+
+<!--
+Type can include:
+Data Collection
+Control
+Data History
+Commercial/Open Source
+Process/Unit Operation/Site/Energy
+Scheduling/Thermodynamic
+Design/Operation
+-->
+
 
 
 
