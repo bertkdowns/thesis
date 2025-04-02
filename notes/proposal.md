@@ -2,21 +2,21 @@
 id: v4ldx838htpgelf1gof0jee
 title: Proposal
 desc: ''
-updated: 1743551022124
+updated: 1743622430184
 created: 1743126005812
 ---
 
-# A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
-
+<!--
 ![University Logo](assets/uow_logo.png)
+-->
 
+\pagebreak
 
+#  A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
 
-### Author
 **Bert Downs**  
 Supervised by Tim Walmsley, Jason Kurz, Mark Apperley  
 
-### Date
 **March 2025**
 
 ---
@@ -28,18 +28,6 @@ Supervised by Tim Walmsley, Jason Kurz, Mark Apperley
 ## Acknowledgements
 
 I would like to thank my supervisors, Tim Walmsley, Jason Kurz, and Mark Apperley, for their guidance and support throughout this project. I would also like to thank the Ahuora project team for their assistance and feedback. Finally, I would like to thank my family and friends for their encouragement and support.
-
----
-
-## Table of Contents
-
----
-
-## List of Figures
-
----
-
-## List of Tables
 
 ---
 
@@ -58,18 +46,5 @@ I would like to thank my supervisors, Tim Walmsley, Jason Kurz, and Mark Apperle
 
 ---
 
-## Chapters
+\pagebreak
 
-- [[proposal.introduction]]
-- [[proposal.litreview]]
-- [[proposal.proposal]]
-
----
-
-## References
-
-References are included in the `refs.bib` file.
-
----
-
-## Appendices

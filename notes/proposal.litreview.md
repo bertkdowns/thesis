@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743550868878
+updated: 1743566721226
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -191,11 +191,26 @@ For example, a Digital Twin could emulate a physical sensor, PLC system, or SCAD
 
 ### Standardisation Efforts
 
-#### Standards for Modelling
 
-| Tool | Type |
-| --- | ---- |
-|     |      |
+#### Standards for Describing Structure
+
+| Standard | Type | Tools |
+| --- | ---- | --- |
+| Digital Twins Definition Language  [@azure_dtdl]  | NGSI-LD , Data Aggregation     |  Azure Digital Twins [@nath2021building]   |
+| Smart Data Models [@smart_data_models] [@fiware_digital_twins] | NGSI-LD, Manufacturing, Data Aggregation, Smart Cities| FIWAREBox [@fiwarebox], Sara [@sara_purpleblob] |
+| JSON-LD, RDF, OWL, SHACL|  | IndustryFusion Digital Twin [@industryfusion_digitaltwin] |
+
+
+
+
+#### Standards for Modelling Behaviour
+
+| Standard | Type | Tools |
+| --- | ---- | --- |
+|  PYOMO   |  Equation-oriented modelling, First Principles,     | IDAES-PSE    |
+| | Modelica | |
+| Pytorch & other ML Platforms| Modelica | |
+
 
 <!--
 TODO: Go through a list of tools and make the table, including
@@ -215,9 +230,9 @@ Design/Operation
 
 #### Standards for Communication
 
-| Tool | Type |
-| --- | ---- |
-|     |      |
+| Standard | Type | Tools |
+| --- | ---- | --- |
+|     |      |     |
 
 
 <!--

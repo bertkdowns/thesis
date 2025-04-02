@@ -1,8 +1,8 @@
 ---
 id: 7ge60f5z9a7qkmgh836qxdv
-title: Proposal
-desc: ''
-updated: 1743126546158
+title: A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
+desc: 'Literature Review & Project Proposal'
+updated: 1743621963867
 created: 1743126355038
 bibliography:
   - assets/refs.bib
