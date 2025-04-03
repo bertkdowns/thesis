@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743641193899
+updated: 1743652449795
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -230,6 +230,9 @@ However, Data-Driven tools can also be used to augment traditional first-princip
 
 The Functional Mock-up interface is a specificaton and data format that provides a standardised interface for defining a dynamic model [@blochwitz2011functional]. A Functional Mock-up Unit (FMU) can include custom C code internally to represent the behaviour, and a standardised XML interface for linking up with other components. This enables model exchange, and co-simulation using models built in seperate tools. This technology can be used to make digital twins compatible with other systems [@laine2024digital], or to make a digital twin using multiple different simulation platforms. 
 
+CAPE-OPEN is a similar interface for co-simulation between multiple simulation tools [@belaud2003missions], but does not provide a standardised model exchange format. Nonetheless, it is supported by a variety of simulation platforms.
+
+Pyomo is a algebraic modelling language in python. IDAES-PSE is a process simulation tool that is built on top of it. Pyomo uses optimisation methods to solve a flowsheet, rather than traditional sequential solution algorithms, which makes it expressive enough to solve a wide variety of problems. The IDAES Library includes a number of different unit operations and thermodynamic property packages. However, because the model is specified in Python code, interoperability with existing systems is much harder.
 
 
 
