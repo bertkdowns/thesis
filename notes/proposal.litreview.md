@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743652449795
+updated: 1743720890321
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -232,7 +232,7 @@ The Functional Mock-up interface is a specificaton and data format that provides
 
 CAPE-OPEN is a similar interface for co-simulation between multiple simulation tools [@belaud2003missions], but does not provide a standardised model exchange format. Nonetheless, it is supported by a variety of simulation platforms.
 
-Pyomo is a algebraic modelling language in python. IDAES-PSE is a process simulation tool that is built on top of it. Pyomo uses optimisation methods to solve a flowsheet, rather than traditional sequential solution algorithms, which makes it expressive enough to solve a wide variety of problems. The IDAES Library includes a number of different unit operations and thermodynamic property packages. However, because the model is specified in Python code, interoperability with existing systems is much harder.
+Pyomo is a algebraic modelling language in python. IDAES-PSE is a process simulation tool that is built on top of it. Pyomo uses optimisation methods to solve a flowsheet, rather than traditional sequential solution algorithms, which makes it expressive enough to solve a wide variety of problems. The IDAES Library includes a number of different unit operations and thermodynamic property packages. Because the model is specified in Python code, interoperability with existing systems is much harder, though some research has shown that it is possible to interface Pyomo with Modelica models through Functional Mockup Units [@gohl2024steady].
 
 
 
