@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743550868878
+updated: 1743720890321
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -191,11 +191,51 @@ For example, a Digital Twin could emulate a physical sensor, PLC system, or SCAD
 
 ### Standardisation Efforts
 
-#### Standards for Modelling
 
-| Tool | Type |
-| --- | ---- |
-|     |      |
+#### Standards for Describing Structure
+
+| Standard | Type | Tools |
+| --- | ---- | --- |
+| Digital Twins Definition Language (DTDL) [@azure_dtdl]  | IoT, NGSI-LD , Data Aggregation     |  Azure Digital Twins [@nath2021building]   |
+| Smart Data Models (SDM) [@smart_data_models] [@fiware_digital_twins] | IoT, NGSI-LD, Manufacturing, Data Aggregation, Smart Cities| FIWAREBox [@fiwarebox], Sara [@sara_purpleblob] |
+| JSON-LD, RDF, OWL, SHACL|  | IndustryFusion Digital Twin [@industryfusion_digitaltwin] |
+|  DEXPI [@dexpi_summary]  | P&ID, 2D, XML, ISO 15926 | Autodesk, Aveva,
+Bentley,  Intergraph, Siemens , Cadmatic [@cadmatic_dexpi], Simantics Apros 6, Balas [@simantics_dexpi]|
+
+
+DTDL, SDM, and DEXPI are all related to the Resource Description Framework (RDF) format, a method of describing the structure of and exchanging graph data [@candan2001resource]. ISO 15926 standardised an ontology for describing different resources in the process industry, including unit operations and equipment characteristics, both across space and time [@15926].
+JSON-LD and NGSI-LD are specific formats to communicate RDF data. However, different specifications built on top of JSON-LD and NGSI-LD may not be compatible, if they start with different ontologies.
+
+Each of these services have a slightly different focus. DTDL focuses more on collecting data from sensors, while DEXPI focuses more on describing the relationship between operations. 
+A DT that is able to read or communicate via these formats will have increased interoperability with other systems, potentially speeding up development time through greater reuse of existing models and tools.
+
+
+
+#### Standards for Modelling Behaviour
+
+| Standard | Type | Tools |
+| --- | ---- | --- |
+| Modelica [@modelica_specification] | Equation Oriented, First Principles, Dynamic | OpenModelica, IDEAS [@ideas_modelica] , Modelon, Dymola |
+| Pytorch & other ML Platforms | Data Driven Modelling  | Various |
+| Functional Mock-up Interface | Co-simulation | Simulink, OpenModelica, Wolfram SystemModeler |
+| CAPE-OPEN | Co-simulation | ASPEN, DWSIM, gPROMS, COCO |
+|  PYOMO   |  Equation-oriented, First Principles, Optimisation    | IDAES-PSE    |
+
+
+Modelica is a relatively established standard for modelling physical systems. It is a custom object-oriented textual description format, that is supported by a variety of applications. The relationships between systems can be specified mathematically or externally, to model system dynamics across time. Because of it's standardisation and a variety of open source libraries, including for thermodynamic properties [@multiphase_mixture_media] and various process unit operations [@ideas_modelica]. 
+
+Alternatively, data-driven approaches can be used to model chemical processes, without relying on any first principles model at all [@SAVAGE202073].  This can have problems with generalising outside normal operating conditions, but techniques have been adapted to minimise this issue [@SEVERINSEN20241].
+Data Driven models have the benifit of being easy to create, and work well for complex systems where traditional first-principles simulation doesn't work, as long as their accuracy and generalizability is sufficient for the requirements of the application. Any machine learning platform, such as PyTorch, could feasibly be used for this.
+However, Data-Driven tools can also be used to augment traditional first-principles simulation [@ceccon2022omlt], so each technique can be used as best suits a given application.
+
+The Functional Mock-up interface is a specificaton and data format that provides a standardised interface for defining a dynamic model [@blochwitz2011functional]. A Functional Mock-up Unit (FMU) can include custom C code internally to represent the behaviour, and a standardised XML interface for linking up with other components. This enables model exchange, and co-simulation using models built in seperate tools. This technology can be used to make digital twins compatible with other systems [@laine2024digital], or to make a digital twin using multiple different simulation platforms. 
+
+CAPE-OPEN is a similar interface for co-simulation between multiple simulation tools [@belaud2003missions], but does not provide a standardised model exchange format. Nonetheless, it is supported by a variety of simulation platforms.
+
+Pyomo is a algebraic modelling language in python. IDAES-PSE is a process simulation tool that is built on top of it. Pyomo uses optimisation methods to solve a flowsheet, rather than traditional sequential solution algorithms, which makes it expressive enough to solve a wide variety of problems. The IDAES Library includes a number of different unit operations and thermodynamic property packages. Because the model is specified in Python code, interoperability with existing systems is much harder, though some research has shown that it is possible to interface Pyomo with Modelica models through Functional Mockup Units [@gohl2024steady].
+
+
+
 
 <!--
 TODO: Go through a list of tools and make the table, including
@@ -215,9 +255,9 @@ Design/Operation
 
 #### Standards for Communication
 
-| Tool | Type |
-| --- | ---- |
-|     |      |
+| Standard | Type | Tools |
+| --- | ---- | --- |
+| OPC UA    |      |     |
 
 
 <!--
