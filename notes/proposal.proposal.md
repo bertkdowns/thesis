@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
 desc: 'Literature Review & Project Proposal'
-updated: 1744270997921
+updated: 1744271169728
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -69,6 +69,11 @@ As the software project gradually evolves over time through ongoing use and refi
 For instance, if modularity emerges as a dominant pattern, one might ask: "What would a fully modular Digital Twin look like?" This could lead to benefits such as improved testability, parallel development, and plug-and-play component integration. However, it might also introduce challenges around coordination, interface design, and performance due to increased abstraction boundaries.
 
 Ultimately, these emergent patterns become not just a byproduct of the development process, but can be applied together to provide a generalised framework for building Digital Twins.
+
+<!---
+In the appendix, include some potential characteristics, and some potential case studies
+Potential characteristics avaliable in phd.potential_characteristics.md
+-->
 
 ## Timeline
 
