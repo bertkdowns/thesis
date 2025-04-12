@@ -2,7 +2,7 @@
 id: 1ziqbhf6cqyt0b6urtfd42n
 title: Potential_characteristics
 desc: ''
-updated: 1744263578579
+updated: 1744322007041
 created: 1744262162102
 ---
 
@@ -75,6 +75,8 @@ How do we version through time? What if the factory changes and we have new sens
 
 How do we version in development? can people work together to build a factory in realtime/git like collaboration? 
 
+What does Git look like for digital twins? can we put the world in git?
+
 ### Isolation
 
 Do we specify the structure of the model and the data/parameters of the model differently, or are they inherently the same thing?
@@ -84,6 +86,9 @@ Do we store this data together or seperate?
 ### Layering?
 
 Similar to multi-level modelling, can we layer a more complex model on top of a simpler model, or layer changes so a different layer can represent the factory at a different point in time?
+
+"Individual laywers tend to be about things that change at similar rates. Things that change at different rates diverge.
+Differential rates of change encourage layers to emerge." - https://s3.amazonaws.com/systemsandpapers/papers/bigballofmud.pdf
 
 ### Surrogates?
 
