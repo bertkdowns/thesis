@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1743720890321
+updated: 1744586463036
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -57,13 +57,15 @@ You're gonna have to research what they are first.
 
 -->
 
-## A Survey of Digital Twin Development Methodologies
+## A Brief Survey of Digital Twin Development Methodologies
 
 A survey by Kritzinger et al. [@KRITZINGER20181016] found that many articles that discussed Digital Twins in manufacturing only discussed Digital Models, which do not communicate with a real plant, and Digital Shadows, which recieve data from a real system but do not communicate back. Literature that truly analysed Digital Twin systems is much more scarce, and most literature found were on the topic was reviews and conceptual models. The field is still relatively new, and designing a Digital Twin is still a complex challenge.
 
-To gain an understanding of how Digital Twins are currently being built in Literature, this section surveys a number of recent articles published with the keywords "Digital Twin Case Study". The articles were chosen to focus on Manufacturing and Process Engineering fields, on Digital Twins used during operation for real-time monitoring, optimisation, and control. Particular attention is given to those with bi-directional communication between the Digital Twin and Physical asset.
+To gain an understanding of how Digital Twins are currently being built in Literature, this section discusses a number of recent articles published with the keywords "Digital Twin Case Study". 
+The articles were chosen to focus on Manufacturing and Process Engineering fields, on Digital Twins used during operation for real-time monitoring, optimisation, and control.
+Particular attention is given to those with bi-directional communication between the Digital Twin and Physical asset.
 
-This survey specifically focuses on the Tools, frameworks, Software, and Standards used in the case studies to build the Digital Twin. This aims to answer the questions "How does software and technology assist the creation of Digital Twins?" and "What challenges do current techniques face that increase the cost of building a Digital Twin of a chemical process?"
+Each paper discussed tackles the problem of building a digital twin in a slightly different way. This section aims to answer the questions "How does software and technology assist the creation of Digital Twins?" and "What challenges do current techniques face that increase the cost of building a Digital Twin of a chemical process?"  by comparing the tools, frameworks, software, and standards used in each study.
 
 
 ### Fiber Processing Plant
@@ -99,8 +101,6 @@ Adjusting a model to minimise the difference between model results and physical 
 These techniques could systematized to reduce the cost of developing a DT model. 
 
 
-
-
 <!--
 ### Thermal Incubator
 https://arxiv.org/pdf/2102.10390
@@ -110,7 +110,11 @@ Also helpful is the fact that it says DT are also called self-adaptive systems, 
 
 -->
 
+### Discussion
 
+At the core of each of these case studies is a model of the behaviour of a chemical process. However, this model is combined with different data to adapt it to each different use case. The Brewery added scheduling data to predict optimal schedules, the heat production plant added real-time data to fine-tune parameters, and the paper mill added historical data and potential design changes to validate new design ideas.
+
+Working with such a diverse range of data and other tools can be a challenge, which explains why most digital twin systems are custom-built to the specific use case. However, the core model is relatively similar in each case. If the core model can be reused with a variety of adjacent techologies, it will increase the Digital Twin's value and reduce development cost of each subsequent feature. 
 
 ## Adjacent Technologies
 
@@ -143,6 +147,13 @@ look at https://www.do-mpc.com/en/latest/theory_mhe.html and also find some pape
 
 3D models can simulate physical systems, such as Newtonian physics, fluid dynamics, heat transfer, or flow. While some definitions of Digital Twins focus on 3D models as the required "physical representation," digital twins only need the data necessary to represent the key characteristics of the physical system.
 
+
+### Surrogate Modelling
+
+Surrogate models approximate complex systems to reduce computational costs while maintaining accuracy.
+
+Operator networks are used to model and simulate complex systems with high efficiency.
+
 ### Online Learning
 
 In Machine Learning, Online Learning refers to updating a model in real-time as new data comes in, without human input or retraining from scratch. This can encode changes in the state or behavior of the physical system, such as degradation of a battery.
@@ -160,32 +171,6 @@ Virtualised systems may not have a single, identifiable real-world counterpart i
 For example, a Digital Twin could emulate a physical sensor, PLC system, or SCADA system, sending data to the same visualisation and control tools that the factory uses to monitor the physical system . This would enable operators to view the simulations' response to changes in the same way as they would view the real process's responses [@sixlayer_redelinghuys_2020], and would enable the digital twin to communicate with outside systems through already-standard protocols.
 
 
-
-### Digital Twins for Visualisation
-
-
-### Digital Twins for Maintenance and Optimisation
-
-
-
-
-## Usage in Chemical and Process Engineering
-
-
-
-## Gaps
-
-<!--- Put this where it should be, not sure yet-->
-
-
-
-
-## Digital Twin Development Methodologies
-
-### Discussion
-
-- Common elements of the design process.
-- Challenges in building a digital twin system, such as compatibility, complexity, security, and privacy.
 
 ## Digital Twin Development Tools in Chemical Engineering
 
@@ -330,12 +315,4 @@ E.g simantics, idaes, modelica, Balas, etc
 | Aspen Hysys   | Process simulation and optimization.                                   |
 | Scilab-XCOS   | Open-source modeling and simulation.                                   |
 
-## Emerging Technologies
 
-### Surrogate Modelling
-
-Surrogate models approximate complex systems to reduce computational costs while maintaining accuracy.
-
-### Operator Networks
-
-Operator networks are used to model and simulate complex systems with high efficiency.

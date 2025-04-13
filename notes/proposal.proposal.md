@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
 desc: 'Literature Review & Project Proposal'
-updated: 1744427418230
+updated: 1744586514483
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -59,14 +59,15 @@ The Ahuora Digital Twin Platform will be used to model a variety of industry cas
 
 These changes in requirements form the key data points of this research. They provide feedback into how standards, frameworks, and technologies affect the development pace, quality, functionality, and reliability of a Digital Twin.
 
-Through application of software engineering practices, the architecture of the platform will gradually adjust to better the problem domain. This principle of incremental change to "grow" an architecture is widely documented in the software industry [@foote1977big].
+Through application of software engineering practices, the architecture of the platform will gradually adjust to better the problem domain. This principle of incremental change to "grow" an architecture is widely documented in the software industry [@foote1997big].
 
 
 **2. Theoretical analysis of system properties**
 
 As the software project gradually evolves over time through ongoing use and refinement, patterns and structures will be identified. These patterns in the software architecture can provide a different lens into the problem space of designing a Digital Twin. The effect of these patterns can be analysed through logical reasoning, by asking the question *"If this property was to be taken to its logical extreme, and strictly enforced across the Digital Twin, what consequences - both positive and negative - would emerge?"* This enables a deeper understanding of the trade-offs in adopting an architectural principle.
 
-For instance, if modularity emerges as a dominant pattern, one might ask: "What would a fully modular Digital Twin look like?" This could lead to benefits such as improved testability, parallel development, and plug-and-play component integration. However, it might also introduce challenges around coordination, interface design, and performance due to increased abstraction boundaries.
+For instance, if a technique for modularity emerges as a dominant pattern, one might ask: "What would a fully modular Digital Twin look like?" 
+This could lead to benefits such as improved testability, parallel development, and plug-and-play component integration. However, it might also introduce challenges around coordination, interface design, and performance due to increased abstraction boundaries.
 
 Ultimately, these emergent patterns become not just a byproduct of the development process, but can be applied together to provide a generalised framework for building Digital Twins.
 
