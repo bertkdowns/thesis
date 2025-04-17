@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1744586463036
+updated: 1744867579441
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -130,6 +130,38 @@ In most cases, Digital Twin systems are real-time and thus require data to be co
 ### Mathematical Modelling
 
 This involves using some kind of mathematical or algebraic formula to represent the interactions within the system or between the system and its environment. For example, thermodynamic equations can model the behavior of a chemical reactor. Mathematical models can enrich the data collected from the physical system by calculating properties that may not be directly measurable.
+
+There are two main paradigms of note: Algebraic Modelling and numerical computing.
+
+Table: Comparison of Algebraic Modelling Languages and Numerical Computing Libraries
+
+Feature / Aspect | Algebraic Modeling Languages (AMLs) | Numerical Computing Libraries
+--- | --- | ---
+Purpose | High-level formulation of optimization problems | Low-level numerical computation and algorithm design
+Examples | Pyomo, JuMP, CVXPY, PuLP | JAX, NumPy, CasADi, TensorFlow, SciPy
+Problem Representation | Declarative: equations/constraints defined like math | Imperative: custom code defines the computation logic
+Ease of Use | Very user-friendly for optimization problems | Requires deeper programming and mathematical understanding
+Differentiation | Mostly external or automatic via solvers | Built-in or symbolic (e.g., JAX, CasADi support autodiff)
+Solver Integration | Built-in support for various optimization solvers | Must integrate solvers manually (if used for optimization)
+Suitable Problem Types | LP, MILP, NLP, convex, robust optimization | General numerical problems, ODEs, PDEs, ML, simulation
+Dynamics & Control Support | Not a core functionality, possible with pyomo.dae and gekko | Strong support (especially CasADi, JAX with custom dynamics)
+Scalability & Performance | Depends on solver | Highly scalable with JIT, GPU, vectorization
+Paradigm | High-level, mathematical modeling | Low-level, computational modeling
+
+*Algebraic modelling libraries*  (AMLs) enable using a very high level problem specification. Variables and equations to constrain your variables are declared symbolically. Objectives can also be added to create optimization problems. The AML decomposes the system of equations and sends it to to a mathematical optimization solver. The system can be solved for any given set of known parameters. This adds a lot of flexibility as it is trivial to change which variables are unknown and which are known in the declarative model [@fragniere2002optimization].
+
+Various AMLs have been built, both commercial and non-commercial. Historically, they have been distint languages, such as AIMMS, AMPL, and GAMS. However, more  recently, open source AMLs have been built on top of existing general-purpose programming languages, such as Pyomo and JuMP, based on Python and Julia respectively. This adds more flexibility to define and build models programmatically [@jusevivcius2021experimental], and apply a variety of model transformations [@hart2017pyomo].  
+
+AMLs are helpful in chemical modelling because it is easily to directly recreate known physical equations, such a a thermodynamic equation of state, in an AML. They also work well with nonlinearities, which is required in almost all chemical systems. Some examples of AMLs used in this way include IDAES-PSE and GEKKO. IDAES-PSE is built on Pyomo, and declares a variety of reusable chemical unit models using mass and energy balances. It uses the flexibility of python and pyomo to make these customizable and composable into complex flowsheets [@lee2021idaes]. GEKKO is a seperate python-based AML that creates AMPL models internally, but has a similar library to IDAES for chemical operations [@beal2018gekko].
+
+Because AMLs are particularly suited towards optimization, they are often used in design-time steady-state simulation in chemical engineering. However, they can also support dynamic simulation, through Differential-Algebraic Equations, which can be converted into algebraic finite-difference formulations [@nicholson2018pyomo]. Pyomo-DAE supports this, which can be used for dynamical optimization such as Model Predictive Control [@PARKER2023103113].
+
+*Numerical Computing Libraries* are lower level, and provide support for numerical transformations of data, including parallel/array computing, automatic differentiation ^[Automatic differentiation is also somtimes called algorithmic differentiation.], ODE solving, and optimization. These can be used to do much the same thing as an AML, and because they are lower level they can be optimised for a specfic use case. CasADi is an example of this. It is a symbolic framework, storing mathematical expressions similar to an AML, and it implements automatic differentiation, which is in turn used for non-linear optimisation and model predictive control [@andersson2019casadi]. It can be used for optimisation the same as traditional AMLs, especially with it's Opti toolbox, but it can also be used for initial-value problems and ODEs through an integrator, and for solving via an rootfinder. Jax is relatively similar to CasADi, with plugins for optimisation and solving, but also a strong focus on machine learning applications [@rader2024optimistix].
+
+These libraries are better suited to solving specific problems in an performant manner, because of the lower level control that is offered compared to a conventional AML. Less has been written about using these libraries for chemical modelling, but CasADi has been shown to be useful for dynamic optimization of OpenModelica Models [@SHITAHUN2013446] and has been used for this in JModelica.org [@magnusson2015dynamic].
+
+Either AMLs or Numerical Computing methods could be used to model physical behavior in a Digital Twin. AMLs provide a very expressive interface that could work for a large number of cases, however to solve specific problems in a performant manner, the fine-grained control of a numerical computing library may be beneficial. In these cases, specific interfaces have been written to integrate with higher level domain-specific tools such as Modelica. The most relevant use case for Process Digital Twins is Model Predictive Control.
+
 
 ### Sensor/Data Fusion
 
