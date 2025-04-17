@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1744867579441
+updated: 1744871305513
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -160,12 +160,21 @@ Because AMLs are particularly suited towards optimization, they are often used i
 
 These libraries are better suited to solving specific problems in an performant manner, because of the lower level control that is offered compared to a conventional AML. Less has been written about using these libraries for chemical modelling, but CasADi has been shown to be useful for dynamic optimization of OpenModelica Models [@SHITAHUN2013446] and has been used for this in JModelica.org [@magnusson2015dynamic].
 
-Either AMLs or Numerical Computing methods could be used to model physical behavior in a Digital Twin. AMLs provide a very expressive interface that could work for a large number of cases, however to solve specific problems in a performant manner, the fine-grained control of a numerical computing library may be beneficial. In these cases, specific interfaces have been written to integrate with higher level domain-specific tools such as Modelica. The most relevant use case for Process Digital Twins is Model Predictive Control.
+Either AMLs or Numerical Computing methods could be used to model physical behavior in a Digital Twin. AMLs provide a very expressive interface that could work for a large number of cases, however to solve specific problems in a performant manner, the fine-grained control of a numerical computing library may be beneficial. In these cases, specific interfaces have been written to integrate with higher level domain-specific tools such as Modelica. 
+The most relevant use case for Process Digital Twins is Model Predictive Control, which will be discussed further in depth.
 
 
 ### Sensor/Data Fusion
 
 Sensor fusion combines data from multiple sensors to produce a more accurate representation of the system. This can reduce noise in the data or provide more information than any single sensor can provide. For example, virtual reality headsets use multiple cameras, accelerometers, and gyroscopes to track the user's head position and orientation.
+
+In a Digital Twin, sensor fusion can be viewed as a means to get accurate data from a process to give to the DT Model. The process measurements avaliable from the sensors may not match the input expected from a design-time model: sensor fusion can be the bridge between the two. Alternatively, the DT itself can be viewed as an advanced form of sensor fusion. Thus the architecture of the two technologies may be similar.
+
+A simple example of sensor fusion is the Kalman filter, which combines past measurement and prediction data to get a more accurate value than either alone. It can be designed to adapt to the variance in the data, and with some adjustment can handle non-linearities quite well too [@welch1995introduction]. The kalman filter resembles a predictor-corrector algorithm, which is quite similar to the way a digital twin would be used.
+
+![Kalman filter predictor-corrector cycle, alternating between predicting the current state ahead in time, and updating the estimate by a measurement at the next time step. Reproduced from [@welch1995introduction]](assets/predictor_corrector.drawio.svg)
+
+
 
 ### Control
 
