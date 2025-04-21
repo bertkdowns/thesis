@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1744871305513
+updated: 1744933248711
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -173,6 +173,12 @@ In a Digital Twin, sensor fusion can be viewed as a means to get accurate data f
 A simple example of sensor fusion is the Kalman filter, which combines past measurement and prediction data to get a more accurate value than either alone. It can be designed to adapt to the variance in the data, and with some adjustment can handle non-linearities quite well too [@welch1995introduction]. The kalman filter resembles a predictor-corrector algorithm, which is quite similar to the way a digital twin would be used.
 
 ![Kalman filter predictor-corrector cycle, alternating between predicting the current state ahead in time, and updating the estimate by a measurement at the next time step. Reproduced from [@welch1995introduction]](assets/predictor_corrector.drawio.svg)
+
+Kalman filters provide a powerful example of how to update predictions based on new data, and has been used for sensor fusion in chemical processes. However sensor fusion usually involves incorporating data from distinct sensors. Lines et al. [@lines2020sensor] used multiple forms of optical spectroscopy to better estimate chemical composition of spent nuclear fuel; this was used to control the process to a set composition ratio. The model uses to estimate composition was based on partial least squares, trained on known samples. Partial least squares protects against overfitting, which is important with techniques such as spectroscopy that generate a lot of data. 
+
+These techniques can be combined with adaptive technologies such as the kalman filter to avoid degradation in online operation due to fouling and changes in process conditions [@chen2015soft]. Another common technique for adaptive sensor fusion involes using mean and variance update methodology [@wang2019monitoring], where the mean and variance is updated incrementially.
+
+
 
 
 
