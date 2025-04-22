@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1744933248711
+updated: 1745291546936
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -178,9 +178,9 @@ Kalman filters provide a powerful example of how to update predictions based on 
 
 These techniques can be combined with adaptive technologies such as the kalman filter to avoid degradation in online operation due to fouling and changes in process conditions [@chen2015soft]. Another common technique for adaptive sensor fusion involes using mean and variance update methodology [@wang2019monitoring], where the mean and variance is updated incrementially.
 
+Other methods for sensor fusion include bayesian analysis, and their more generalised form, Theory of Evidence models such as Dempster-Shafer theory[@alam2017data]. These have been used in a similar way to the kalman filter, working to minimise the error or find the most likely course of events based on weighted probablilities. This has been used to fuse field measurements with simulation data [@renganathan2020aerodynamic] to decrease both bias and variance compared to either source alone.
 
-
-
+Artificial intelligence methods can also be used for sensor fusion, but they rely on good data and can sometimes suffer at the extreme ranges of operation where there is less data. One promising technique is the concept of grounding AI methods in physics, through physics informed neural networks [@raissi2019physics] or fuzzy rules [@lermerfuzzyrules] to improve generalisation and reduce the amount of training required.
 
 ### Control
 
@@ -190,10 +190,15 @@ A digital twin can be viewed as a form of Model Predictive Control, as it is use
 look at https://www.do-mpc.com/en/latest/theory_mhe.html and also find some papers.
 -->
 
-### 3D Modelling and Simulation
+### 3D Modelling and 3D Simulation
 
-3D models can simulate physical systems, such as Newtonian physics, fluid dynamics, heat transfer, or flow. While some definitions of Digital Twins focus on 3D models as the required "physical representation," digital twins only need the data necessary to represent the key characteristics of the physical system.
+3D models can simulate physical systems, such as Newtonian physics, fluid dynamics, heat transfer, or flow. Some have considered a 3d model to be required in a Digital Twin. While it may be logical to include a 3d model in a mechanical system, the key dynamics of a process system are not visible in the same manner, and so it is not always required [@WALMSLEY2024100139]. Michael Grieves has clarified that digital twins may only need the data necessary to represent the key characteristics of the physical system [@grieves2023digital].
 
+Nonetheless, 3D models may still provide value in some areas of digital twinning. Computational Fluid Dynamics is a very powerful method of modelling fluid flows in 3D. It is compuationally costly, but can be used for a variety of tasks such as identifying suspected leakage positions in a fluid flow, and surrogate models can be made to speed up computation in an online setting [@gbadago2023exploring]. This can then be visualised in 3D. 
+
+Other uses of 3d modelling in chemical digital twins include augmented reality (AR) applications, where plant data from the digital twin can be overlaid onto the physical equipment, limiting the need to manually match between P&ID diagrams and the real items in the factory [@gao2022process].  Some initial work into automatically merging 2d and 3d digital plant information has been performed, by raising the abstraction level of each and matching the structure [@sierla2020integrating]. Another anticipated benifit of 3D modelling and AR is interpretability, as simulation results from the digital twin may be easier to understand and put in context of the real world. 
+
+These applications are not as fundamental as modelling the first-principles thermodynamics of a chemical process. Thus, 3d modelling can be considered not as high priority as thermodynamic modelling when building a digital twhin of a chemical process.
 
 ### Surrogate Modelling
 
@@ -363,3 +368,4 @@ E.g simantics, idaes, modelica, Balas, etc
 | Scilab-XCOS   | Open-source modeling and simulation.                                   |
 
 
+Many digital twin tools that exist are simply repackaging of existing process simulation or control tools that have been on the market for decades. [@gao2022process]
