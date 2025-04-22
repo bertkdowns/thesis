@@ -1,8 +1,8 @@
 
-# You need sudo apt install pandoc pandoc-citeproc texlive-full
+# You need sudo apt install pandoc pandoc-citeproc texlive-full librsvg2-bin
 
 pandoc proposal.md proposal.*.md \
---pdf-engine=context \
+--pdf-engine=xelatex \
 --bibliography=assets/refs.bib \
---toc --toc-depth=1 \
+--toc \
 -o build/proposal.pdf 

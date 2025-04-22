@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745291546936
+updated: 1745294028727
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -369,3 +369,5 @@ E.g simantics, idaes, modelica, Balas, etc
 
 
 Many digital twin tools that exist are simply repackaging of existing process simulation or control tools that have been on the market for decades. [@gao2022process]
+
+
