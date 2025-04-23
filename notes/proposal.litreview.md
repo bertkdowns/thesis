@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745367247765
+updated: 1745377726233
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -203,7 +203,7 @@ Nonetheless, 3D models may still provide value in some areas of digital twinning
 
 Other uses of 3d modelling in chemical digital twins include augmented reality (AR) applications, where plant data from the digital twin can be overlaid onto the physical equipment, limiting the need to manually match between P&ID diagrams and the real items in the factory [@gao2022process].  Some initial work into automatically merging 2d and 3d digital plant information has been performed, by raising the abstraction level of each and matching the structure [@sierla2020integrating]. Another anticipated benifit of 3D modelling and AR is interpretability, as simulation results from the digital twin may be easier to understand and put in context of the real world. 
 
-These applications are not as fundamental as modelling the first-principles thermodynamics of a chemical process. Thus, 3d modelling can be considered not as high priority as thermodynamic modelling when building a digital twhin of a chemical process.
+These applications are not as fundamental as modelling the first-principles thermodynamics of a chemical process. Thus, 3d modelling can be considered not as high priority as thermodynamic modelling when building a digital twin of a chemical process.
 
 ### Control
 
@@ -236,7 +236,12 @@ For example, a Digital Twin could emulate a physical sensor, PLC system, or SCAD
 
 ### Multi-Agent Systems
 
-Digital Twins may be designed to work in multi-agent systems, interacting with other digital twins or acting on behalf of the physical system.
+Broadly, Multi-Agent Systems (MAS) include multiple distinct agents, or independently acting subsystems, that can communicate or interact with each other. A digital twin may be designed as a multi-agent system, i.e the DT is composed of many smaller agents. This can be done using e.g an ontological approach, where each small agent is responsible for gathering and providing a small amount of data for an ontological (semantic) model [@zheng2020quality]. These can be linked and queried together using protocols such as the Web Ontology Framework (OWL) or the Resource Description Framework (RDF) [@sengupta2014web], or all the results can be stored together in a nonstructural database. 
+
+Alternatively, a DT may be designed as an agent in a multi-agent system. In this case, a DT is designed with specific goals and objectives that it needs to fulfil, and it is able to interact with other agents to fulfil its objective [@pretel2022multi]. Multiple Digital Twins could be networked together to interact with each other as agents - this can provide a natural way to manage scalability and complexity [@kalyani]. Finally, a DT may provide the environment for a MAS - multiple agents may use the DT as a knowledge base to fulfil their objectives. Digital Twins could also interact with other agents in a multi agent system on behalf of the physical system, a use case similar to virtualisation.
+
+In manufacturing and industry, the largest use case of Multi-Agent Systems in relation to digital twins is by using multi-agent systems to build a digital twin [@kalyani]. 
+
 
 ## Digital Twin Development Tools in Chemical Engineering
 
