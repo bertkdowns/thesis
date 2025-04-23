@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745388897826
+updated: 1745443775834
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -227,18 +227,28 @@ Nonetheless, software development is an iterative process, and using conventiona
 look at https://www.do-mpc.com/en/latest/theory_mhe.html and also find some papers.
 -->
 
+### Machine Learning
+
+Machine learning techniques provide an alternative to first-principles modelling to predict behaviour in a Digital Twin. They have been sucessfully used as the basis for a variety of digital twin applications in Chemical process engineering, such as to predict properties such as product yeild [@nasruddin2023machine], for control purposes [@min2019machine], or for optimisation [@song2024digital]. Because of the wealth of historical data often avaliable in these industries, machine learning methods are often able to scale to more complex problems than traditional mathematical modelling. The problems of data cleaning and preprocessing, often required as an initial step for machine learning, are also required for digital twins, so it is easy to adapt a machine learning workflow to a Digital Twin context.
+
+Some problems with machine include unbalanced datasets - a factory will generate a lot of data on normal operating conditions, but much less data on unusual operating conditions. Careful design of the machine learning methodology can decrease this issue. Data sampling techniques such as COVERT [@SEVERINSEN20241] aim to mitigate this problem, and physics-informed techniques also improve generalisation in these areas [@raissi2019physics].
 
 
-### Surrogate Modelling
+#### Surrogate Modelling
 
-Surrogate models approximate complex systems to reduce computational costs while maintaining accuracy.
+Another way machine learning is utilized is in surrogate modelling, where a mathematical model is used to generate data that a machine learning model can be trained on. This can be done for a variety of purposes. Surrogate modelling often reduces computational cost if the mathematical model is very complex, by using simpler functions and distilling it down into the most important aspects for the current problem. It also can make solving and optimisation easier, as a mathematical formulation that is not easily differentiable can be represented by a much easier to differentiate function. It can be used as a way to linearly approximate non-linear dynamics. Finally, surrogate models naturally lend themselves to fine tuning on real data, and are more flexible to adapt to nuances in real-world performance than a first-principles mathematical model, capturing behaviour that the mathematical model could not express [@costa2024adaptive].
+
+
+#### Online Learning
+
+In Machine Learning, Online Learning refers to updating a model in real-time as new data comes in, without human input or retraining from scratch. This can encode changes in the state or behavior of the physical system, such as degradation of a battery. Digital Twins are generally understood to adapt or evolve alongside their physical counterpart as the physical twin changes, and online learning provides a good way to enable this[@rebellodigital]. A common workflow to build a Digital Twin using online learning is to generate a surrogate model using synthetic data from a mathematical model, then use online learning to update the model when real-world performance deviates from what the surrogate predicted [@costa2024adaptive].
+
+
+#### Machine Learning for Dynamic Systems
+
+Dynamic Systems pose additional problems for machine learning methods, as rather than learning outputs at a single point, results across the time domain must be modelled.
 
 Operator networks are used to model and simulate complex systems with high efficiency.
-
-### Online Learning
-
-In Machine Learning, Online Learning refers to updating a model in real-time as new data comes in, without human input or retraining from scratch. This can encode changes in the state or behavior of the physical system, such as degradation of a battery.
-
 
 ### Virtualisation / Emulation
 
