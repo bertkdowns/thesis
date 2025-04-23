@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745377726233
+updated: 1745384853412
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -207,7 +207,20 @@ These applications are not as fundamental as modelling the first-principles ther
 
 ### Control
 
-A digital twin can be viewed as a form of Model Predictive Control, as it is used to control the physical system by simulating the effects of different controlling actions and choosing the best action to apply.
+Control theory is a well-established discipline. The simplest form of control is open-loop control, where actions are sent to a system and no feedback is recieved of the system response.
+However, closed loop control, also known as feedback control, is used for virtually all non-trivial systems. This process involves adjusting controlling signals based on changes in a desired setpoint. The model to adjust controlling signals based on feedback can be arbitrarily complex. 
+In the real world, the most common control algorithm in process systems is Porportional-Integral-Derivative (PID) control, where the strength of the controlling action is determined based on the deviation from the setpoint, the integral of the deviation, and the rate of change of the deviation. 
+This is a simple and effective method of control, but it can be difficult to tune for complex systems, and sometimes unstable [@svrcek2014real].
+
+More complex methods of control include fuzzy logic control, statistical process control, artificial intelligence methods, and model-based control, including model predictive control [@kano2010state]. Control systems often work at multiple levels, with simpler control systems handling individual parts of a process, and supervisory control systems used to control setpoints and parameters of the simpler control systems, based on higher level objectives [@mesarovic1970multilevel].
+
+If a Digital Twin is to accurately model the response of a system, it also needs to model the control system present in the system. This is often possible with modelling software for simple control methods [@burgard2023multi]. If the control system is a piece of software, it may be possible to duplicate the controller model into the digital twin so that the control systems are identical. This allows to accurately model the behavior of the physical system, which is important for accurate prediction [@he2021digital]. 
+
+Control systems are similar to Digital Twins, because they also have bi-directional data communication, recieving data from a physical system and responding with corrective actions.
+A digital twin can be viewed as a form of Model Predictive Control, as it is used to control the physical system by simulating the effects of different controlling actions and choosing the best action to apply. For example, a DT can model a process and a control system, and calculate the appropriate parameters for the control system to perform optimally. This is also an example of multi-level control.
+
+Because Digital Twins and Control systems are so closely linked, control systems can be used as a model of how to understand, interpret, and interact with a digital twin. The lines often blur between the two, and many digital twin tools that exist are simply repackaging of existing process simulation or control tools that have been on the market for decades[@gao2022process]. Nonetheless, software development is an iterative process, using conventional control systems does provide a good architecture to begin designing advanced digital twin techniques.
+
 
 <!---
 look at https://www.do-mpc.com/en/latest/theory_mhe.html and also find some papers.
@@ -241,6 +254,7 @@ Broadly, Multi-Agent Systems (MAS) include multiple distinct agents, or independ
 Alternatively, a DT may be designed as an agent in a multi-agent system. In this case, a DT is designed with specific goals and objectives that it needs to fulfil, and it is able to interact with other agents to fulfil its objective [@pretel2022multi]. Multiple Digital Twins could be networked together to interact with each other as agents - this can provide a natural way to manage scalability and complexity [@kalyani]. Finally, a DT may provide the environment for a MAS - multiple agents may use the DT as a knowledge base to fulfil their objectives. Digital Twins could also interact with other agents in a multi agent system on behalf of the physical system, a use case similar to virtualisation.
 
 In manufacturing and industry, the largest use case of Multi-Agent Systems in relation to digital twins is by using multi-agent systems to build a digital twin [@kalyani]. 
+Further research is required into how other methods of using multi-agent systems could be used in Digital Twins for Chemical and Process engineering.
 
 
 ## Digital Twin Development Tools in Chemical Engineering
@@ -378,6 +392,5 @@ E.g simantics, idaes, modelica, Balas, etc
 | Scilab-XCOS   | Open-source modeling and simulation.                                   |
 
 
-Many digital twin tools that exist are simply repackaging of existing process simulation or control tools that have been on the market for decades. [@gao2022process]
 
 
