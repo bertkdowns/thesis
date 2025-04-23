@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745384853412
+updated: 1745388351165
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -257,12 +257,21 @@ In manufacturing and industry, the largest use case of Multi-Agent Systems in re
 Further research is required into how other methods of using multi-agent systems could be used in Digital Twins for Chemical and Process engineering.
 
 
-## Digital Twin Development Tools in Chemical Engineering
+## Standardisation Efforts for Digital Tools in Process Engineering
 
-### Standardisation Efforts
+This section reviews some of the major standards and tools used in describing chemical processes. This provides an overview into the practical usage of the aforementioned adjacent technologies that could be useful in building a Digital Twin, and discusses how the tools and methodology that are currently used could be adjusted or generalised for digital twins.
 
+Standard tools mean that there is a standard methodology for the task the tool accomplishes. In theory, a Digital Twin based on a combination of standard tools will already have much of the fundamentals implemented. It would also have a lower barrier to entry, as the industry will already be using those parts of the system. 
 
-#### Standards for Describing Structure
+To aid discussion, the standardisation efforts have been broken down into three parts:
+
+- *Standards for describing structure:* These are standards for describing the structure of a chemical process, such as the layout of a plant, or the relationships between different components. This includes both 3D models and 2D diagrams.
+- *Standards for modelling behaviour:* These are standards for describing the behaviour of a chemical process, such as the thermodynamics of a chemical reaction, or the dynamics of a reactor. This includes both first-principles and data-driven modelling.
+- *Standards for communication:* These are standards for facilitating communication between different systems and components in a chemical process, ensuring interoperability and data exchange.
+
+A Digital Twin system is likely going to need to build on top of standards in each of these areas.
+
+### Standards for Describing Structure
 
 | Standard | Type | Tools |
 | --- | ---- | --- |
@@ -281,7 +290,7 @@ A DT that is able to read or communicate via these formats will have increased i
 
 
 
-#### Standards for Modelling Behaviour
+### Standards for Modelling Behaviour
 
 | Standard | Type | Tools |
 | --- | ---- | --- |
@@ -323,7 +332,7 @@ Design/Operation
 -->
 
 
-#### Standards for Communication
+### Standards for Communication
 
 | Standard | Type | Tools |
 | --- | ---- | --- |
