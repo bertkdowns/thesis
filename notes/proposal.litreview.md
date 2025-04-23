@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745388351165
+updated: 1745388897826
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -139,7 +139,7 @@ This data is used for a number of purposes. Tools such as a Distributed Control 
 
 Digital Twins aim to augment these data sources by combining multiple together, using techniques such as machine learning, mathematical modelling, and sensor fusion, each of which will be discussed subsequently. 
 
-### Sensor/Data Fusion
+### Sensor Fusion
 
 Sensor fusion combines data from multiple sensors to produce a more accurate representation of the system. This can reduce noise in the data or provide more information than any single sensor can provide. For example, virtual reality headsets use multiple cameras, accelerometers, and gyroscopes to track the user's head position and orientation.
 
@@ -219,7 +219,8 @@ If a Digital Twin is to accurately model the response of a system, it also needs
 Control systems are similar to Digital Twins, because they also have bi-directional data communication, recieving data from a physical system and responding with corrective actions.
 A digital twin can be viewed as a form of Model Predictive Control, as it is used to control the physical system by simulating the effects of different controlling actions and choosing the best action to apply. For example, a DT can model a process and a control system, and calculate the appropriate parameters for the control system to perform optimally. This is also an example of multi-level control.
 
-Because Digital Twins and Control systems are so closely linked, control systems can be used as a model of how to understand, interpret, and interact with a digital twin. The lines often blur between the two, and many digital twin tools that exist are simply repackaging of existing process simulation or control tools that have been on the market for decades[@gao2022process]. Nonetheless, software development is an iterative process, using conventional control systems does provide a good architecture to begin designing advanced digital twin techniques.
+Because Digital Twins and Control systems are so closely linked, control systems can be used as a model of how to understand, interpret, and interact with a digital twin. The lines often blur between the two, and many digital twin tools that exist are simply repackaging of existing process simulation or control tools that have been on the market for decades[@gao2022process]. 
+Nonetheless, software development is an iterative process, and using conventional control systems does provide a good architecture to begin designing advanced digital twin techniques.
 
 
 <!---
@@ -341,8 +342,7 @@ Design/Operation
 
 <!--
 Type can include:
-Data Collection
-Control
+Data CollectionSensor/D
 Data History
 Commercial/Open Source
 We could break this down into:
