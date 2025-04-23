@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745294028727
+updated: 1745367247765
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -127,6 +127,37 @@ There are a number of ongoing areas of research mentioned or adjacent to the too
 
 In most cases, Digital Twin systems are real-time and thus require data to be collected from the physical system. Additionally, storing and using historical data can be useful for learning interactions within the system and its environment, which can be used to improve the Digital Twin model's ability to simulate and predict responses.
 
+Udugama et al. break down the collection of data from process operations into the following sections [@udugama2020role]:
+
+- *Process Data*, from on-site sensors, PLC control systems, IoT sensors, and SCADA systems. This can include startup/shutdown data, process control status, and physical attributes including temperatures, valve positions, vibration, or composition. This data can be collected in real time and automatically processed and stored.
+- *ERP Databases*, a "digital logbook" of what has been processed in the past, what raw materials and inputs were used,etc. This can be used to identify stable operating conditions, and can be collected in real time.
+- *Engineering Data* refers to historical design documents, and changes in the plant layout over time. Updating engineering data is a more manual process - it is not collected in real-time. A DT model could be considered a type of engineering data, or other engineering data could be used as source documents to build a DT model.
+- *Manual Logs* include historical data manually recorded and not avaliable digitally. These could potentially be replaced by a digital twin of sufficient fidelity. 
+- *Quality Logs* include samples that are taken offsite and analysed, outside of normal operations. These are more complex to integrate with a digital twin, but may be used to fine-tune performance to target a specific quality.
+
+This data is used for a number of purposes. Tools such as a Distributed Control System (DCS) use real-time data for control and understanding of past performance. This requires well structured data such as process data, and often limits data collection to what is required for a specific task. Data warehouses are used to store less structured data, but aim to be more comprehensive so any required data can be found to support future decisions [@balasko2007happens].  
+
+Digital Twins aim to augment these data sources by combining multiple together, using techniques such as machine learning, mathematical modelling, and sensor fusion, each of which will be discussed subsequently. 
+
+### Sensor/Data Fusion
+
+Sensor fusion combines data from multiple sensors to produce a more accurate representation of the system. This can reduce noise in the data or provide more information than any single sensor can provide. For example, virtual reality headsets use multiple cameras, accelerometers, and gyroscopes to track the user's head position and orientation.
+
+In a Digital Twin, sensor fusion can be viewed as a means to get accurate data from a process to give to the DT Model. The process measurements avaliable from the sensors may not match the input expected from a design-time model: sensor fusion can be the bridge between the two. Alternatively, the DT itself can be viewed as an advanced form of sensor fusion. Thus the architecture of the two technologies may be similar.
+
+A simple example of sensor fusion is the Kalman filter, which combines past measurement and prediction data to get a more accurate value than either alone. It can be designed to adapt to the variance in the data, and with some adjustment can handle non-linearities quite well too [@welch1995introduction]. The kalman filter resembles a predictor-corrector algorithm, which is quite similar to the way a digital twin would be used.
+
+![Kalman filter predictor-corrector cycle, alternating between predicting the current state ahead in time, and updating the estimate by a measurement at the next time step. Reproduced from [@welch1995introduction]](assets/predictor_corrector.drawio.svg)
+
+Kalman filters provide a powerful example of how to update predictions based on new data, and has been used for sensor fusion in chemical processes. However sensor fusion usually involves incorporating data from distinct sensors. Lines et al. [@lines2020sensor] used multiple forms of optical spectroscopy to better estimate chemical composition of spent nuclear fuel; this was used to control the process to a set composition ratio. The model uses to estimate composition was based on partial least squares, trained on known samples. Partial least squares protects against overfitting, which is important with techniques such as spectroscopy that generate a lot of data. 
+
+These techniques can be combined with adaptive technologies such as the kalman filter to avoid degradation in online operation due to fouling and changes in process conditions [@chen2015soft]. Another common technique for adaptive sensor fusion involes using mean and variance update methodology [@wang2019monitoring], where the mean and variance is updated incrementially.
+
+Other methods for sensor fusion include bayesian analysis, and their more generalised form, Theory of Evidence models such as Dempster-Shafer theory[@alam2017data]. These have been used in a similar way to the kalman filter, working to minimise the error or find the most likely course of events based on weighted probablilities. This has been used to fuse field measurements with simulation data [@renganathan2020aerodynamic] to decrease both bias and variance compared to either source alone.
+
+Artificial intelligence methods can also be used for sensor fusion, but they rely on good data and can sometimes suffer at the extreme ranges of operation where there is less data. One promising technique is the concept of grounding AI methods in physics, through physics informed neural networks [@raissi2019physics] or fuzzy rules [@lermerfuzzyrules] to improve generalisation and reduce the amount of training required.
+
+
 ### Mathematical Modelling
 
 This involves using some kind of mathematical or algebraic formula to represent the interactions within the system or between the system and its environment. For example, thermodynamic equations can model the behavior of a chemical reactor. Mathematical models can enrich the data collected from the physical system by calculating properties that may not be directly measurable.
@@ -164,32 +195,6 @@ Either AMLs or Numerical Computing methods could be used to model physical behav
 The most relevant use case for Process Digital Twins is Model Predictive Control, which will be discussed further in depth.
 
 
-### Sensor/Data Fusion
-
-Sensor fusion combines data from multiple sensors to produce a more accurate representation of the system. This can reduce noise in the data or provide more information than any single sensor can provide. For example, virtual reality headsets use multiple cameras, accelerometers, and gyroscopes to track the user's head position and orientation.
-
-In a Digital Twin, sensor fusion can be viewed as a means to get accurate data from a process to give to the DT Model. The process measurements avaliable from the sensors may not match the input expected from a design-time model: sensor fusion can be the bridge between the two. Alternatively, the DT itself can be viewed as an advanced form of sensor fusion. Thus the architecture of the two technologies may be similar.
-
-A simple example of sensor fusion is the Kalman filter, which combines past measurement and prediction data to get a more accurate value than either alone. It can be designed to adapt to the variance in the data, and with some adjustment can handle non-linearities quite well too [@welch1995introduction]. The kalman filter resembles a predictor-corrector algorithm, which is quite similar to the way a digital twin would be used.
-
-![Kalman filter predictor-corrector cycle, alternating between predicting the current state ahead in time, and updating the estimate by a measurement at the next time step. Reproduced from [@welch1995introduction]](assets/predictor_corrector.drawio.svg)
-
-Kalman filters provide a powerful example of how to update predictions based on new data, and has been used for sensor fusion in chemical processes. However sensor fusion usually involves incorporating data from distinct sensors. Lines et al. [@lines2020sensor] used multiple forms of optical spectroscopy to better estimate chemical composition of spent nuclear fuel; this was used to control the process to a set composition ratio. The model uses to estimate composition was based on partial least squares, trained on known samples. Partial least squares protects against overfitting, which is important with techniques such as spectroscopy that generate a lot of data. 
-
-These techniques can be combined with adaptive technologies such as the kalman filter to avoid degradation in online operation due to fouling and changes in process conditions [@chen2015soft]. Another common technique for adaptive sensor fusion involes using mean and variance update methodology [@wang2019monitoring], where the mean and variance is updated incrementially.
-
-Other methods for sensor fusion include bayesian analysis, and their more generalised form, Theory of Evidence models such as Dempster-Shafer theory[@alam2017data]. These have been used in a similar way to the kalman filter, working to minimise the error or find the most likely course of events based on weighted probablilities. This has been used to fuse field measurements with simulation data [@renganathan2020aerodynamic] to decrease both bias and variance compared to either source alone.
-
-Artificial intelligence methods can also be used for sensor fusion, but they rely on good data and can sometimes suffer at the extreme ranges of operation where there is less data. One promising technique is the concept of grounding AI methods in physics, through physics informed neural networks [@raissi2019physics] or fuzzy rules [@lermerfuzzyrules] to improve generalisation and reduce the amount of training required.
-
-### Control
-
-A digital twin can be viewed as a form of Model Predictive Control, as it is used to control the physical system by simulating the effects of different controlling actions and choosing the best action to apply.
-
-<!---
-look at https://www.do-mpc.com/en/latest/theory_mhe.html and also find some papers.
--->
-
 ### 3D Modelling and 3D Simulation
 
 3D models can simulate physical systems, such as Newtonian physics, fluid dynamics, heat transfer, or flow. Some have considered a 3d model to be required in a Digital Twin. While it may be logical to include a 3d model in a mechanical system, the key dynamics of a process system are not visible in the same manner, and so it is not always required [@WALMSLEY2024100139]. Michael Grieves has clarified that digital twins may only need the data necessary to represent the key characteristics of the physical system [@grieves2023digital].
@@ -199,6 +204,16 @@ Nonetheless, 3D models may still provide value in some areas of digital twinning
 Other uses of 3d modelling in chemical digital twins include augmented reality (AR) applications, where plant data from the digital twin can be overlaid onto the physical equipment, limiting the need to manually match between P&ID diagrams and the real items in the factory [@gao2022process].  Some initial work into automatically merging 2d and 3d digital plant information has been performed, by raising the abstraction level of each and matching the structure [@sierla2020integrating]. Another anticipated benifit of 3D modelling and AR is interpretability, as simulation results from the digital twin may be easier to understand and put in context of the real world. 
 
 These applications are not as fundamental as modelling the first-principles thermodynamics of a chemical process. Thus, 3d modelling can be considered not as high priority as thermodynamic modelling when building a digital twhin of a chemical process.
+
+### Control
+
+A digital twin can be viewed as a form of Model Predictive Control, as it is used to control the physical system by simulating the effects of different controlling actions and choosing the best action to apply.
+
+<!---
+look at https://www.do-mpc.com/en/latest/theory_mhe.html and also find some papers.
+-->
+
+
 
 ### Surrogate Modelling
 
@@ -210,9 +225,6 @@ Operator networks are used to model and simulate complex systems with high effic
 
 In Machine Learning, Online Learning refers to updating a model in real-time as new data comes in, without human input or retraining from scratch. This can encode changes in the state or behavior of the physical system, such as degradation of a battery.
 
-### Multi-Agent Systems
-
-Digital Twins may be designed to work in multi-agent systems, interacting with other digital twins or acting on behalf of the physical system.
 
 ### Virtualisation / Emulation
 
@@ -222,7 +234,9 @@ Virtualised systems may not have a single, identifiable real-world counterpart i
 
 For example, a Digital Twin could emulate a physical sensor, PLC system, or SCADA system, sending data to the same visualisation and control tools that the factory uses to monitor the physical system . This would enable operators to view the simulations' response to changes in the same way as they would view the real process's responses [@sixlayer_redelinghuys_2020], and would enable the digital twin to communicate with outside systems through already-standard protocols.
 
+### Multi-Agent Systems
 
+Digital Twins may be designed to work in multi-agent systems, interacting with other digital twins or acting on behalf of the physical system.
 
 ## Digital Twin Development Tools in Chemical Engineering
 
@@ -303,15 +317,6 @@ Data Collection
 Control
 Data History
 Commercial/Open Source
-Process/Unit Operation/Site/Energy
-Scheduling/Thermodynamic
-Design/Operation
--->
-
-
-
-
-<!---
 We could break this down into:
 
 
