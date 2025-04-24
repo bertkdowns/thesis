@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
 desc: 'Literature Review & Project Proposal'
-updated: 1744586514483
+updated: 1745462908820
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -40,7 +40,7 @@ This project aims to answer the following research questions:
 *How do Digital Twins evolve traditional modelling and control systems in the Chemical and Process sector?* This involves understanding how existing frameworks such as DEXPI, Modelica, or OPC-UA can be augmented or replaced by Digital Twin systems. 
 
 
-*How do emerging Machine Learning techniques affect the cost and complexity of developing Digital Twins for legacy industrial systems?* Data-driven techniques have been rigourously analysed for effectiveness in modelling and generalisation. There is less research into how they are systematically built and deployed. This involves understanding how ML training and usage could be standardised to work in Process Digital Twins. 
+*How do emerging Machine Learning techniques affect the cost and complexity of developing Digital Twins for legacy industrial systems?* Data-driven techniques have been rigourously analysed for effectiveness in modelling and generalisation. There is less research into how they are systematically built and deployed, particularly with regard to dynamic systems. This involves understanding how ML training and usage could be standardised to work in Process Digital Twins. 
 
 
 ## Methodology

@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745462789661
+updated: 1745469670456
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -291,8 +291,7 @@ A Digital Twin system is likely going to need to build on top of standards in ea
 | Digital Twins Definition Language (DTDL) [@azure_dtdl]  | IoT, NGSI-LD , Data Aggregation     |  Azure Digital Twins [@nath2021building]   |
 | Smart Data Models (SDM) [@smart_data_models] [@fiware_digital_twins] | IoT, NGSI-LD, Manufacturing, Data Aggregation, Smart Cities| FIWAREBox [@fiwarebox], Sara [@sara_purpleblob] |
 | JSON-LD, RDF, OWL, SHACL|  | IndustryFusion Digital Twin [@industryfusion_digitaltwin] |
-|  DEXPI [@dexpi_summary]  | P&ID, 2D, XML, ISO 15926 | Autodesk, Aveva,
-Bentley,  Intergraph, Siemens , Cadmatic [@cadmatic_dexpi], Simantics Apros 6, Balas [@simantics_dexpi]|
+|  DEXPI [@dexpi_summary]  | P&ID, 2D, XML, ISO 15926 | Autodesk, Aveva, Bentley,  Intergraph, Siemens , Cadmatic [@cadmatic_dexpi], Simantics Apros 6, Balas [@simantics_dexpi]|
 
 
 DTDL, SDM, and DEXPI are all related to the Resource Description Framework (RDF) format, a method of describing the structure of and exchanging graph data [@candan2001resource]. ISO 15926 standardised an ontology for describing different resources in the process industry, including unit operations and equipment characteristics, both across space and time [@15926].
@@ -347,10 +346,18 @@ Design/Operation
 
 ### Standards for Communication
 
-| Standard | Type | Tools |
-| --- | ---- | --- |
-| OPC UA    |      |     |
+| Standard | Type |
+| --- | ---- |
+| OPC UA    | Industrial Automation, Data Communication, Real-time and Historical Data Access |
+| Modbus    | Industrial Communication Protocol, PLC Communication, Serial and TCP/IP |
+| Ethernet/IP | Industrial Ethernet Protocol, Real-time Control, Device Communication |
+| Foundation Fieldbus | Process Automation, Distributed Control Systems (DCS), Field Device Communication |
+| HART      | Process Instrumentation, Smart Device Communication, Analog and Digital Signals |
+| MQTT      | IoT, Lightweight Messaging Protocol, Publish-Subscribe Model |
+| REST/HTTP API | Web Services, Data Exchange, Cloud Integration |
 
+
+Tools such as Modbus and HART are low level
 
 <!--
 Type can include:
@@ -385,33 +392,7 @@ E.g simantics, idaes, modelica, Balas, etc
 
 [@kugler2021method]
 
-### Equation-Oriented Modelling Tools
-
-| Tool                  | Features                                                      |
-| --------------------- | ------------------------------------------------------------- |
-| Modelica              | Extensive libraries, integration with platforms like Modelon. |
-| Julia ModelingToolkit | Modern, good integration with solvers.                        |
-| Python Pyomo          | Flexible, supports various modeling and optimization tasks.   |
-
-
-[@applications_singh_2022]
-
-
-### Digital Twin Platforms
-
-| Platform      | Features                                                                 |
-|---------------|-------------------------------------------------------------------------|
-| Modelon       | Integration with Modelica.                                             |
-| Collimator    | Built on Python and JAX.                                               |
-| JuliaSim      | Advanced simulation capabilities.                                      |
-| SimScape      | MATLAB-based simulation environment.                                   |
-| AspenTech     | Industry-specific solutions.                                           |
-| Honeywell     | Industrial automation and control.                                     |
-| Siemens       | Comprehensive digital twin solutions.                                  |
-| AVEVA         | Focused on process and engineering industries.                         |
-| Aspen Hysys   | Process simulation and optimization.                                   |
-| Scilab-XCOS   | Open-source modeling and simulation.                                   |
 
 
 
-
+## Conclusion
