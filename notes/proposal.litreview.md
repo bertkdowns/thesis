@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745443775834
+updated: 1745462789661
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -219,7 +219,7 @@ If a Digital Twin is to accurately model the response of a system, it also needs
 Control systems are similar to Digital Twins, because they also have bi-directional data communication, recieving data from a physical system and responding with corrective actions.
 A digital twin can be viewed as a form of Model Predictive Control, as it is used to control the physical system by simulating the effects of different controlling actions and choosing the best action to apply. For example, a DT can model a process and a control system, and calculate the appropriate parameters for the control system to perform optimally. This is also an example of multi-level control.
 
-Because Digital Twins and Control systems are so closely linked, control systems can be used as a model of how to understand, interpret, and interact with a digital twin. The lines often blur between the two, and many digital twin tools that exist are simply repackaging of existing process simulation or control tools that have been on the market for decades[@gao2022process]. 
+Because Digital Twins and Control systems are so closely linked, control systems can be used as a model of how to understand, interpret, and interact with a digital twin. The lines often blur between the two, and many digital twin tools that exist are simply repackaging of existing process simulation or control tools that have been on the market for decades [@gao2022process]. 
 Nonetheless, software development is an iterative process, and using conventional control systems does provide a good architecture to begin designing advanced digital twin techniques.
 
 
@@ -241,14 +241,16 @@ Another way machine learning is utilized is in surrogate modelling, where a math
 
 #### Online Learning
 
-In Machine Learning, Online Learning refers to updating a model in real-time as new data comes in, without human input or retraining from scratch. This can encode changes in the state or behavior of the physical system, such as degradation of a battery. Digital Twins are generally understood to adapt or evolve alongside their physical counterpart as the physical twin changes, and online learning provides a good way to enable this[@rebellodigital]. A common workflow to build a Digital Twin using online learning is to generate a surrogate model using synthetic data from a mathematical model, then use online learning to update the model when real-world performance deviates from what the surrogate predicted [@costa2024adaptive].
+In Machine Learning, Online Learning refers to updating a model in real-time as new data comes in, without human input or retraining from scratch. This can encode changes in the state or behavior of the physical system, such as degradation of a battery. Digital Twins are generally understood to adapt or evolve alongside their physical counterpart as the physical twin changes, and online learning provides a good way to enable this [@rebellodigital]. A common workflow to build a Digital Twin using online learning is to generate a surrogate model using synthetic data from a mathematical model, then use online learning to update the model when real-world performance deviates from what the surrogate predicted [@costa2024adaptive].
 
 
 #### Machine Learning for Dynamic Systems
 
-Dynamic Systems pose additional problems for machine learning methods, as rather than learning outputs at a single point, results across the time domain must be modelled.
+Dynamic Systems pose additional problems for machine learning methods, as rather than learning outputs at a single point, results across the time domain must be modelled. Being able to model dynamic behaviour is an important predictive behavior of a digital twin [@grieves2023digital], and it enables other technologies such as Model Predictive Control. 
 
-Operator networks are used to model and simulate complex systems with high efficiency.
+If mathematical models of the systems dynamic response, e.g transfer funtions, are avaliable, then parameter estimation techniques can be used. This has been shown to be effective in process digital twins [@costa2024adaptive]. Bayesian uncertainty modelling can be used to formulate an optimisation problem to maximise the likelihood of the result. There are packages such as IDAES's parmest that can automate this process [@KLISE201941].
+
+If mathematical models of the dynamics are not avaliable, there is a growing body of research into modelling function dynamics. These include neural ODEs and ResNets [@zhang2020approximation], neural implicit flow [@nasim2024usingneuralimplicitflow], and Deep Operator Networks [@lu2021learning]. These are all based on the universal approximation theorem of operators, which is a generalisation of the universal function approximation theorem for standard machine learning techniques. In other words, while normal machine learning techniques approximate a function transforming data to data, operator networks approximate an operator transforming an input function to an output function. This enables modelling the solution to a partial differential equation or other dynamic system. They are often faster than solving a complex system of equations, so they can be effectively used as surrogate models [@kobayashi2024deep]. However, these techniques are still relatively new, and little has been done to apply them to Digital twins, A recent paper discussed using them for digital twins of nuclear energy systems, but further work is required to overcome the limitations with current operator network architectures and evaluate performance [@kobayashi2024deep].
 
 ### Virtualisation / Emulation
 
