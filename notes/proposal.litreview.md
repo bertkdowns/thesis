@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745469670456
+updated: 1745797979625
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -24,7 +24,7 @@ The term "Digital Twin" is used in a variety of industries. In construction and 
 
 The broadest definition of a Digital Twin is *a set of digital data that mirrors a physical object or system.* Different authors have interpreted this differently, and the usage of the word differs across industries. Michael Grieves categorized Digital Twin Development in phases, where the simplest forms of Digital Twins only modeled the form of a product, and more advanced DT systems modelled behaviour, could integrate with other systems, and could use the data to make predictions and act autonomously [@grieves2023digital]. In other literature, it is strongly associated with the concept of bi-directional communication between a physical and virtual model [@agrawaldtconcepttopractice][@KRITZINGER20181016]. 
 
-![Digital Twin System Classifications (See also [@WALMSLEY2024100139], [@energy_yu_2022] and [@applications_singh_2022] )](assets/dt_focus.drawio.svg)
+![Digital Twin System Classifications (See also [@WALMSLEY2024100139], [@energy_yu_2022] and [@applications_singh_2022] )](assets/dt_focus.drawio.png)
 
 
 
@@ -100,6 +100,10 @@ Martinez et al. discuss tracking systems [@martinez_tracking_simulation], which 
 Adjusting a model to minimise the difference between model results and physical plant results would be a common requirement of DT sytems.
 These techniques could systematized to reduce the cost of developing a DT model. 
 
+
+### General-purpose High Level Control
+
+Bellini et al. [@bellini_high_level_2022] discussed a platform Snap4Industry that utilise OPC-UA, IoT technologies, and the Node-RED event driven architecture to create a more general purpose way of visualising and controlling industrial processes. This includes frontend tools to create displays and dashboards, store historical data, and send commands to the control network. It is posited as a method of higher level control across multiple SCADA systems.
 
 <!--
 ### Thermal Incubator
@@ -357,42 +361,10 @@ Design/Operation
 | REST/HTTP API | Web Services, Data Exchange, Cloud Integration |
 
 
-Tools such as Modbus and HART are low level
+Modbus [@thomas2008introduction], Foundation Fieldbus [@vincent2001foundation] and HART [@hartprotocolgajera2024] are examples of low level communication protocols, designed for the interface between field devices and control systems such as PLCs.  These can vary widely depending on the equipment used in the factory. They are likely too low level for a general-purpose digital twin solution, as most of the DT case studies discuss a DT operating on a scale similar to a SCADA system, or broader. However, they may provide a way for a DT to communicate back to a PLC - a DT could use virtualisation techniques to emulate a hardware device and create a "soft sensor", similar to what is discussed with sensor fusion. These protocols could also be used to emulate the entire sensor network, to simulate the response of the PLC and scada system in various conditions.
 
-<!--
-Type can include:
-Data CollectionSensor/D
-Data History
-Commercial/Open Source
-We could break this down into:
+OPC-UA [@opc_ua_technologies] and Ethernet/IP [@lin2013inside] both are generally applied higher up, in SCADA systems at the supervisory level. They are more able to scale up to larger systems with many devices, across multiple networks. They provide a more general framework for accessing data from a variety of sources, and giving controlling signals to PLCs, and are used in the digital twin case studies previously discussed. These protocols will be the main interface with a DT system. It should also be noted that OPC also includes a standard to access historical data, which would be of use to Digital Twin Systems [@bochenek2011opc]
 
+![Hierarchy of communication standards in an industrial system](assets/communication_standards_hierarchy.drawio.svg)
 
-Standards and Protocols
-For describing behaviour
-For describing Process interconnection, layout, etc
-For Communication with a physical system  (data collection)
-For control
-E.g Modelica spec, DEXPI, Chemical Markup Language, TMML, IDEAS library
-FMI, OPC UA, ISO 15926, CAPE-OPEN
-
-Look at the bottom part of:
-https://chatgpt.com/share/67eb2789-a450-8005-a003-1c80dabe2a58
-
-
-
-Modelling  & Simulation tools
-- Equation oriented modelling tools?
-- DT Platforms?
-E.g simantics, idaes, modelica, Balas, etc
-
--->
-
-
-[@duan2020development]
-
-[@kugler2021method]
-
-
-
-
-## Conclusion
+On the highest level of abstraction are more general-purpose technologies such as MQTT and HTTP APIs. MQTT is rising in popularity with the introduction of industry 4.0, particularly because it enables more general purpose databases for backup and historical retrieval. It also enables general purpose visualisation technologies to be used seamlessly in industrial settings [@RIEDEL2022601]. Likewise, techonologies such as REST APIs and Websockets are used to enable other high-level dashboards and enterprise visibility [@bellini_high_level_2022]. They could also be used for getting specific use-case related views of the entire system, as discussed by Kulger et al. [@kugler2021method]. A DT could also provide similar APIs, to enable other tools to be easily built using it.

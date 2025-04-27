@@ -1,8 +1,17 @@
 
-# You need sudo apt install pandoc pandoc-citeproc texlive-full librsvg2-bin
+# You need sudo apt install pandoc pandoc-citeproc texlive-full librsvg2-bin pdftk
 
 pandoc proposal.md proposal.*.md \
 --pdf-engine=xelatex \
 --bibliography=assets/refs.bib \
 --toc \
 -o build/proposal.pdf 
+
+
+# There's a bug in drawio diagrams where the text doesn't wrap correctly.
+# However, I'm handling it manually in the diagrams.
+# So the workaround is to remove the error message from the PDF.
+pdftk build/proposal.pdf output build/proposal_uncompressed.pdf uncompress
+sed -i -e 's/T)70(ext is not SVG - cannot display//g' build/proposal_uncompressed.pdf
+pdftk build/proposal_uncompressed.pdf output build/proposal.pdf compress
+rm build/proposal_uncompressed.pdf
