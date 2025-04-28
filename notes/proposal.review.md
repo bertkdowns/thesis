@@ -2,17 +2,17 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745797979625
+updated: 1745800464035
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
 # Literature Review
 
-This literature review analyses the most relevant literature on the development methodology used to build Digital Twins for chemical industries.
+This literature review analyses the most relevant literature on the development methodology used to build Digital Twins for chemical industries. First, the concept of a Digital Twin is more formally introduced. 
+Then, the design process of a number of Digital Twin Systems is compared to show the common elements and challenges in building a digital twin system. This provides a foundation for the use case of a DT development system. 
 
-The design process of a number of Digital Twin Systems is compared to show the common elements and challenges in building a digital twin system.
+Digital Twins are complex systems, and are built on a variety of technologies. The majority of the Literature review discusses the technologies used in the various case studies, and how they could be more broadly applied in building DTs. To ensure that the framework for building DT systems is able to work well with real-world tools, existing standards for Digital Tools are discussed. These are evaluated based on how useful they are to DT systems.
 
-Then, some existing and emerging technologies are reviewed that may be helpful in creating a process for building digital twins.
 
 ## An Overview of Digital Twins
 

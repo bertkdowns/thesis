@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
 desc: 'Literature Review & Project Proposal'
-updated: 1745462908820
+updated: 1745799985579
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -81,13 +81,6 @@ Potential characteristics avaliable in phd.potential_characteristics.md
 ![Estimated PhD Timeline](assets/timeline.drawio.svg)
 
 
-### Research Plan
-
-<!---
-Research plan
-A Gantt chart or milestones (e.g. months 6–12: prototype; 12–18: case study).
-Break it down to show progress made and what’s coming.
--->
 
 The initial part of the PhD has involved research and development of the core steady-state functionality required for the Ahuora Digital Twin platform to become usable in industry. This included the March 2025 Ahuora day, where the Ahuora Digital Twin Platform was released to industry in a beta phase, an a training day was conducted. Since then, the platform has been expanded with additional functionality for dynamic modelling, which will pave the way for the Ahuora Digital Twin Platform to be used for prediction and supervisory control.
 
@@ -95,15 +88,6 @@ Through discussions from the Ahuora Platform day, and Project Ahuora's other ind
 
 Development of the ADTP and implementation in case studies will be conducted simultaneously, following the principles of iterative design [@beck2001manifesto]. Notes and discussions on requirements changes and development will become the primary resource used for a qualitative discussion on the benefits and drawbacks of the Ahuora Digital Twin Platform from a systems design perspective. The case studies themselves can be analysed to provide a standardised model for a Digital Twin, as well as a standardised methodology to build a Digital Twin via the Ahuora Digital Twin Platform.
 
-
-
-
-
-### Current Progress
-<!---
-What you've done: experiments, models, code, papers, reviews, etc.
-Can include early results or pilot studies.
--->
 
 ## Expected Contributions
 
@@ -141,6 +125,12 @@ There could be technological concerns with the use of the Ahuora Digital Twin pl
 Depending on the case study, confidentiality may be required with regard to company data. This will be handled in accordance with the University policy's procedures and guidelines. Likewise, any ethical issues will be dealt with in accordance with University policy. 
 
 
+## Current Progress
+<!---
+What you've done: experiments, models, code, papers, reviews, etc.
+Can include early results or pilot studies.
+-->
 
+A literature review has been conducted 
 
-# Conclusion
+\newpage
