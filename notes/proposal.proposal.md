@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
 desc: 'Literature Review & Project Proposal'
-updated: 1745799985579
+updated: 1745808674606
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -82,12 +82,34 @@ Potential characteristics avaliable in phd.potential_characteristics.md
 
 
 
-The initial part of the PhD has involved research and development of the core steady-state functionality required for the Ahuora Digital Twin platform to become usable in industry. This included the March 2025 Ahuora day, where the Ahuora Digital Twin Platform was released to industry in a beta phase, an a training day was conducted. Since then, the platform has been expanded with additional functionality for dynamic modelling, which will pave the way for the Ahuora Digital Twin Platform to be used for prediction and supervisory control.
+### Current Progress
+
+The initial part of the PhD has involved research and development of the core steady-state functionality required for the Ahuora Digital Twin platform to become usable in industry. In conjunction with others at Ahuora, additional property packages were implemented in the platform to support milk and humid air, two critical components to model New Zealand industries.
+
+In March 2025, the Ahuora Digital Twin Platform was released in to industry in a beta phase. A training day was conducted with 30 stakeholders from a variety of sectors representing their various companies. This was generally well recieved, and is now being followed by discussions on how to implement the Ahuora Platform into their workflows. Additional features and requirements have also been identified throughout this process.
+
+Since then, the platform has been expanded with additional functionality for dynamic modelling, which will pave the way for the Ahuora Digital Twin Platform to be used for prediction and supervisory control.
+
+A literature review has also been conducted to survey the current technologies and comprises the next chapter of this document. This has identified the need for a standardised workflow to construct digital twins, and the tools in process engineering that a Digital Twin platform can utilise.
+
+In parallel, research has been conducted into radial basis operator networks [@kurz2024radial], and these techniques have been implemented in the Algebraic Modelling language Pyomo. This may enable creating surrogate models of dynamical systems, and including them in a Digital Twin. 
+
+
+### Future Work
 
 Through discussions from the Ahuora Platform day, and Project Ahuora's other industry connections, it is anticipated that a case study can be started by late 2025 on modelling a continuous process. This will provide feedback which will be used to improve the scope and architecture of the Ahuora Digital Twin Platform.  Additional case studies will be used further in the development of the ADTP, from other industrial partners and from the scenarios existing PhD students are already studying as part of Project Ahuora. 
 
-Development of the ADTP and implementation in case studies will be conducted simultaneously, following the principles of iterative design [@beck2001manifesto]. Notes and discussions on requirements changes and development will become the primary resource used for a qualitative discussion on the benefits and drawbacks of the Ahuora Digital Twin Platform from a systems design perspective. The case studies themselves can be analysed to provide a standardised model for a Digital Twin, as well as a standardised methodology to build a Digital Twin via the Ahuora Digital Twin Platform.
+Development of the ADTP and implementation in case studies will be conducted simultaneously, following the principles of iterative design [@beck2001manifesto]. The case sudies will naturally influence the requirements and design of the system, and these changes will be recorded and documented. 
 
+These notes and discussions on requirements changes will become a primary data source for future studies. They will be used to qualitatively discuss:
+
+- The benefits and drawbacks of the Ahuora Digital Twin Platform from a systems design perspective
+- How the Ahuora Digital Twin Platform provides structure for a Process Digital Twin
+- How the Ahuora Digital Twin Platform can be used to build a Process Digital Twin
+
+These topics are expected to be the major component of my thesis.
+
+In order for a framework such as the Ahuora Digital Twin Platform to be truly useful in industry, a business model or long-term support plan is required. Towards the end of my PhD, I anticipate that more time will be taken up creating a business model to ensure that my research is able to provide the most value to the industry. As an open source product, this is also novel in the field of Process Digital Twins. 
 
 ## Expected Contributions
 
@@ -113,24 +135,19 @@ Finally, it is anticipated that this process will also involve creation of new t
 ## Challenges and Risk Management
 
 <!---
-What are the uncertainties or limitations?
-How will you address or mitigate them?
-Ethical considerations
+What are the ## Current Progress
+<!---
+What you've done: experiments, models, code, papers, reviews, etc.
+Can include early results or pilot studies.
 -->
 
-The most important requirement for this project is the accessibility of case studies; depending on economic, confidentiality, or other business priorities, real-world case studies may or may not be avaliable. Fortunately, discussions have already started and it is likely that multiple case studies will be avaliable in the near future. If some case studies are unable to be completed, it is likely that a replacement case study will be avaliable, however, this could cause some delays. In absence of real-world case studies, work could still take place through collaboration with other PhD student's existing case studies, and emulation of factory control systems. 
+ultiple case studies will be avaliable in the near future. If some case studies are unable to be completed, it is likely that a replacement case study will be avaliable, however, this could cause some delays. In absence of real-world case studies, work could still take place through collaboration with other PhD student's existing case studies, and emulation of factory control systems. 
 
 There could be technological concerns with the use of the Ahuora Digital Twin platform, if development of the required features is taking longer than expected. This can be mitigated through incremental development and managing scope. External tools could also be used if the Ahuora Digital Twin Platform is not yet at the level required to build some specific feature needed for the Digital Twin. Similar techniques can be used to manage other time constraints.
 
 Depending on the case study, confidentiality may be required with regard to company data. This will be handled in accordance with the University policy's procedures and guidelines. Likewise, any ethical issues will be dealt with in accordance with University policy. 
 
 
-## Current Progress
-<!---
-What you've done: experiments, models, code, papers, reviews, etc.
-Can include early results or pilot studies.
--->
 
-A literature review has been conducted 
 
 \newpage
