@@ -2,12 +2,12 @@
 id: 8lo8umu1mkiw20enmnkf1x9
 title: A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
 desc: ''
-updated: 1745809249584
+updated: 1745810949647
 created: 1745809239057
 ---
 
 
 ## Conclusion
 
-This proposal has outlined a comprehensive approach to advancing the design and application of Digital Twins in industrial chemical processes. By leveraging the Ahuora Digital Twin Platform, this research aims to address critical challenges in interoperability, scalability, and adaptability, while integrating advanced modeling techniques and machine learning. Through iterative development and industry case studies, the project seeks to establish a standardized framework for Digital Twin development, bridging the gap between academic research and industrial practice. The anticipated outcomes include not only theoretical contributions to the field but also practical tools and methodologies that can transform New Zealand's process industries. Ultimately, this work aspires to make Digital Twins more accessible, cost-effective, and impactful, paving the way for their broader adoption and long-term sustainability.
+Digital Twins are becoming more common in Industrial processes, as the technology matures. However, each DT is still mostly a custom solution. The Ahuora Digital Twin Platform is well positioned to become a tool to speed up the development of Digital Twins, as long as it is built in such a way that enables using a variety of technologies for modelling, data collection, analysis, and control. By basing the Ahuora Platform on top of existing standards and tools, it is anticipated this task will become simpler and more useful to existing plants. By building the Ahuora Platform iteratively, and using real-world case studies to guide the architecture, it is anticipated that a more universal method to build Digital Twins will be discovered. 
 
