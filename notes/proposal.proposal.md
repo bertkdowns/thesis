@@ -1,8 +1,8 @@
 ---
 id: 7ge60f5z9a7qkmgh836qxdv
-title: A Software Engineering Approach to the Design and Application of Digital Twins in Industrial Chemical Processes
+title: Proposal
 desc: 'Literature Review & Project Proposal'
-updated: 1745808674606
+updated: 1745809227358
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -84,22 +84,21 @@ Potential characteristics avaliable in phd.potential_characteristics.md
 
 ### Current Progress
 
-The initial part of the PhD has involved research and development of the core steady-state functionality required for the Ahuora Digital Twin platform to become usable in industry. In conjunction with others at Ahuora, additional property packages were implemented in the platform to support milk and humid air, two critical components to model New Zealand industries.
+I have developed the core steady-state functionality required for the Ahuora Digital Twin platform to become usable in industry. Collaborating with others at Ahuora, I implemented additional property packages in the platform to support milk and humid air, two critical components for modeling New Zealand industries.
 
-In March 2025, the Ahuora Digital Twin Platform was released in to industry in a beta phase. A training day was conducted with 30 stakeholders from a variety of sectors representing their various companies. This was generally well recieved, and is now being followed by discussions on how to implement the Ahuora Platform into their workflows. Additional features and requirements have also been identified throughout this process.
+In March 2025, I released the Ahuora Digital Twin Platform to industry in a beta phase. I conducted a training day with 30 stakeholders from various sectors representing their companies. The training was well received, and I am now engaging in discussions on how to integrate the Ahuora Platform into their workflows. Throughout this process, I identified additional features and requirements.
 
-Since then, the platform has been expanded with additional functionality for dynamic modelling, which will pave the way for the Ahuora Digital Twin Platform to be used for prediction and supervisory control.
+Since then, I have expanded the platform with additional functionality for dynamic modeling, paving the way for the Ahuora Digital Twin Platform to be used for prediction and supervisory control.
 
-A literature review has also been conducted to survey the current technologies and comprises the next chapter of this document. This has identified the need for a standardised workflow to construct digital twins, and the tools in process engineering that a Digital Twin platform can utilise.
+I also conducted a literature review to survey current technologies, which forms the next chapter of this document. This review highlighted the need for a standardized workflow to construct digital twins and the tools in process engineering that a Digital Twin platform can utilize.
 
-In parallel, research has been conducted into radial basis operator networks [@kurz2024radial], and these techniques have been implemented in the Algebraic Modelling language Pyomo. This may enable creating surrogate models of dynamical systems, and including them in a Digital Twin. 
-
+In parallel, I researched radial basis operator networks [@kurz2024radial] and implemented these techniques in the Algebraic Modeling language Pyomo. This work may enable the creation of surrogate models of dynamical systems and their inclusion in a Digital Twin.
 
 ### Future Work
 
-Through discussions from the Ahuora Platform day, and Project Ahuora's other industry connections, it is anticipated that a case study can be started by late 2025 on modelling a continuous process. This will provide feedback which will be used to improve the scope and architecture of the Ahuora Digital Twin Platform.  Additional case studies will be used further in the development of the ADTP, from other industrial partners and from the scenarios existing PhD students are already studying as part of Project Ahuora. 
+Through discussions from the Ahuora Platform day and Project Ahuora's other industry connections, I anticipate starting a case study by late 2025 on modeling a continuous process. This case study will provide feedback to improve the scope and architecture of the Ahuora Digital Twin Platform. I will also use additional case studies from other industrial partners and scenarios that existing PhD students are already studying as part of Project Ahuora.
 
-Development of the ADTP and implementation in case studies will be conducted simultaneously, following the principles of iterative design [@beck2001manifesto]. The case sudies will naturally influence the requirements and design of the system, and these changes will be recorded and documented. 
+Development of the ADTP and implementation in case studies will be conducted simultaneously, following the principles of iterative design [@beck2001manifesto]. The case studies will naturally influence the requirements and design of the system, and these changes will be recorded and documented. 
 
 These notes and discussions on requirements changes will become a primary data source for future studies. They will be used to qualitatively discuss:
 
@@ -128,7 +127,7 @@ Existing literature already outlines a number of different frameworks to view a 
 
 Through the case studies, a generalised methodology to build a DT of a chemical process can be constructed. This methodology will be shown in the context of the Ahuora Digital Twin Platform. It will be both a novel piece of research into DT application, and a guide to industry on how to create a DT system.
 
-Finally, it is anticipated that this process will also involve creation of new techniques for Machine Learning and/or Mathematical Modelling. As these techniques form the core of the DT, it is likely that tangential research into those fields will be required to enable the use of emerging techniques in Digital Twins. For example, the current work on operator networks fits into this category.
+Finally, I anticipate that this process will also involve creation of new techniques for Machine Learning and/or Mathematical Modelling. As these techniques form the core of the DT, it is likely that tangential research into those fields will be required to enable the use of emerging techniques in Digital Twins. For example, the current work on operator networks fits into this category.
 
 
 
