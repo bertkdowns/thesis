@@ -2,7 +2,7 @@
 id: v4ldx838htpgelf1gof0jee
 title: Proposal
 desc: ''
-updated: 1745811375158
+updated: 1745811652999
 created: 1743126005812
 ---
 
@@ -25,13 +25,13 @@ Supervised by Tim Walmsley, Jason Kurz, Mark Apperley
 
 Digital Twins are emerging as a transformative technology in industrial chemical processes, offering significant potential to enhance efficiency, reliability, and sustainability. This research proposes a software engineering approach to the design and application of Digital Twins, focusing on reducing development costs and increasing their value to industry. Leveraging the Ahuora Digital Twin Platform, the project aims to standardize workflows, integrate advanced modeling techniques, and explore applications such as dynamic simulation, machine learning, and real-time control. Key challenges in interoperability, scalability, and adaptability will be addressed, contributing to the broader adoption of Digital Twins in New Zealand's process industries. Through case studies and theoretical analysis, this work seeks to establish a generalizable framework for Digital Twin development, bridging the gap between academic research and industrial practice.
 
----
+\pagebreak
 
 ## Acknowledgements
 
 I would like to thank my supervisors, Tim Walmsley, Jason Kurz, and Mark Apperley, for their guidance and support throughout this project. I would also like to thank the Ahuora project team for their assistance and feedback. Finally, I would like to thank my family and friends for their encouragement and support.
 
----
+\pagebreak
 
 ## List of Abbreviations
 
@@ -58,8 +58,6 @@ I would like to thank my supervisors, Tim Walmsley, Jason Kurz, and Mark Apperle
 | PID          | Proportional-Integral-Derivative (Control) |
 | MPC          | Model Predictive Control |
 | AR           | Augmented Reality |
-
----
 
 \pagebreak
 
