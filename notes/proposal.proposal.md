@@ -1,28 +1,13 @@
 ---
 id: 7ge60f5z9a7qkmgh836qxdv
 title: Proposal
-desc: 'Literature Review & Project Proposal'
-updated: 1745809227358
+desc: 'Project Proposal'
+updated: 1745973562024
 created: 1743126355038
 bibliography:
   - assets/refs.bib
 ---
 
-<!---
-% Segue from lit review, talking about what gaps and potential new research ideas there are.
-
-
-% talk about the need for a generalised method of building digital twins, and how this could be achieved.
-
-
-% From the literature, start to identify some of the key characteristics that will aid in the development of a generalised method of building digital twins.
-
-
-% Discuss research questions, methodology for development - pull from the proposal i've already written.
-
-- Wrap up by explaining how you can tell if the project is successful.
-
--->
 
 # Proposal
 
@@ -35,12 +20,26 @@ Often phrased clearly and precisely, e.g.:
 "How can X be improved by Y?"
 -->
 
-This project aims to answer the following research questions:
+My project aims to answer the following research question:
 
-*How do Digital Twins evolve traditional modelling and control systems in the Chemical and Process sector?* This involves understanding how existing frameworks such as DEXPI, Modelica, or OPC-UA can be augmented or replaced by Digital Twin systems. 
+*How can a standardised framework minimise the work required to create new Process Digital Twins?* 
 
+In software engineering, *Essential Complexity* , or domain logic, is the "complexity inherent in solving the problem that you are trying to solve" [@farley2021modern]. *Accidental Complexity*, or application logic, refers to the "problems we are forced to solve as a side effect of doing something useful with computers". This includes infrastructure, scalibility, security, and data persistence. 
 
-*How do emerging Machine Learning techniques affect the cost and complexity of developing Digital Twins for legacy industrial systems?* Data-driven techniques have been rigourously analysed for effectiveness in modelling and generalisation. There is less research into how they are systematically built and deployed, particularly with regard to dynamic systems. This involves understanding how ML training and usage could be standardised to work in Process Digital Twins. 
+There is a lot of complexity in building a digital twin, including:
+
+- Creating a model of the process 
+- Adapting the models to work in an online context, where they can be continuously retrained
+- Collecting, aggregating, visualising, and storing heterogeneous data in a cohesive fashion
+- Leveraging the digital twin for design optimization, operational decision support, and supervisory control.
+
+My hypothesis is that much of this is accidental complexity; the domain logic is in the model itself. Thus, a standardised Digital Twin framework can implement the application logic, and eliminate the majority of accidental complexity. This will enable those building Process digital twins to focus on their model of the system, the essential complexity of the digital twin.
+
+Machine learning techniques are frequently used to adapt a design-time behavioural model into an online context. There is less research into how they are systematically built and deployed, particularly with regard to dynamic systems. This can be standardised to reduce the accidental complexity in implementing machine learning methods.  
+
+Process digital twins often build on existing frameworks for describing process structure (e.g DEXPI), describing process behaviour (e.g Modelica), and data collection (e.g OPC-UA). Linking these is a major source of accidental complexity. Building a DT framework that encompasses these standards will minimise the work required to create new Process Digital Twins.
+
+Because digital twins include bi-directional communication with the physical sytem, they can be viewed as an advanced control system. Thus, supervisory control systems will provide a good template for how these various technologies can be linked and function together. 
 
 
 ## Methodology
