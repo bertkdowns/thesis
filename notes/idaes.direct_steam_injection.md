@@ -2,11 +2,11 @@
 id: fm9l95e6zq0f6zhgl4inx9q
 title: Direct_steam_injection
 desc: ''
-updated: 1746420126542
+updated: 1746425223100
 created: 1746402348520
 ---
 
-# Problem
+# The Goal
 
 We want to do direct steam injection with a milk property package. the issue is that the milk property package can't handle pure water well, especially at high temperatures. So, our solution is to make a mixer-translater that translates the stream into the milk property package and mixes it simultaneously. Once they're mixed, because it's no longer pure water, the milk property package will be fine.
 
@@ -34,6 +34,376 @@ We then calculate how much enthalpy to add. To do this, we create a new state bl
 In theory, the amount of enthalpy to cool the steam to the same temperature as the other inlet is the same as the about of enthalpy added to the system compared to if the steam was the same temperature. So, we add the enthalpy difference to the enthalpy from `properties_mixed_unheated` to find the total enthalpy, and this should be the enthalpy of the outlet. We can use the same temperature and pressure as before. 
 
 
+# The Problem
+
+it's not calculating this correctly.  There are a few potential reasons:
+
+ - I'm not sure if degrees of freedom match - I thought it would be fine to have define_state=false, but I get two degrees of freedom if I don't set define_state=false in the two non-inlet milk state blocks. 
+ - Even though the temperature, pressure, and flow is identical between the steam_in and steam_cooled, the enthalpy difference is massive!
+
+Below is an example output
+
+```
+milk_in
+Flow (mol): 5.0
+Temperature (K): 303.15
+Pressure (Pa): 200000.0
+Enthalpy (mol): -289551.871961965
+Enthalpy (mol, Liquid Phase): -289551.8728782157
+Enthalpy (mol, Vapor Phase): -241657.8743130145
+Mole Fraction (Liquid Phase, Water): 0.991445798243194
+Mole Fraction (Vapor Phase, Water): 1.0000000084459968
+Mole Fraction (Liquid Phase, Milk): 0.008554200875387821
+steam_in
+Flow (mol): 5.0
+Temperature (K): 303.14999999999304
+Pressure (Pa): 200000.0
+Enthalpy (mol): 2268.176645975206
+Enthalpy (mol, Liquid Phase): 2268.1766459751893
+Enthalpy (mol, Vapor Phase): 46038.75799001232
+Mole Fraction (Liquid Phase, Water): 1.0
+Mole Fraction (Vapor Phase, Water): 0.0
+steam_cooled
+Flow (mol): 5.0
+Temperature (K): 303.15
+Pressure (Pa): 200000.0
+Enthalpy (mol): 77.40272498469554
+Enthalpy (mol, Liquid Phase): 77.40272498437777
+Enthalpy (mol, Vapor Phase): 45086.72902857474
+Mole Fraction (Liquid Phase, Water): 1.0
+Mole Fraction (Vapor Phase, Water): 0.0
+deltaH
+Delta H: 10953.869604952553
+mixed_unheated
+Flow (mol): 9.99999999827093
+Temperature (K): 303.15
+Pressure (Pa): 200000.0
+Enthalpy (mol): -287501.6719616561
+Enthalpy (mol, Liquid Phase): -287501.6731994187
+Enthalpy (mol, Vapor Phase): -241657.8742254266
+Mole Fraction (Liquid Phase, Water): 0.9957228994300231
+Mole Fraction (Vapor Phase, Water): 1.000000008083551
+Mole Fraction (Liquid Phase, Milk): 0.004277100647988365
+output
+Flow (mol): 9.999999997342355
+Temperature (K): 317.76630340469546
+Pressure (Pa): 200000.0
+Enthalpy (mol): -286406.2849997018
+Enthalpy (mol, Liquid Phase): -286406.286248639
+Enthalpy (mol, Vapor Phase): -241166.1104609513
+Mole Fraction (Liquid Phase, Water): 0.9957228996127307
+Mole Fraction (Vapor Phase, Water): 1.000000009641752
+Mole Fraction (Liquid Phase, Milk): 0.004277100743861252
+```
 
 
+IDAES model_diagnostics gives us some weird results. Howe much properties_steam_cooled.enth_mol is underdefined, but set_temperature, which constrains steam_cooled.temperature, is overdefined? shouldn't hthey cancel out?
+
+```
+Model Statistics
+
+Activated Blocks: 11 (Deactivated: 0)
+Free Variables in Activated Constraints: 50 (External: 0)
+Free Variables with only lower bounds: 12
+Free Variables with only upper bounds: 0
+Free Variables with upper and lower bounds: 31
+Fixed Variables in Activated Constraints: 36 (External: 29)
+Activated Equality Constraints: 50 (Deactivated: 0)
+Activated Inequality Constraints: 0 (Deactivated: 0)
+Activated Objectives: 0 (Deactivated: 0)
+
+------------------------------------------------------------------------------------
+3 WARNINGS
+
+WARNING: 1 Component with inconsistent units
+WARNING: Structural singularity found
+Under-Constrained Set: 16 variables, 15 constraints
+Over-Constrained Set: 0 variables, 1 constraints
+WARNING: Found 8 potential evaluation errors.
+
+------------------------------------------------------------------------------------
+0 Cautions
+
+No cautions found!
+
+------------------------------------------------------------------------------------
+Suggested next steps:
+
+display_components_with_inconsistent_units()
+display_underconstrained_set()
+display_overconstrained_set()
+display_potential_evaluation_errors()
+
+====================================================================================
+ERROR: Units problem with expression 303.15 - fs.Direct Steam Injection
+1_85.properties_milk_in[0.0].temperature
+====================================================================================
+The following component(s) have unit consistency issues:
+
+fs.Direct Steam Injection 1_85.set_temperature[0.0]
+
+For more details on unit inconsistencies, import the assert_units_consistent method
+from pyomo.util.check_units
+====================================================================================
+====================================================================================
+Dulmage-Mendelsohn Under-Constrained Set
+
+Independent Block 0:
+
+Variables:
+
+fs.Direct Steam Injection 1_85.properties_steam_cooled[0.0].enth_mol
+fs.Direct Steam Injection 1_85.properties_steam_cooled[0.0].flow_mol
+fs.Direct Steam Injection 1_85.properties_out[0.0].temperature
+fs.Direct Steam Injection 1_85.properties_out[0.0]._t1_Vap_Liq
+fs.Direct Steam Injection 1_85.properties_out[0.0]._teq[Vap,Liq]
+fs.Direct Steam Injection 1_85.properties_out[0.0].mole_frac_phase_comp[Liq,water]
+fs.Direct Steam Injection 1_85.properties_out[0.0].flow_mol_phase[Liq]
+fs.Direct Steam Injection 1_85.properties_out[0.0].mole_frac_comp[water]
+fs.Direct Steam Injection 1_85.properties_out[0.0].mole_frac_phase_comp[Vap,water]
+fs.Direct Steam Injection 1_85.properties_out[0.0].mole_frac_phase_comp[Liq,milk_solid]
+fs.Direct Steam Injection 1_85.properties_out[0.0].phase_frac[Liq]
+fs.Direct Steam Injection 1_85.properties_out[0.0].flow_mol_phase[Vap]
+fs.Direct Steam Injection 1_85.properties_out[0.0].mole_frac_comp[milk_solid]
+fs.Direct Steam Injection 1_85.properties_out[0.0].temperature_bubble[Vap,Liq]
+fs.Direct Steam Injection 1_85.properties_out[0.0]._mole_frac_tbub[Vap,Liq,water]
+fs.Direct Steam Injection 1_85.properties_out[0.0].phase_frac[Vap]
+
+Constraints:
+
+fs.Direct Steam Injection 1_85.set_composition[0.0,water]
+fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]
+fs.Direct Steam Injection 1_85.properties_out[0.0]._t1_constraint_Vap_Liq
+fs.Direct Steam Injection 1_85.properties_out[0.0]._teq_constraint_Vap_Liq
+fs.Direct Steam Injection 1_85.properties_out[0.0].equilibrium_constraint[Vap,Liq,water]
+fs.Direct Steam Injection 1_85.eq_mass_balance_out[0.0,water]
+fs.Direct Steam Injection 1_85.properties_out[0.0].component_flow_balances[water]
+fs.Direct Steam Injection 1_85.properties_out[0.0].sum_mole_frac
+fs.Direct Steam Injection 1_85.eq_mass_balance_out[0.0,milk_solid]
+fs.Direct Steam Injection 1_85.properties_out[0.0].phase_fraction_constraint[Liq]
+fs.Direct Steam Injection 1_85.properties_out[0.0].total_flow_balance
+fs.Direct Steam Injection 1_85.properties_out[0.0].component_flow_balances[milk_solid]
+fs.Direct Steam Injection 1_85.properties_out[0.0].eq_temperature_bubble[Vap,Liq]
+fs.Direct Steam Injection 1_85.properties_out[0.0].eq_mole_frac_tbub[Vap,Liq,water]
+fs.Direct Steam Injection 1_85.properties_out[0.0].phase_fraction_constraint[Vap]
+
+====================================================================================
+====================================================================================
+Dulmage-Mendelsohn Over-Constrained Set
+
+Independent Block 0:
+
+Variables:
+
+
+Constraints:
+
+fs.Direct Steam Injection 1_85.set_temperature[0.0]
+
+====================================================================================
+====================================================================================
+8 WARNINGS
+
+fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.Direct Steam Injection 1_85.properties_out[0.0].temperature/fs.PP_0.water.dens_mol_liq_comp_coeff_3)**fs.PP_0.water.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
+fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.Direct Steam Injection 1_85.properties_out[0.0].temperature/fs.PP_0.milk_solid.dens_mol_liq_comp_coeff_3)**fs.PP_0.milk_solid.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
+fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.Direct Steam Injection 1_85.properties_mixed_unheated[0.0].temperature/fs.PP_0.water.dens_mol_liq_comp_coeff_3)**fs.PP_0.water.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
+fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.Direct Steam Injection 1_85.properties_mixed_unheated[0.0].temperature/fs.PP_0.milk_solid.dens_mol_liq_comp_coeff_3)**fs.PP_0.milk_solid.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
+fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]: Potential division by 0 in ((fs.Direct Steam Injection 1_85.properties_steam_in[0.0].enth_mol - fs.Direct Steam Injection 1_85.properties_steam_cooled[0.0].enth_mol)*fs.Direct Steam Injection 1_85.properties_steam_in[0.0].flow_mol)/fs.Direct Steam Injection 1_85.properties_mixed_unheated[0.0].flow_mol; Denominator bounds are (0, 100)
+fs.Direct Steam Injection 1_85.properties_milk_in[0.0].equilibrium_constraint[Vap,Liq,water]: Potential division by 0 in fs.PP_0.water.pressure_sat_comp_coeff_B/(fs.Direct Steam Injection 1_85.properties_milk_in[0.0]._teq[Vap,Liq] + fs.PP_0.water.pressure_sat_comp_coeff_C); Denominator bounds are (-inf, inf)
+fs.Direct Steam Injection 1_85.properties_mixed_unheated[0.0].equilibrium_constraint[Vap,Liq,water]: Potential division by 0 in fs.PP_0.water.pressure_sat_comp_coeff_B/(fs.Direct Steam Injection 1_85.properties_mixed_unheated[0.0]._teq[Vap,Liq] + fs.PP_0.water.pressure_sat_comp_coeff_C); Denominator bounds are (-inf, inf)
+fs.Direct Steam Injection 1_85.properties_out[0.0].equilibrium_constraint[Vap,Liq,water]: Potential division by 0 in fs.PP_0.water.pressure_sat_comp_coeff_B/(fs.Direct Steam Injection 1_85.properties_out[0.0]._teq[Vap,Liq] + fs.PP_0.water.pressure_sat_comp_coeff_C); Denominator bounds are (-inf, inf)
+```
+
+Here is the current build method:
+
+
+```python
+def build(self):
+    # build always starts by calling super().build()
+    # This triggers a lot of boilerplate in the background for you
+    super().build()
+
+    # This creates blank scaling factors, which are populated later
+    self.scaling_factor = Suffix(direction=Suffix.EXPORT)
+
+
+    # Add state blocks for inlet, outlet, and waste
+    # These include the state variables and any other properties on demand
+    # Add inlet block
+    tmp_dict = dict(**self.config.property_package_args)
+    tmp_dict["parameters"] = self.config.property_package
+    tmp_dict["defined_state"] = True  # inlet block is an inlet
+    self.properties_milk_in = self.config.property_package.state_block_class(
+        self.flowsheet().config.time, doc="Material properties of inlet", **tmp_dict
+    )
+
+    # We need to calculate the enthalpy of the composition, before adding additional enthalpy from the temperature difference.
+    # so we'll add another state block to do that.
+    tmp_dict["defined_state"] = False
+    tmp_dict["has_phase_equilibrium"] = True
+    self.properties_mixed_unheated = self.config.property_package.state_block_class(
+        self.flowsheet().config.time, doc="Material properties of mixture, before accounting for temperature difference", **tmp_dict
+    )
+
+    # Add outlet block
+    tmp_dict["defined_state"] = False
+    tmp_dict["has_phase_equilibrium"] = True
+    self.properties_out = self.config.property_package.state_block_class(
+        self.flowsheet().config.time,
+        doc="Material properties of outlet",
+        **tmp_dict
+    )
+
+    # Add steam inlet block
+    steam_dict = dict(**self.config.steam_property_package_args)
+    steam_dict["parameters"] = self.config.steam_property_package
+    steam_dict["defined_state"] = True  
+    self.properties_steam_in = self.config.steam_property_package.state_block_class(
+        self.flowsheet().config.time, doc="Material properties of steam inlet", **steam_dict
+    )
+
+    
+    
+    # To calculate the amount of enthalpy to add to the inlet fluid, we need to know the difference in enthalpy between steam at that T and P
+    # and steam at its inlet conditions. Note this is assuming that effects of composition (the steam will no longer be pure water) are negligible.
+    # Note that this state block is just for calcuating, and not an actual inlet or outlet.
+    
+    steam_dict["defined_state"] = False  # This doesn't affect pure components.
+    steam_dict["has_phase_equilibrium"] = True
+    self.properties_steam_cooled = self.config.steam_property_package.state_block_class(
+        self.flowsheet().config.time, doc="Material properties of cooled steam", **steam_dict
+    )
+
+    # Add ports
+    self.add_port(name="outlet", block=self.properties_out)
+    self.add_port(name="inlet", block=self.properties_in, doc="Inlet port")
+    self.add_port(name="steam_inlet", block=self.properties_steam_in, doc="Steam inlet port")
+
+
+    # CONDITIONS
+
+    # STEAM INTERMEDIATE BLOCK
+
+    # Temperature (= other inlet temperature)
+    @self.Constraint(
+        self.flowsheet().time,
+        doc="Set the temperature of the cooled steam to be the same as the inlet fluid",
+    )
+    def set_temperature(b, t):
+        return b.properties_steam_cooled[t].temperature == b.properties_in[t].temperature
+    
+    # Pressure (= other inlet pressure)
+    @self.Constraint(
+        self.flowsheet().time,
+        doc="Set the pressure of the cooled steam to be the same as the inlet fluid",
+    )
+    def set_pressure(b, t):
+        return b.properties_steam_cooled[t].pressure == b.properties_in[t].pressure
+
+
+    # Flow = steam_flow
+    @self.Constraint(
+        self.flowsheet().time,
+        self.config.steam_property_package.component_list,
+        doc="Set the composition of the cooled steam to be the same as the steam inlet",
+    )
+    def set_composition(b, t, c):
+        return 0 == sum(b.properties_steam_cooled[t].get_material_flow_terms(p, c) - b.properties_steam_in[t].get_material_flow_terms(p, c)
+            for p in b.properties_steam_in[t].phase_list)
+    
+    
+    # CALCULATE ENTHALPY DIFFERENCE
+    @self.Expression(
+        self.flowsheet().time,
+    )
+    def delta_h(b, t):
+        """
+        Calculate the difference in enthalpy between the steam inlet and the cooled steam.
+        This is used to calculate the amount of enthalpy to add to the inlet fluid.
+        """
+        return (b.properties_steam_in[t].enth_mol - b.properties_steam_cooled[t].enth_mol) * b.properties_steam_in[t].flow_mol
+
+
+    # MIXING (without changing temperature)
+
+    # Pressure (= inlet pressure)
+    @self.Constraint(
+        self.flowsheet().time,
+        doc="Equivalent pressure balance",
+    )
+    def eq_pressure_balance_mixed(b, t):
+        return (
+            b.properties_mixed_unheated[t].pressure
+            == b.properties_in[t].pressure
+        )
+    
+    # Temperature (= inlet temperature)
+    @self.Constraint(
+        self.flowsheet().time,
+        doc="Equivalent temperature balance",
+    )
+    def eq_temperature_balance(b, t):
+        return (
+            b.properties_mixed_unheated[t].temperature
+            == b.properties_in[t].temperature
+        )
+    
+    # Flow = inlet flow + steam flow
+    @self.Constraint(
+        self.flowsheet().time,
+        self.config.property_package.component_list,
+        doc="Mass balance",
+    )
+    def eq_mass_balance(b, t, c):
+        return (
+            0 == sum(b.properties_in[t].get_material_flow_terms(p, c)
+                        + (b.properties_steam_in[t].get_material_flow_terms(p, c)
+                        if c in b.properties_steam_in[t].component_list  # handle the case where a component isn't in the steam inlet (e.g no milk in helmholtz)
+                        else 0)
+                - b.properties_mixed_unheated[t].get_material_flow_terms(p, c)
+                for p in b.properties_in[t].phase_list
+                if (p,c) in b.properties_in[t].phase_component_set) # handle the case where a component is not in that phase (e.g no milk vapor)
+        )
+
+    # OUTLET BLOCK
+
+    # Pressure (= inlet pressure)
+    @self.Constraint(
+        self.flowsheet().time,
+        doc="Pressure balance",
+    )
+    def eq_pressure_balance(b, t):
+        return (
+            b.properties_out[t].pressure
+            == b.properties_in[t].pressure
+        )
+    
+    # Enthalpy (= mixed enthalpy + delta steam enthalpy)
+    @self.Constraint(
+        self.flowsheet().time,
+        doc="Energy balance",
+    )
+    def eq_energy_balance(b, t):
+        return (
+            b.properties_out[t].enth_mol
+            == b.properties_mixed_unheated[t].enth_mol
+            + (b.delta_h[t] / b.properties_mixed_unheated[t].flow_mol)
+        )
+    
+    # Flow = mixed flow
+    
+    @self.Constraint(
+        self.flowsheet().time,
+        self.config.property_package.component_list,
+        doc="Mass balance for the outlet",
+    )
+    def eq_mass_balance_out(b, t, c):
+        return (
+            0 == sum(b.properties_out[t].get_material_flow_terms(p, c)
+                        - b.properties_mixed_unheated[t].get_material_flow_terms(p, c)
+                for p in b.properties_out[t].phase_list
+                if (p,c) in b.properties_out[t].phase_component_set) # handle the case where a component is not in that phase (e.g no milk vapor)
+        )
+
+```
 
