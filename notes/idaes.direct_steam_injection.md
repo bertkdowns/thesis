@@ -2,7 +2,7 @@
 id: fm9l95e6zq0f6zhgl4inx9q
 title: Direct_steam_injection
 desc: ''
-updated: 1746413447588
+updated: 1746420126542
 created: 1746402348520
 ---
 
@@ -27,5 +27,13 @@ We are trying to make it work without needing both property packages to have the
 
 `properties_milk_in` and `properties_steam_in` are the inlet state blocks, where the temperature, pressure, and flow rates can be considered to be set by an upstream process. (in reality, it doesn't always work like that, you can back-calculate, but for illustrative purposes it's easier to think of constraints as directional.) 
 
-The enthalpy difference is calculated, and added to the enthalpy it would be at if it was unheated.
+We then create a state block where the flows of both inlets are combined, but the temperature and pressure remains the same as it was in the inlet `properties_milk_in`. This calculates the amount of enthalpy if `properties_steam_in` was at the same temperature and pressure. 
+
+We then calculate how much enthalpy to add. To do this, we create a new state block with the steam property package, with the temperature and pressure of the milk inlet, but the composition of the steam inlet. We can then calculate the difference in enthalpy between these two. 
+
+In theory, the amount of enthalpy to cool the steam to the same temperature as the other inlet is the same as the about of enthalpy added to the system compared to if the steam was the same temperature. So, we add the enthalpy difference to the enthalpy from `properties_mixed_unheated` to find the total enthalpy, and this should be the enthalpy of the outlet. We can use the same temperature and pressure as before. 
+
+
+
+
 
