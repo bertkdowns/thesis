@@ -2,7 +2,7 @@
 id: fm9l95e6zq0f6zhgl4inx9q
 title: Direct_steam_injection
 desc: ''
-updated: 1746508313208
+updated: 1746510046414
 created: 1746402348520
 ---
 
@@ -48,54 +48,52 @@ milk_in
 Flow (mol): 1
 Temperature (K): 300.0
 Pressure (Pa): 101325
-Enthalpy (mol): -257121.3915850933
-Enthalpy (mol, Liquid Phase): -257121.38987289948
-Enthalpy (mol, Vapor Phase): -241763.72818439265
-Mole Fraction (Liquid Phase, Water): 0.9000000021005704
-Mole Fraction (Vapor Phase, Water): 1.000000013404517
-Mole Fraction (Liquid Phase, Milk): 0.1000000062573454
+Enthalpy (mol): -282833.54409501614
+Enthalpy (mol, Liquid Phase): -282833.6412636071
+Enthalpy (mol, Vapor Phase): -241763.72173727475
+Mole Fraction (Liquid Phase, Water): 0.9899999752662261
+Mole Fraction (Vapor Phase, Water): 0.9999999867374979
+Mole Fraction (Liquid Phase, Milk): 0.010000017001854853
 steam_in
 Flow (mol): 1
-Temperature (K): 399.99999999999983
+Temperature (K): 299.99999999999915
 Pressure (Pa): 101325
-Enthalpy (mol): 49185.330749862616
-Enthalpy (mol, Liquid Phase): 9597.511084094325
-Enthalpy (mol, Vapor Phase): 49185.33074986262
-Mole Fraction (Liquid Phase, Water): 0.0
-Mole Fraction (Vapor Phase, Water): 1.0
+Enthalpy (mol): 2029.3553673100446
+Enthalpy (mol, Liquid Phase): 2029.3553673103027
+Enthalpy (mol, Vapor Phase): 45936.238860469515
+Mole Fraction (Liquid Phase, Water): 1.0
+Mole Fraction (Vapor Phase, Water): 0.0
 steam_cooled
 Flow (mol): 1.0
 Temperature (K): 300.0
 Pressure (Pa): 101325.0
-Enthalpy (mol): 11621.390135549234
-Enthalpy (mol, Liquid Phase): 7549.43736915953
-Enthalpy (mol, Vapor Phase): 48200.37784075773
-Mole Fraction (Liquid Phase, Water): 0.8998312777232134
-Mole Fraction (Vapor Phase, Water): 0.10016872227678666
-deltaH
-Delta H: 37563.94061431338
+Enthalpy (mol): 2555.656348572762
+Enthalpy (mol, Liquid Phase): 2555.6563485727634
+Enthalpy (mol, Vapor Phase): 46163.37340575213
+Mole Fraction (Liquid Phase, Water): 1.0
+Mole Fraction (Vapor Phase, Water): 0.0
+steam_delta_h
+Delta H: -526.3009812627174
 mixed_unheated
-Flow (mol): 1.9999999981210104
+Flow (mol): 2.000000001128657
 Temperature (K): 300.0
 Pressure (Pa): 101325.0
-Enthalpy (mol): -271405.9797602344
-Enthalpy (mol, Liquid Phase): -271405.9784321475
-Enthalpy (mol, Vapor Phase): -241763.72752627588
-Mole Fraction (Liquid Phase, Water): 0.9500000027804095
-Mole Fraction (Vapor Phase, Water): 1.0000000106823685
-Mole Fraction (Liquid Phase, Milk): 0.0500000042020415
+Enthalpy (mol): -284261.94370477996
+Enthalpy (mol, Liquid Phase): -284262.1013912604
+Enthalpy (mol, Vapor Phase): -241763.72334079517
+Mole Fraction (Liquid Phase, Water): 0.9949999797856206
+Mole Fraction (Vapor Phase, Water): 0.999999993370091
+Mole Fraction (Liquid Phase, Milk): 0.005000014655482271
 output
-Flow (mol): 1.9999999980938457
-Temperature (K): 375.84456246116986
+Flow (mol): 2.0000000017218085
+Temperature (K): 296.4917010733296
 Pressure (Pa): 101325.0
-Enthalpy (mol): -252624.00717918045
-Enthalpy (mol, Liquid Phase): -259151.9605426217
-Enthalpy (mol, Vapor Phase): -239199.47357919996
-Mole Fraction (Liquid Phase, Water): 0.9256864802537018
-Mole Fraction (Vapor Phase, Water): 1.000000007047227
-Mole Fraction (Liquid Phase, Milk): 0.07431352675694933
-ERROR: Units problem with expression 300.0 -
-fs.dsi.properties_milk_in[0.0].temperature
+Enthalpy (mol): -284525.0942194751
+Enthalpy (mol, Liquid Phase): -284525.2566993139
+Enthalpy (mol, Vapor Phase): -241881.5678078452
+Mole Fraction (Liquid Phase, Water): 0.9949999786951605
+Mole Fraction (Vapor Phase, Water): 0.9999999923650749
+Mole Fraction (Liquid Phase, Milk): 0.005000014856216085
 ```
 
 
