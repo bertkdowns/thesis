@@ -2,7 +2,7 @@
 id: fm9l95e6zq0f6zhgl4inx9q
 title: Direct_steam_injection
 desc: ''
-updated: 1746425223100
+updated: 1746508313208
 created: 1746402348520
 ---
 
@@ -45,102 +45,70 @@ Below is an example output
 
 ```
 milk_in
-Flow (mol): 5.0
-Temperature (K): 303.15
-Pressure (Pa): 200000.0
-Enthalpy (mol): -289551.871961965
-Enthalpy (mol, Liquid Phase): -289551.8728782157
-Enthalpy (mol, Vapor Phase): -241657.8743130145
-Mole Fraction (Liquid Phase, Water): 0.991445798243194
-Mole Fraction (Vapor Phase, Water): 1.0000000084459968
-Mole Fraction (Liquid Phase, Milk): 0.008554200875387821
+Flow (mol): 1
+Temperature (K): 300.0
+Pressure (Pa): 101325
+Enthalpy (mol): -257121.3915850933
+Enthalpy (mol, Liquid Phase): -257121.38987289948
+Enthalpy (mol, Vapor Phase): -241763.72818439265
+Mole Fraction (Liquid Phase, Water): 0.9000000021005704
+Mole Fraction (Vapor Phase, Water): 1.000000013404517
+Mole Fraction (Liquid Phase, Milk): 0.1000000062573454
 steam_in
-Flow (mol): 5.0
-Temperature (K): 303.14999999999304
-Pressure (Pa): 200000.0
-Enthalpy (mol): 2268.176645975206
-Enthalpy (mol, Liquid Phase): 2268.1766459751893
-Enthalpy (mol, Vapor Phase): 46038.75799001232
-Mole Fraction (Liquid Phase, Water): 1.0
-Mole Fraction (Vapor Phase, Water): 0.0
+Flow (mol): 1
+Temperature (K): 399.99999999999983
+Pressure (Pa): 101325
+Enthalpy (mol): 49185.330749862616
+Enthalpy (mol, Liquid Phase): 9597.511084094325
+Enthalpy (mol, Vapor Phase): 49185.33074986262
+Mole Fraction (Liquid Phase, Water): 0.0
+Mole Fraction (Vapor Phase, Water): 1.0
 steam_cooled
-Flow (mol): 5.0
-Temperature (K): 303.15
-Pressure (Pa): 200000.0
-Enthalpy (mol): 77.40272498469554
-Enthalpy (mol, Liquid Phase): 77.40272498437777
-Enthalpy (mol, Vapor Phase): 45086.72902857474
-Mole Fraction (Liquid Phase, Water): 1.0
-Mole Fraction (Vapor Phase, Water): 0.0
+Flow (mol): 1.0
+Temperature (K): 300.0
+Pressure (Pa): 101325.0
+Enthalpy (mol): 11621.390135549234
+Enthalpy (mol, Liquid Phase): 7549.43736915953
+Enthalpy (mol, Vapor Phase): 48200.37784075773
+Mole Fraction (Liquid Phase, Water): 0.8998312777232134
+Mole Fraction (Vapor Phase, Water): 0.10016872227678666
 deltaH
-Delta H: 10953.869604952553
+Delta H: 37563.94061431338
 mixed_unheated
-Flow (mol): 9.99999999827093
-Temperature (K): 303.15
-Pressure (Pa): 200000.0
-Enthalpy (mol): -287501.6719616561
-Enthalpy (mol, Liquid Phase): -287501.6731994187
-Enthalpy (mol, Vapor Phase): -241657.8742254266
-Mole Fraction (Liquid Phase, Water): 0.9957228994300231
-Mole Fraction (Vapor Phase, Water): 1.000000008083551
-Mole Fraction (Liquid Phase, Milk): 0.004277100647988365
+Flow (mol): 1.9999999981210104
+Temperature (K): 300.0
+Pressure (Pa): 101325.0
+Enthalpy (mol): -271405.9797602344
+Enthalpy (mol, Liquid Phase): -271405.9784321475
+Enthalpy (mol, Vapor Phase): -241763.72752627588
+Mole Fraction (Liquid Phase, Water): 0.9500000027804095
+Mole Fraction (Vapor Phase, Water): 1.0000000106823685
+Mole Fraction (Liquid Phase, Milk): 0.0500000042020415
 output
-Flow (mol): 9.999999997342355
-Temperature (K): 317.76630340469546
-Pressure (Pa): 200000.0
-Enthalpy (mol): -286406.2849997018
-Enthalpy (mol, Liquid Phase): -286406.286248639
-Enthalpy (mol, Vapor Phase): -241166.1104609513
-Mole Fraction (Liquid Phase, Water): 0.9957228996127307
-Mole Fraction (Vapor Phase, Water): 1.000000009641752
-Mole Fraction (Liquid Phase, Milk): 0.004277100743861252
+Flow (mol): 1.9999999980938457
+Temperature (K): 375.84456246116986
+Pressure (Pa): 101325.0
+Enthalpy (mol): -252624.00717918045
+Enthalpy (mol, Liquid Phase): -259151.9605426217
+Enthalpy (mol, Vapor Phase): -239199.47357919996
+Mole Fraction (Liquid Phase, Water): 0.9256864802537018
+Mole Fraction (Vapor Phase, Water): 1.000000007047227
+Mole Fraction (Liquid Phase, Milk): 0.07431352675694933
+ERROR: Units problem with expression 300.0 -
+fs.dsi.properties_milk_in[0.0].temperature
 ```
 
 
 IDAES model_diagnostics gives us some weird results. Howe much properties_steam_cooled.enth_mol is underdefined, but set_temperature, which constrains steam_cooled.temperature, is overdefined? shouldn't hthey cancel out?
 
 ```
-Model Statistics
-
-Activated Blocks: 11 (Deactivated: 0)
-Free Variables in Activated Constraints: 50 (External: 0)
-Free Variables with only lower bounds: 12
-Free Variables with only upper bounds: 0
-Free Variables with upper and lower bounds: 31
-Fixed Variables in Activated Constraints: 36 (External: 29)
-Activated Equality Constraints: 50 (Deactivated: 0)
-Activated Inequality Constraints: 0 (Deactivated: 0)
-Activated Objectives: 0 (Deactivated: 0)
-
-------------------------------------------------------------------------------------
-3 WARNINGS
-
-WARNING: 1 Component with inconsistent units
-WARNING: Structural singularity found
-Under-Constrained Set: 16 variables, 15 constraints
-Over-Constrained Set: 0 variables, 1 constraints
-WARNING: Found 8 potential evaluation errors.
-
-------------------------------------------------------------------------------------
-0 Cautions
-
-No cautions found!
-
-------------------------------------------------------------------------------------
-Suggested next steps:
-
-display_components_with_inconsistent_units()
-display_underconstrained_set()
-display_overconstrained_set()
-display_potential_evaluation_errors()
-
 ====================================================================================
-ERROR: Units problem with expression 303.15 - fs.Direct Steam Injection
-1_85.properties_milk_in[0.0].temperature
+ERROR: Units problem with expression 300.0 -
+fs.dsi.properties_milk_in[0.0].temperature
 ====================================================================================
 The following component(s) have unit consistency issues:
 
-fs.Direct Steam Injection 1_85.set_temperature[0.0]
+    fs.dsi.set_steam_cooled[0.0]
 
 For more details on unit inconsistencies, import the assert_units_consistent method
 from pyomo.util.check_units
@@ -148,70 +116,70 @@ from pyomo.util.check_units
 ====================================================================================
 Dulmage-Mendelsohn Under-Constrained Set
 
-Independent Block 0:
+    Independent Block 0:
 
-Variables:
+        Variables:
 
-fs.Direct Steam Injection 1_85.properties_steam_cooled[0.0].enth_mol
-fs.Direct Steam Injection 1_85.properties_steam_cooled[0.0].flow_mol
-fs.Direct Steam Injection 1_85.properties_out[0.0].temperature
-fs.Direct Steam Injection 1_85.properties_out[0.0]._t1_Vap_Liq
-fs.Direct Steam Injection 1_85.properties_out[0.0]._teq[Vap,Liq]
-fs.Direct Steam Injection 1_85.properties_out[0.0].mole_frac_phase_comp[Liq,water]
-fs.Direct Steam Injection 1_85.properties_out[0.0].flow_mol_phase[Liq]
-fs.Direct Steam Injection 1_85.properties_out[0.0].mole_frac_comp[water]
-fs.Direct Steam Injection 1_85.properties_out[0.0].mole_frac_phase_comp[Vap,water]
-fs.Direct Steam Injection 1_85.properties_out[0.0].mole_frac_phase_comp[Liq,milk_solid]
-fs.Direct Steam Injection 1_85.properties_out[0.0].phase_frac[Liq]
-fs.Direct Steam Injection 1_85.properties_out[0.0].flow_mol_phase[Vap]
-fs.Direct Steam Injection 1_85.properties_out[0.0].mole_frac_comp[milk_solid]
-fs.Direct Steam Injection 1_85.properties_out[0.0].temperature_bubble[Vap,Liq]
-fs.Direct Steam Injection 1_85.properties_out[0.0]._mole_frac_tbub[Vap,Liq,water]
-fs.Direct Steam Injection 1_85.properties_out[0.0].phase_frac[Vap]
+            fs.dsi.properties_steam_cooled[0.0].enth_mol
+            fs.dsi.properties_steam_cooled[0.0].flow_mol
+            fs.dsi.properties_out[0.0].temperature
+            fs.dsi.properties_out[0.0]._t1_Vap_Liq
+            fs.dsi.properties_out[0.0]._teq[Vap,Liq]
+            fs.dsi.properties_out[0.0].mole_frac_phase_comp[Liq,water]
+            fs.dsi.properties_out[0.0].flow_mol_phase[Liq]
+            fs.dsi.properties_out[0.0].mole_frac_comp[water]
+            fs.dsi.properties_out[0.0].mole_frac_phase_comp[Vap,water]
+            fs.dsi.properties_out[0.0].mole_frac_phase_comp[Liq,milk_solid]
+            fs.dsi.properties_out[0.0].phase_frac[Liq]
+            fs.dsi.properties_out[0.0].flow_mol_phase[Vap]
+            fs.dsi.properties_out[0.0].mole_frac_comp[milk_solid]
+            fs.dsi.properties_out[0.0].temperature_bubble[Vap,Liq]
+            fs.dsi.properties_out[0.0]._mole_frac_tbub[Vap,Liq,water]
+            fs.dsi.properties_out[0.0].phase_frac[Vap]
 
-Constraints:
+        Constraints:
 
-fs.Direct Steam Injection 1_85.set_composition[0.0,water]
-fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]
-fs.Direct Steam Injection 1_85.properties_out[0.0]._t1_constraint_Vap_Liq
-fs.Direct Steam Injection 1_85.properties_out[0.0]._teq_constraint_Vap_Liq
-fs.Direct Steam Injection 1_85.properties_out[0.0].equilibrium_constraint[Vap,Liq,water]
-fs.Direct Steam Injection 1_85.eq_mass_balance_out[0.0,water]
-fs.Direct Steam Injection 1_85.properties_out[0.0].component_flow_balances[water]
-fs.Direct Steam Injection 1_85.properties_out[0.0].sum_mole_frac
-fs.Direct Steam Injection 1_85.eq_mass_balance_out[0.0,milk_solid]
-fs.Direct Steam Injection 1_85.properties_out[0.0].phase_fraction_constraint[Liq]
-fs.Direct Steam Injection 1_85.properties_out[0.0].total_flow_balance
-fs.Direct Steam Injection 1_85.properties_out[0.0].component_flow_balances[milk_solid]
-fs.Direct Steam Injection 1_85.properties_out[0.0].eq_temperature_bubble[Vap,Liq]
-fs.Direct Steam Injection 1_85.properties_out[0.0].eq_mole_frac_tbub[Vap,Liq,water]
-fs.Direct Steam Injection 1_85.properties_out[0.0].phase_fraction_constraint[Vap]
+            fs.dsi.set_composition[0.0,water]
+            fs.dsi.eq_energy_balance[0.0]
+            fs.dsi.properties_out[0.0]._t1_constraint_Vap_Liq
+            fs.dsi.properties_out[0.0]._teq_constraint_Vap_Liq
+            fs.dsi.properties_out[0.0].equilibrium_constraint[Vap,Liq,water]
+            fs.dsi.eq_mass_balance_out[0.0,water]
+            fs.dsi.properties_out[0.0].component_flow_balances[water]
+            fs.dsi.properties_out[0.0].sum_mole_frac
+            fs.dsi.eq_mass_balance_out[0.0,milk_solid]
+            fs.dsi.properties_out[0.0].phase_fraction_constraint[Liq]
+            fs.dsi.properties_out[0.0].total_flow_balance
+            fs.dsi.properties_out[0.0].component_flow_balances[milk_solid]
+            fs.dsi.properties_out[0.0].eq_temperature_bubble[Vap,Liq]
+            fs.dsi.properties_out[0.0].eq_mole_frac_tbub[Vap,Liq,water]
+            fs.dsi.properties_out[0.0].phase_fraction_constraint[Vap]
 
 ====================================================================================
 ====================================================================================
 Dulmage-Mendelsohn Over-Constrained Set
 
-Independent Block 0:
+    Independent Block 0:
 
-Variables:
+        Variables:
 
 
-Constraints:
+        Constraints:
 
-fs.Direct Steam Injection 1_85.set_temperature[0.0]
+            fs.dsi.set_steam_cooled[0.0]
 
 ====================================================================================
 ====================================================================================
 8 WARNINGS
 
-fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.Direct Steam Injection 1_85.properties_out[0.0].temperature/fs.PP_0.water.dens_mol_liq_comp_coeff_3)**fs.PP_0.water.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
-fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.Direct Steam Injection 1_85.properties_out[0.0].temperature/fs.PP_0.milk_solid.dens_mol_liq_comp_coeff_3)**fs.PP_0.milk_solid.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
-fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.Direct Steam Injection 1_85.properties_mixed_unheated[0.0].temperature/fs.PP_0.water.dens_mol_liq_comp_coeff_3)**fs.PP_0.water.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
-fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.Direct Steam Injection 1_85.properties_mixed_unheated[0.0].temperature/fs.PP_0.milk_solid.dens_mol_liq_comp_coeff_3)**fs.PP_0.milk_solid.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
-fs.Direct Steam Injection 1_85.eq_energy_balance[0.0]: Potential division by 0 in ((fs.Direct Steam Injection 1_85.properties_steam_in[0.0].enth_mol - fs.Direct Steam Injection 1_85.properties_steam_cooled[0.0].enth_mol)*fs.Direct Steam Injection 1_85.properties_steam_in[0.0].flow_mol)/fs.Direct Steam Injection 1_85.properties_mixed_unheated[0.0].flow_mol; Denominator bounds are (0, 100)
-fs.Direct Steam Injection 1_85.properties_milk_in[0.0].equilibrium_constraint[Vap,Liq,water]: Potential division by 0 in fs.PP_0.water.pressure_sat_comp_coeff_B/(fs.Direct Steam Injection 1_85.properties_milk_in[0.0]._teq[Vap,Liq] + fs.PP_0.water.pressure_sat_comp_coeff_C); Denominator bounds are (-inf, inf)
-fs.Direct Steam Injection 1_85.properties_mixed_unheated[0.0].equilibrium_constraint[Vap,Liq,water]: Potential division by 0 in fs.PP_0.water.pressure_sat_comp_coeff_B/(fs.Direct Steam Injection 1_85.properties_mixed_unheated[0.0]._teq[Vap,Liq] + fs.PP_0.water.pressure_sat_comp_coeff_C); Denominator bounds are (-inf, inf)
-fs.Direct Steam Injection 1_85.properties_out[0.0].equilibrium_constraint[Vap,Liq,water]: Potential division by 0 in fs.PP_0.water.pressure_sat_comp_coeff_B/(fs.Direct Steam Injection 1_85.properties_out[0.0]._teq[Vap,Liq] + fs.PP_0.water.pressure_sat_comp_coeff_C); Denominator bounds are (-inf, inf)
+    fs.dsi.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.dsi.properties_out[0.0].temperature/fs.milk_properties.water.dens_mol_liq_comp_coeff_3)**fs.milk_properties.water.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
+    fs.dsi.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.dsi.properties_out[0.0].temperature/fs.milk_properties.milk_solid.dens_mol_liq_comp_coeff_3)**fs.milk_properties.milk_solid.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
+    fs.dsi.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.dsi.properties_mixed_unheated[0.0].temperature/fs.milk_properties.water.dens_mol_liq_comp_coeff_3)**fs.milk_properties.water.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
+    fs.dsi.eq_energy_balance[0.0]: Potential evaluation error in (1 - fs.dsi.properties_mixed_unheated[0.0].temperature/fs.milk_properties.milk_solid.dens_mol_liq_comp_coeff_3)**fs.milk_properties.milk_solid.dens_mol_liq_comp_coeff_4; base bounds are (-0.5452845641524886, 0.5779055213017478); exponent bounds are (0.081, 0.081)
+    fs.dsi.eq_energy_balance[0.0]: Potential division by 0 in ((fs.dsi.properties_steam_in[0.0].enth_mol - fs.dsi.properties_steam_cooled[0.0].enth_mol)*fs.dsi.properties_steam_in[0.0].flow_mol)/fs.dsi.properties_mixed_unheated[0.0].flow_mol; Denominator bounds are (0, 100)
+    fs.dsi.properties_milk_in[0.0].equilibrium_constraint[Vap,Liq,water]: Potential division by 0 in fs.milk_properties.water.pressure_sat_comp_coeff_B/(fs.dsi.properties_milk_in[0.0]._teq[Vap,Liq] + fs.milk_properties.water.pressure_sat_comp_coeff_C); Denominator bounds are (-inf, inf)
+    fs.dsi.properties_mixed_unheated[0.0].equilibrium_constraint[Vap,Liq,water]: Potential division by 0 in fs.milk_properties.water.pressure_sat_comp_coeff_B/(fs.dsi.properties_mixed_unheated[0.0]._teq[Vap,Liq] + fs.milk_properties.water.pressure_sat_comp_coeff_C); Denominator bounds are (-inf, inf)
+    fs.dsi.properties_out[0.0].equilibrium_constraint[Vap,Liq,water]: Potential division by 0 in fs.milk_properties.water.pressure_sat_comp_coeff_B/(fs.dsi.properties_out[0.0]._teq[Vap,Liq] + fs.milk_properties.water.pressure_sat_comp_coeff_C); Denominator bounds are (-inf, inf)
 ```
 
 Here is the current build method:
