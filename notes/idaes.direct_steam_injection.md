@@ -2,7 +2,7 @@
 id: fm9l95e6zq0f6zhgl4inx9q
 title: Direct_steam_injection
 desc: ''
-updated: 1746510046414
+updated: 1746761143286
 created: 1746402348520
 ---
 
@@ -373,3 +373,41 @@ def build(self):
 
 ```
 
+# The solution
+
+So, it turned out that there wasn't any problem in the code above, it was actually my initialisation. 
+
+```python
+
+   def initialize(blk, *args, **kwargs):
+        blk.properties_milk_in.initialize()
+        blk.properties_steam_in.initialize()
+
+        for t in blk.flowsheet().time:
+            # copy temperature and pressure from properties_milk_in to properties_steam_cooled
+            blk.properties_steam_cooled[t].temperature.set_value(
+                blk.properties_milk_in[t].temperature.value
+            )
+            blk.properties_steam_cooled[t].pressure.set_value(
+                blk.properties_milk_in[t].pressure.value
+            )
+
+            # Copy composition from properties_steam_in to properties_steam_cooled
+            blk.properties_steam_cooled[t].flow_mol.set_value(
+                blk.properties_steam_in[t].flow_mol.value
+            )
+            # If it's steam, there's only one component, so we prolly don't need to worry about composition.
+            # But may want TODO this for other cases.
+
+        blk.properties_steam_cooled.initialize()
+        blk.properties_mixed_unheated.initialize()
+
+        blk.properties_out.initialize()
+```
+
+Because I was using Helmholtz, Temperature is an Expression not a variable. So setting the value of Temperature to 300 removed the old value, and thus enthalpy was now not being constrained and properties_steam_cooled was defined twice. 
+
+After fixing that, it worked great. Note that it still doesn't account for any extra enthalpy of mixing of components in the DSI, above the initial temperature. You have to be able to assume that's negligible.
+
+
+See the code here: [https://github.com/bertkdowns/direct_steam_injection](https://github.com/bertkdowns/direct_steam_injection/commit/8d0d747bb551f1b0b63867c4c97518283cb9a278)
