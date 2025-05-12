@@ -2,7 +2,7 @@
 id: 8wsai5qnha2tb21u4f5x1ti
 title: Reference_enthalpies
 desc: ''
-updated: 1746767895553
+updated: 1747023742952
 created: 1746755211282
 ---
 
@@ -33,4 +33,18 @@ As you can see, there is a difference between them of ~283900. However, at the h
 
 However, if I modify the temperature to 350 kelvin, the difference in enthalpies decreases to 276482 J/mol. thats a "difference between the differences" of -7418, so it seems to vary quite a bit. Which is frustrating, because a reference enthalpy is a constant value you're supposed to add, and so that makes it hard to determine the constant to add.
 
-TODO: Graph the reference enthalpy
+# Solution
+
+To better understand what was going on, I tried to graph the result. 
+
+![Comparison of reference enthalpies](assets/reference_enthalpy_comparison.png)
+
+As you can see, the milk property package and the helmholtz/steam property package look quite different. Helmholtz has a sharp line at 100 degrees celcius, where everything vaporises. Milk doesn't have that at all- it slowly vaporises.
+
+It turns out that this was because in the previous example we had the amount of water set to 0.999999999 - which is too high, and the formulation starts to break. Dropping off a couple of those nines turned out to give a much better result. Then, we just had to adjust the reference enthalpy of both the liquid and vapor in the milk_config file. (note that the reference enthalpy of vapor is actually the H parameter in NIST, and you have to put in a negative value for some reason - otherwise you'll end up with an inverted graph.)
+
+![Comparison of reference enthalpies](assets/reference_enthalpy_comparison_corrected.png)
+
+The updated version can be found [here](https://github.com/bertkdowns/direct_steam_injection/commit/1fb58b19b1be2e148b07f723d13f068df6ebb67a).
+
+Using this enables the [[idaes.translator]] block to constrain enthalpy instead of temperature, which works a lot better.
