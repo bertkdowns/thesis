@@ -2,7 +2,7 @@
 id: y17ul1ymg7c6d00ya29d0ec
 title: Ph Formulation
 desc: ''
-updated: 1743117524902
+updated: 1747201140754
 created: 1743117524902
 ---
 # How this might link to other stuff
@@ -88,4 +88,4 @@ T = 140 - 0.001 * (h - calculated_h)
 # Discussion
 
 
-See also: [013 Switch to FPhx](./013_switch_to_fphx.md)
+See also: [[idaes.ftpx-vs-fphx]]
