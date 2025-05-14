@@ -1,6 +1,6 @@
 ---
 id: 9wsgvtj7u3ojf7xg42bcg3p
-title: Linear_time_invariance
+title: Linear Time Invariance
 desc: ''
 updated: 1743117524930
 created: 1743117524930

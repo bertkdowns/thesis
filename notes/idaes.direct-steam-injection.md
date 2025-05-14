@@ -1,6 +1,6 @@
 ---
 id: fm9l95e6zq0f6zhgl4inx9q
-title: Direct_steam_injection
+title: Direct Steam Injection
 desc: ''
 updated: 1746761143286
 created: 1746402348520

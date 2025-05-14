@@ -1,6 +1,6 @@
 ---
 id: wylqb8pl4gns4jgwmppfeyp
-title: Live_dat
+title: Live Data
 desc: ''
 updated: 1747092345522
 created: 1747092343855

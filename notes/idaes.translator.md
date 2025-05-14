@@ -6,7 +6,7 @@ updated: 1746760635931
 created: 1746755197778
 ---
 
-[[idaes.direct_steam_injection]] handles the case where we want to mix two streams of different property packages, and one property package has a subset of the compounds in the other property package. However, what about if we have a mixture, and we want to split out one of the compounds and model that seperately? For example, we have a property package that's good for milk, but can't really model pure steam that well - and just like how we inject steam with the [[idaes.direct_steam_injection]] we also need to extract steam.
+[[idaes.direct-steam-injection]] handles the case where we want to mix two streams of different property packages, and one property package has a subset of the compounds in the other property package. However, what about if we have a mixture, and we want to split out one of the compounds and model that seperately? For example, we have a property package that's good for milk, but can't really model pure steam that well - and just like how we inject steam with the [[idaes.direct-steam-injection]] we also need to extract steam.
 
 ![Initial Implementation of a Translation block in the platform, switching a stream from the milk property package to Helmholtz](assets/translation_block_example.png)
 
@@ -44,7 +44,7 @@ This mostly works quite well. However, it doesn't handle a critical factor: Vapo
 In theory, when you have a mixture, you can fully define the stream like that, becuase the vapor fraction changes as the temperature changes. However,
 
  1. We want to model pure steam, which at `1 atm` of pressure boils at exactly `100 degC`, i.e it can be 100 degrees celcius and anywhere in between 0 and 1 degrees celcius
- 2. Even if we try use the method in [[idaes.ph_formulation]] to make sure there is no zero gradient in temperature, there is a HUGE change in enthalpy at this point. 
+ 2. Even if we try use the method in [[idaes.ph-formulation]] to make sure there is no zero gradient in temperature, there is a HUGE change in enthalpy at this point. 
  it takes 5 times more energy to heat water from 99 to 101 degrees Celcius than it does to heat water from 1 to 99 degrees celcius! This means that a slight difference in temperature could mean a massive difference in enthalpy, and therefore the vapor fraction could be way off. 
 
 Table: Enthalpy of water at 101325 kPa (1 atm)
@@ -78,9 +78,9 @@ We could fix this by removing the first value every time - just set the flow for
 
 Maybe there's some way you could get around this, using some sort of regression to minimise the error in both temperature and vapor fraction (maybe weighting vapor fraction as much more important or something), but that seems kinda sus.
 
-So, we've got to do things properly, by using [[idaes.reference_enthalpies]].
+So, we've got to do things properly, by using [[idaes.reference-enthalpies]].
 
 
 The translator implementation is avaliable at (https://github.com/bertkdowns/direct_steam_injection)[https://github.com/bertkdowns/direct_steam_injection]
 
-[[idaes.reference_enthalpies]]
+[[idaes.reference-enthalpies]]

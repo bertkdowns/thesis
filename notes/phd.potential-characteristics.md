@@ -1,6 +1,6 @@
 ---
 id: 1ziqbhf6cqyt0b6urtfd42n
-title: Potential_characteristics
+title: Potential Characteristics
 desc: ''
 updated: 1744322007041
 created: 1744262162102

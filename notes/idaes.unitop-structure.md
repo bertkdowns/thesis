@@ -1,6 +1,6 @@
 ---
 id: 76qasm5p97px2kgkxpgauth
-title: Unitop_structure
+title: Unitop Structure
 desc: ''
 updated: 1743118600013
 created: 1743117524964
@@ -55,4 +55,4 @@ One constraint is defined, `sb.constraints.flow_mass`, that sets the value of an
 
 This is used to calculate the flow_mol, and then all the other expressions are defined based on those variables and can be calculated.
 
-However, this has problems for initialisation [[idaes.initialisation]].
+However, this has problems for initialisation [[idaes.initialisation_with_custom_constraints]].

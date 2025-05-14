@@ -1,6 +1,6 @@
 ---
 id: ylrtlfhsjo7kgci2q5t31nc
-title: Talk
+title: Talks
 desc: ''
 updated: 1744260144602
 created: 1744258443405
