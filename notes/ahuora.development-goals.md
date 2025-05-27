@@ -2,7 +2,7 @@
 id: ic5nyf8x64zgtf3k9kw273u
 title: Development Goals
 desc: ''
-updated: 1747201546763
+updated: 1747782928929
 created: 1743117525011
 ---
 
@@ -22,7 +22,7 @@ Dynamics
 
 Multi-Steady-state
 - Better visualisation of results
-- Store in the backend (seperate to history?)
+- ~~Store in the backend (seperate to history?)~~
 - Modify history to be specifically for live streaming?
 
 Surrogate Modelling
@@ -36,7 +36,7 @@ Surrogate Modelling
 UI Tweaks
 - ~~Refactor the frontend (minimize stuff)~~
 - undo/redo
-- search bar - create a custom library
+- ~~search bar - create a custom library~~
 - auto close/ auto open stuff
 
 P-Graph

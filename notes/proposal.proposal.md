@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: Proposal
 desc: 'Project Proposal'
-updated: 1745973562024
+updated: 1748326238883
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -85,17 +85,19 @@ Potential characteristics avaliable in phd.potential_characteristics.md
 
 I have developed the core steady-state functionality required for the Ahuora Digital Twin platform to become usable in industry. Collaborating with others at Ahuora, I implemented additional property packages in the platform to support milk and humid air, two critical components for modeling New Zealand industries.
 
-In March 2025, I released the Ahuora Digital Twin Platform to industry in a beta phase. I conducted a training day with 30 stakeholders from various sectors representing their companies. The training was well received, and I am now engaging in discussions on how to integrate the Ahuora Platform into their workflows. Throughout this process, I identified additional features and requirements.
+In March 2025, I was heavily involved in the Ahuora Digital Twin Platform to industry in a beta phase. This included a training day with 30 stakeholders from various sectors representing their companies. The training was well received, and I am now engaging in discussions on how to integrate the Ahuora Platform into their workflows. Throughout this process, I have identified additional requirements, such as better support for data processing, prebuilt models of common components, and use cases for design and operations.
 
-Since then, I have expanded the platform with additional functionality for dynamic modeling, paving the way for the Ahuora Digital Twin Platform to be used for prediction and supervisory control.
+Since then, I have expanded the platform with additional functionality for dynamic modelling, paving the way for the Ahuora Digital Twin Platform to be used for prediction and supervisory control. I have implemented new IDAES unit models for Direct Steam Injection with a Milk Property Package, supporting key industry case studies in New Zealand's milk processing plants ^[[This is accessible on GitHub. https://github.com/bertkdowns/direct_steam_injection](https://github.com/bertkdowns/direct_steam_injection)].
 
-I also conducted a literature review to survey current technologies, which forms the next chapter of this document. This review highlighted the need for a standardized workflow to construct digital twins and the tools in process engineering that a Digital Twin platform can utilize.
+I have also conducted a literature review to survey current technologies, which forms the next chapter of this document. This review highlighted the need for a standardized workflow to construct digital twins and the tools in process engineering that a Digital Twin platform can utilize.
 
-In parallel, I researched radial basis operator networks [@kurz2024radial] and implemented these techniques in the Algebraic Modeling language Pyomo. This work may enable the creation of surrogate models of dynamical systems and their inclusion in a Digital Twin.
+I have directed some initial prototyping into creating a library for NODE-RED, an event-driven data management platform, to work with the Ahuora Platform. I have tested using NODE-RED to communicate across a variety of protocols, including HTTP, TCP, and OPC-UA, and it is a promising method to enable implementation of diverse factory data systems with the Ahuora Platform. This work will continue and be directly applied to my upcoming case studies. 
+
+In parallel, I have been researching radial basis operator networks [@kurz2024radial] and implemented these techniques in the Algebraic Modeling language Pyomo. This work may enable the creation of surrogate models of dynamical systems and their inclusion in a Digital Twin.
 
 ### Future Work
 
-Through discussions from the Ahuora Platform day and Project Ahuora's other industry connections, I anticipate starting a case study by late 2025 on modeling a continuous process. This case study will provide feedback to improve the scope and architecture of the Ahuora Digital Twin Platform. I will also use additional case studies from other industrial partners and scenarios that existing PhD students are already studying as part of Project Ahuora.
+Through discussions from the Ahuora Platform day and Project Ahuora's other industry connections, I anticipate starting a case study by late 2025 on modeling a continuous process. This case study will provide feedback to improve the scope and architecture of the Ahuora Digital Twin Platform. I will also use additional case studies from other industrial partners, scenarios that existing PhD students are already studying as part of Project Ahuora, and simulated factory environments that serve as benchmarks[@DOWNS1993245].
 
 Development of the ADTP and implementation in case studies will be conducted simultaneously, following the principles of iterative design [@beck2001manifesto]. The case studies will naturally influence the requirements and design of the system, and these changes will be recorded and documented. 
 
@@ -139,9 +141,11 @@ What you've done: experiments, models, code, papers, reviews, etc.
 Can include early results or pilot studies.
 -->
 
-ultiple case studies will be avaliable in the near future. If some case studies are unable to be completed, it is likely that a replacement case study will be avaliable, however, this could cause some delays. In absence of real-world case studies, work could still take place through collaboration with other PhD student's existing case studies, and emulation of factory control systems. 
+I am in discussions with multiple New Zealand businesses around their plans to retrofit with renewables and increase process efficiency. It is expected that I will be able to work on those case studies in the coming months. These will provide the foundational case studies, and will open the door for future industry collaboration. Because there are multiple case studies avaliable, my project is not reliant on access to a single data source, mitigating the risk of data access being a barrier to progress. 
 
-There could be technological concerns with the use of the Ahuora Digital Twin platform, if development of the required features is taking longer than expected. This can be mitigated through incremental development and managing scope. External tools could also be used if the Ahuora Digital Twin Platform is not yet at the level required to build some specific feature needed for the Digital Twin. Similar techniques can be used to manage other time constraints.
+Nonetheless, there still could be delays in data accessibility. To diversify the style of systems I am analysing, I will also include simulated factories as appropriate. The Tennessee Eastman Process Simulator provides an accurate and challenging problem of process control technologies and handling disturbances [@DOWNS1993245]. Since its creation, it has frequently been used as a benchmark for control strategies. It has been re-implemented with random variation to enable statistical methods in Matlab/Simulink [@capaci2019revised], and an interface has been created in python to enable interactivity in changing setpoints throughout the run [@reinartz2022pytep]. This will provide a reliable test case in absence of or addition to real world examples. Further benchmark simulations will then be identified as appropriate. Ahuora also has a number of other PhD students working on a variety of existing case studies and simulation problems, which could be used as well. 
+
+There could be technological concerns with the use of the Ahuora Digital Twin platform, if development of the required features is taking longer than expected. This can be mitigated through incremental development and managing scope. In this case, external tools such as the IDAES Process Modelling framework [@lee2021idaes] can be used in place of the Ahuora Digital Twin Platform. There is ample flexibility in the Ahuora Digital Twin platform to negotiate scope and prioritise features as required for our case studies, so it is unlikely that this will be an issue.
 
 Depending on the case study, confidentiality may be required with regard to company data. This will be handled in accordance with the University policy's procedures and guidelines. Likewise, any ethical issues will be dealt with in accordance with University policy. 
 
