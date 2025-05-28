@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: Proposal
 desc: 'Project Proposal'
-updated: 1748326238883
+updated: 1748388929127
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -31,7 +31,7 @@ There is a lot of complexity in building a digital twin, including:
 - Creating a model of the process 
 - Adapting the models to work in an online context, where they can be continuously retrained
 - Collecting, aggregating, visualising, and storing heterogeneous data in a cohesive fashion
-- Leveraging the digital twin for design optimization, operational decision support, and supervisory control.
+- Leveraging the digital twin for operational decision support, supervisory control, and/or design-time optimisation.
 
 My hypothesis is that much of this is accidental complexity; the domain logic is in the model itself. Thus, a standardised Digital Twin framework can implement the application logic, and eliminate the majority of accidental complexity. This will enable those building Process digital twins to focus on their model of the system, the essential complexity of the digital twin.
 
@@ -49,26 +49,37 @@ Details of methods, experiments, case studies, simulations, or theoretical frame
 Tools, data sources, analysis techniques.
 -->
 
-To answer these questions, two main methods will be used:
+To understand how much a standardised framework can speed up the development process of new Process Digital Twins, a DT framework is needed. I have stated my hypothesis that building a DT will be easier with a framework that handles linking data sources, is built of existing control technologies, and uses machine learning techniques to create an adaptive behavioural model. To test this, these methods will be evaluated in terms of theoretical principles, implemented in the Ahuora Digital Twin Platform, and then evaluated in case studies. This follows a software engineering research methodology that is already present in existing literature, such as [@armstrong2003making]. It strikes a balance between logical reasoning, and concrete applications where real-world factors also affect the outcome. 
 
+All three of these research activities - theoretical analysis, implementation, and evaluation in case studies - will be conducted in parallel, enabling them to inform each other. 
 
-**1. Implementation of the Ahuora Digital Twin in industrial case studies**
+### Theoretical analysis of system properties
 
-The Ahuora Digital Twin Platform will be used to model a variety of industry case studies, in collaboration with New Zealand industries and other PhD case studies. As the Digital Twin Platform is still relatively new, inevitably feedback and requirements from these case studies will necessitate development of new features and refinement of workflows.
-
-These changes in requirements form the key data points of this research. They provide feedback into how standards, frameworks, and technologies affect the development pace, quality, functionality, and reliability of a Digital Twin.
-
-Through application of software engineering practices, the architecture of the platform will gradually adjust to better the problem domain. This principle of incremental change to "grow" an architecture is widely documented in the software industry [@foote1997big].
-
-
-**2. Theoretical analysis of system properties**
-
-As the software project gradually evolves over time through ongoing use and refinement, patterns and structures will be identified. These patterns in the software architecture can provide a different lens into the problem space of designing a Digital Twin. The effect of these patterns can be analysed through logical reasoning, by asking the question *"If this property was to be taken to its logical extreme, and strictly enforced across the Digital Twin, what consequences - both positive and negative - would emerge?"* This enables a deeper understanding of the trade-offs in adopting an architectural principle.
+Key patterns and structures have already been identified in the hypothesis and through the literature review. As the software project evolves over time, new development patterns will also be identified. These patterns in the software architecture can provide a different lens into the problem space of designing a Digital Twin. We can then ask: *"If this property was to be taken to its logical extreme, and strictly enforced across the Digital Twin, what consequences - both positive and negative - would emerge?"* This enables a deeper understanding of the trade-offs in adopting an architectural principle.
 
 For instance, if a technique for modularity emerges as a dominant pattern, one might ask: "What would a fully modular Digital Twin look like?" 
-This could lead to benefits such as improved testability, parallel development, and plug-and-play component integration. However, it might also introduce challenges around coordination, interface design, and performance due to increased abstraction boundaries.
+It could lead to benefits such as improved testability, parallel development, and plug-and-play component integration. However, it might also introduce challenges around coordination, interface design, and performance due to increased abstraction boundaries. These factors could then be evaluated in greater detail, or implemented in the platform to provide concrete evidence through case studies.
 
-Ultimately, these emergent patterns become not just a byproduct of the development process, but can be applied together to provide a generalised framework for building Digital Twins.
+Ultimately, the theoretical analyis of a variety of system properties can be combined into a generalised framework for building Digital Twins.
+
+
+### Development of the Ahuora Digital Twin Platform
+
+The Ahuora Digital Twin Platform provides a means to study various properties of a Digital Twin Framework. To experiment with an aspect of a Digital Twin Framework, I will need to implement it in the Ahuora Digital Twin platform first. This gives me the flexibility to design a variety of experiments around it. I have the ability to modify both the functionality, and how it integrates with the wider system.
+
+The major next stages of development include more complex methods of dynamic simulation, machine learning functionality, and integration with real-time processing systems. All of these are closely related to what I hypothesize are sources of accidental complexity in conventional Digital Twin systems.
+
+
+### Implementation of the Ahuora Digital Twin in industrial case studies
+
+Based on these features, the Ahuora Digital Twin Platform will be used to model a variety of industry case studies. These will be a combination of real-world case studies in collaboration with New Zealand industries, and simulated scenarios using benchmark processes [@DOWNS1993245]. 
+
+
+Inevitably, feedback and requirements from these case studies will necessitate development of new features and refinement of workflows. These changes in requirements form the key data points of this research. They provide insight into how standards, frameworks, and technologies affect the development pace, quality, functionality, and reliability of a Digital Twin.
+
+Through application of software engineering practices, the architecture of the platform will gradually adjust to better the problem domain. This principle of incremental change to "grow" an architecture is widely documented in the software industry [@foote1997big]. Observing whether this architecture decreases the amount of accidental complexity involved in building a digital twin will test my hypothesis. 
+
+
 
 <!---
 In the appendix, include some potential characteristics, and some potential case studies

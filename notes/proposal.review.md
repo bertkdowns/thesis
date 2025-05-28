@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: 
-updated: 1745800464035
+updated: 1748389142925
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -36,7 +36,7 @@ A DT system could be made or adapted for either, but bi-directional communicatio
 
 The bi-directional communication of an autonomous Digital Twin can be better viewed from the perspective of control systems. The fundamental characteristics of such a Digital Twin include:
 
-![Feedback loop between Digital Twin and Physical System, when viewed from a Control Theory Perspective](assets/dt_feedback_loop.drawio.svg)
+![Feedback loop between Digital Twin and Physical System, when viewed from a Control Theory Perspective](assets/dt_feedback_loop.drawio.png)
 
 
 - **Physical System & Context Awareness**: This type of Digital Twin represents one physical system - i.e., the specific physical object must be identifiable [@minerva_digital_2020]. It also may represent the environment of the physical system. 
