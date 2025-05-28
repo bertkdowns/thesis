@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: Proposal
 desc: 'Project Proposal'
-updated: 1748388929127
+updated: 1748475959534
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -22,9 +22,9 @@ Often phrased clearly and precisely, e.g.:
 
 My project aims to answer the following research question:
 
-*How can a standardised framework minimise the work required to create new Process Digital Twins?* 
+*How effectively can a software framework reduce the complexity of implementing new Process Digital Twins?* 
 
-In software engineering, *Essential Complexity* , or domain logic, is the "complexity inherent in solving the problem that you are trying to solve" [@farley2021modern]. *Accidental Complexity*, or application logic, refers to the "problems we are forced to solve as a side effect of doing something useful with computers". This includes infrastructure, scalibility, security, and data persistence. 
+*'Essential Complexity'* , or domain logic, is the "complexity inherent in solving the problem that you are trying to solve" [@farley2021modern]. *'Accidental Complexity'*, or application logic, refers to the "problems we are forced to solve as a side effect of doing something useful with computers". This includes infrastructure, scalibility, security, and data persistence. 
 
 There is a lot of complexity in building a digital twin, including:
 
@@ -77,9 +77,16 @@ Based on these features, the Ahuora Digital Twin Platform will be used to model 
 
 Inevitably, feedback and requirements from these case studies will necessitate development of new features and refinement of workflows. These changes in requirements form the key data points of this research. They provide insight into how standards, frameworks, and technologies affect the development pace, quality, functionality, and reliability of a Digital Twin.
 
-Through application of software engineering practices, the architecture of the platform will gradually adjust to better the problem domain. This principle of incremental change to "grow" an architecture is widely documented in the software industry [@foote1997big]. Observing whether this architecture decreases the amount of accidental complexity involved in building a digital twin will test my hypothesis. 
+Through application of software engineering practices, the architecture of the platform will gradually adjust to better the problem domain. This principle of incremental change to "grow" an architecture is widely documented in the software industry [@foote1997big]. It is expected that through this process, the the amount of accidental complexity involved in building a digital twin will decrease. 
 
+### Measuring Complexity
 
+Ivan et al. would argue that software systems are not truly complex, as they are complicated finite approximations of real world systems and therefore decomposable into many simple problems [@ivan2013complexity].
+In this context, complexity can be considered a measure of the entropy or complicatedness of the system; how many different interactions need to be considered [@harrison1992entropy]. *Structural Complexity* specifically focuses on the structure of the program itself.
+
+To test my hypothesis, I will compare the structural complexity of Process Digital Twin systems built using the Ahuora Digital Twin Platform with the equivalent Digital Twins built using conventional simulation and data processing techniques. I will not consider the internal complexity of the Ahuora Digital Twin Platform itself, because that is not exposed to someone who is using the platform to build a Digital Twin. 
+
+Less structurally complex systems should be easier to build [@complexityofsystems], and thus I can draw conclusions on the benifits the Ahuora Digital Twin Platform provides. 
 
 <!---
 In the appendix, include some potential characteristics, and some potential case studies
