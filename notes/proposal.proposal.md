@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: Proposal
 desc: 'Project Proposal'
-updated: 1748475959534
+updated: 1748487108225
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -84,9 +84,7 @@ Through application of software engineering practices, the architecture of the p
 Ivan et al. would argue that software systems are not truly complex, as they are complicated finite approximations of real world systems and therefore decomposable into many simple problems [@ivan2013complexity].
 In this context, complexity can be considered a measure of the entropy or complicatedness of the system; how many different interactions need to be considered [@harrison1992entropy]. *Structural Complexity* specifically focuses on the structure of the program itself.
 
-To test my hypothesis, I will compare the structural complexity of Process Digital Twin systems built using the Ahuora Digital Twin Platform with the equivalent Digital Twins built using conventional simulation and data processing techniques. I will not consider the internal complexity of the Ahuora Digital Twin Platform itself, because that is not exposed to someone who is using the platform to build a Digital Twin. 
-
-Less structurally complex systems should be easier to build [@complexityofsystems], and thus I can draw conclusions on the benifits the Ahuora Digital Twin Platform provides. 
+To test my hypothesis, I will compare the structural complexity of Process Digital Twin systems built using the Ahuora Digital Twin Platform with the equivalent Digital Twins built using conventional simulation and data processing techniques^[I will not consider the internal complexity of the Ahuora Digital Twin Platform itself, because that is not exposed to someone who is using the platform to build a Digital Twin.]. Less structurally complex systems will be easier to build [@complexityofsystems], and thus I can draw conclusions on the benefits the Ahuora Digital Twin Platform provides to the process industry. 
 
 <!---
 In the appendix, include some potential characteristics, and some potential case studies
@@ -115,7 +113,7 @@ In parallel, I have been researching radial basis operator networks [@kurz2024ra
 
 ### Future Work
 
-Through discussions from the Ahuora Platform day and Project Ahuora's other industry connections, I anticipate starting a case study by late 2025 on modeling a continuous process. This case study will provide feedback to improve the scope and architecture of the Ahuora Digital Twin Platform. I will also use additional case studies from other industrial partners, scenarios that existing PhD students are already studying as part of Project Ahuora, and simulated factory environments that serve as benchmarks[@DOWNS1993245].
+Through discussions from the Ahuora Platform day and Project Ahuora's other industry connections, I anticipate starting a case study by late 2025 on modeling a continuous process. This case study will provide feedback to improve the scope and architecture of the Ahuora Digital Twin Platform. I will also use additional case studies from other industrial partners, scenarios that existing PhD students are already studying as part of Project Ahuora, and simulated factory environments that serve as benchmarks [@DOWNS1993245].
 
 Development of the ADTP and implementation in case studies will be conducted simultaneously, following the principles of iterative design [@beck2001manifesto]. The case studies will naturally influence the requirements and design of the system, and these changes will be recorded and documented. 
 
