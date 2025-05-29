@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: Proposal
 desc: 'Project Proposal'
-updated: 1748487108225
+updated: 1748487196952
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -101,7 +101,9 @@ Potential characteristics avaliable in phd.potential_characteristics.md
 
 I have developed the core steady-state functionality required for the Ahuora Digital Twin platform to become usable in industry. Collaborating with others at Ahuora, I implemented additional property packages in the platform to support milk and humid air, two critical components for modeling New Zealand industries.
 
-In March 2025, I was heavily involved in the Ahuora Digital Twin Platform to industry in a beta phase. This included a training day with 30 stakeholders from various sectors representing their companies. The training was well received, and I am now engaging in discussions on how to integrate the Ahuora Platform into their workflows. Throughout this process, I have identified additional requirements, such as better support for data processing, prebuilt models of common components, and use cases for design and operations.
+In March 2025, I was heavily involved in releasing the Ahuora Digital Twin Platform to industry in a beta phase. This included a training day with 30 stakeholders from various sectors representing their companies. 
+The training was well received, and I am now engaging in discussions on how to integrate the Ahuora Platform into their workflows. 
+Throughout this process, I have identified additional requirements, such as better support for data processing, prebuilt models of common components, and use cases for design and operations.
 
 Since then, I have expanded the platform with additional functionality for dynamic modelling, paving the way for the Ahuora Digital Twin Platform to be used for prediction and supervisory control. I have implemented new IDAES unit models for Direct Steam Injection with a Milk Property Package, supporting key industry case studies in New Zealand's milk processing plants ^[[This is accessible on GitHub. https://github.com/bertkdowns/direct_steam_injection](https://github.com/bertkdowns/direct_steam_injection)].
 
