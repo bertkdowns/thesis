@@ -84,7 +84,52 @@ Through application of software engineering practices, the architecture of the p
 Ivan et al. would argue that software systems are not truly complex, as they are complicated finite approximations of real world systems and therefore decomposable into many simple problems [@ivan2013complexity].
 In this context, complexity can be considered a measure of the entropy or complicatedness of the system; how many different interactions need to be considered [@harrison1992entropy]. *Structural Complexity* specifically focuses on the structure of the program itself.
 
-To test my hypothesis, I will compare the structural complexity of Process Digital Twin systems built using the Ahuora Digital Twin Platform with the equivalent Digital Twins built using conventional simulation and data processing techniques^[I will not consider the internal complexity of the Ahuora Digital Twin Platform itself, because that is not exposed to someone who is using the platform to build a Digital Twin.]. Less structurally complex systems will be easier to build [@complexityofsystems], and thus I can draw conclusions on the benefits the Ahuora Digital Twin Platform provides to the process industry. 
+It is hard to measure complexity in absolute terms, but it is easier to compare the relative structural complexity of two systems. For two codebases in a similar programming language, this can be done through comparing lines of code, or number of branch conditions, or compressed file size. 
+Each of these can provide some insight into the complexity of the system, when they are carefully balanced against each other. For example, a program with many lines of code may not be particularly complex if there is little branching and the code is repetitive.
+
+For example, here is a comparison of two HTTP web servers in python, one using Flask, and one using a the standard python HTTP library.
+
+```python
+### Flask Web Server
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/hello')
+def hello():
+  return "Hello, World!"
+
+app.run(port=5000)
+
+### Pure Python http.server
+
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+class HelloHandler(BaseHTTPRequestHandler):
+  def do_GET(self):
+    if self.path == '/hello':
+      self.send_response(200)
+      self.send_header('Content-type','text/plain')
+      self.end_headers()
+      self.wfile.write(b'Hello, World!')
+    else:
+      self.send_response(404)
+      self.end_headers()
+
+server = HTTPServer('localhost',5000)
+server.server_forever()
+```
+
+The Flask version is shorter, has less conditional logic, and doesn't have to worry about the underlying details of HTTP. For this use case, it can be argued that using Flask makes designing the system much less complex - even though Flask may have more complex logic inside it.
+
+To test my hypothesis, I will compare the structural complexity of Process Digital Twin systems built using the Ahuora Digital Twin Platform with the equivalent Digital Twins built using conventional simulation and data processing techniques.
+As the Ahuora Digital Twin Platform is a graphical application, comparisons will need to be made at a higher level, in terms of pseudocode or diagrams, accompanied by an analysis of each part. To ensure that the comparison is fair, comprehensive reasoning about each part of the system, and the appropriate level of detail to visualise it, will be required.
+
+Both the Ahuora Platform and conventional Digital Twin Techniques will be compared from the perspective of building a Digital Twin. Thus, just as the Flask example did not discuss the complexity of the Flask library itself, the internal complexity of the Ahuora Platform will not be considered as the person building a Digital Twin doesn't interact with it. Instead, the complexity of the system *the user has to build* will be evaluated.
+
+<!-- provide an example: flask vs pure python  -->
+
+Less structurally complex systems will be easier to build [@complexityofsystems], so if a Digital Twin built with the Ahuora Platform is less complex, it is evidence that it is easier to build than using conventional simulation techniques.
 
 <!---
 In the appendix, include some potential characteristics, and some potential case studies
