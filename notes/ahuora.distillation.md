@@ -1,3 +1,10 @@
+---
+id: flq716mf9oqqd2ua7rwmo6a
+title: Distillation
+desc: ''
+updated: 1749683709862
+created: 1749683709862
+---
 
 
 # How do we implement distillation columns in the platform?

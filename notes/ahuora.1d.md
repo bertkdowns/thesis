@@ -1,3 +1,10 @@
+---
+id: jr6ajou462jsurjfhptmxip
+title: 1d
+desc: ''
+updated: 1749683709841
+created: 1749683709841
+---
 
 
 # 1d modelling

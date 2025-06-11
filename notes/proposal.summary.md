@@ -1,6 +1,6 @@
 ---
 id: 8lo8umu1mkiw20enmnkf1x9
-title: A Software Platform to Accelerate the Implementation of Process Digital Twins 
+title: A Software Platform to Accelerate the Implementation of Process Digital Twins
 desc: ''
 updated: 1748468816427
 created: 1745809239057

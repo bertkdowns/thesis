@@ -1,3 +1,10 @@
+---
+id: r6ag4jx6sdsb0zkxwtslzfa
+title: Control
+desc: ''
+updated: 1749683709847
+created: 1749683709847
+---
 
 # Control
 

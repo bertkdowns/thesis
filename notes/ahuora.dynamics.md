@@ -1,3 +1,10 @@
+---
+id: feo85borvstyfsj0o7zuc60
+title: Dynamics
+desc: ''
+updated: 1749683709864
+created: 1749683709864
+---
 
 
 # Dynamics

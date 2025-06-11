@@ -1,7 +1,7 @@
 ---
 id: 7ge60f5z9a7qkmgh836qxdv
 title: Proposal
-desc: 'Project Proposal'
+desc: Project Proposal
 updated: 1748487196952
 created: 1743126355038
 bibliography:

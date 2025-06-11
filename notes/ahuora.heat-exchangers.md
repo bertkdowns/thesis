@@ -1,3 +1,10 @@
+---
+id: hqjirh6xz6wie4nhsjimgoi
+title: Heat Exchangers
+desc: ''
+updated: 1749683709865
+created: 1749683709865
+---
 
 
 # How do we calculate the Heat Transfer coefficient?
