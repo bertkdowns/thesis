@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: Proposal
 desc: Project Proposal
-updated: 1748487196952
+updated: 1749686221188
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -73,6 +73,8 @@ The major next stages of development include more complex methods of dynamic sim
 ### Implementation of the Ahuora Digital Twin in industrial case studies
 
 Based on these features, the Ahuora Digital Twin Platform will be used to model a variety of industry case studies. These will be a combination of real-world case studies in collaboration with New Zealand industries, and simulated scenarios using benchmark processes [@DOWNS1993245]. 
+
+I will be starting with the Tennessee Eastman Process Simulator. This is a benchmark of process control technologies, including handling disturbances [@DOWNS1993245].  It has been re-implemented with random variation to enable statistical methods in Matlab/Simulink [@capaci2019revised], and an interface has been created in python to enable interactivity in changing setpoints throughout the run [@reinartz2022pytep]. This will provide a reliable test case in absence of or addition to real world examples. Further benchmark simulations will then be identified as appropriate. Ahuora also has a number of other PhD students working on a variety of existing case studies and simulation problems, which could be used as well. 
 
 
 Inevitably, feedback and requirements from these case studies will necessitate development of new features and refinement of workflows. These changes in requirements form the key data points of this research. They provide insight into how standards, frameworks, and technologies affect the development pace, quality, functionality, and reliability of a Digital Twin.
@@ -150,7 +152,9 @@ In March 2025, I was heavily involved in releasing the Ahuora Digital Twin Platf
 The training was well received, and I am now engaging in discussions on how to integrate the Ahuora Platform into their workflows. 
 Throughout this process, I have identified additional requirements, such as better support for data processing, prebuilt models of common components, and use cases for design and operations.
 
-Since then, I have expanded the platform with additional functionality for dynamic modelling, paving the way for the Ahuora Digital Twin Platform to be used for prediction and supervisory control. I have implemented new IDAES unit models for Direct Steam Injection with a Milk Property Package, supporting key industry case studies in New Zealand's milk processing plants ^[[This is accessible on GitHub. https://github.com/bertkdowns/direct_steam_injection](https://github.com/bertkdowns/direct_steam_injection)].
+Since then, I have expanded the platform with additional functionality for dynamic modelling, paving the way for the Ahuora Digital Twin Platform to be used for prediction and supervisory control. This is currently limited to storage tanks and PID control, but now the initial systems are there development will be simpler in the future.
+
+I have implemented new IDAES unit models for Direct Steam Injection with a Milk Property Package, supporting key industry case studies in New Zealand's milk processing plants ^[[This is accessible on GitHub. https://github.com/bertkdowns/direct_steam_injection](https://github.com/bertkdowns/direct_steam_injection)]. I anticipate this will make more New Zealand focused case studies accessible to me.
 
 I have also conducted a literature review to survey current technologies, which forms the next chapter of this document. This review highlighted the need for a standardized workflow to construct digital twins and the tools in process engineering that a Digital Twin platform can utilize.
 
@@ -191,7 +195,8 @@ Existing literature already outlines a number of different frameworks to view a 
 
 Through the case studies, a generalised methodology to build a DT of a chemical process can be constructed. This methodology will be shown in the context of the Ahuora Digital Twin Platform. It will be both a novel piece of research into DT application, and a guide to industry on how to create a DT system.
 
-Finally, I anticipate that this process will also involve creation of new techniques for Machine Learning and/or Mathematical Modelling. As these techniques form the core of the DT, it is likely that tangential research into those fields will be required to enable the use of emerging techniques in Digital Twins. For example, the current work on operator networks fits into this category.
+Finally, I anticipate that this process will also involve creation of new techniques for Machine Learning and/or Mathematical Modelling. As these techniques form the core of the DT, it is likely that tangential research into those fields will be required to enable the use of emerging techniques in Digital Twins. 
+An example of this outcome is my work on operator networks, as it could be applied outside the field of Digital Twins.
 
 
 
@@ -205,8 +210,7 @@ Can include early results or pilot studies.
 -->
 
 I am in discussions with multiple New Zealand businesses around their plans to retrofit with renewables and increase process efficiency. It is expected that I will be able to work on those case studies in the coming months. These will provide the foundational case studies, and will open the door for future industry collaboration. Because there are multiple case studies avaliable, my project is not reliant on access to a single data source, mitigating the risk of data access being a barrier to progress. 
-
-Nonetheless, there still could be delays in data accessibility. To diversify the style of systems I am analysing, I will also include simulated factories as appropriate. The Tennessee Eastman Process Simulator provides an accurate and challenging problem of process control technologies and handling disturbances [@DOWNS1993245]. Since its creation, it has frequently been used as a benchmark for control strategies. It has been re-implemented with random variation to enable statistical methods in Matlab/Simulink [@capaci2019revised], and an interface has been created in python to enable interactivity in changing setpoints throughout the run [@reinartz2022pytep]. This will provide a reliable test case in absence of or addition to real world examples. Further benchmark simulations will then be identified as appropriate. Ahuora also has a number of other PhD students working on a variety of existing case studies and simulation problems, which could be used as well. 
+The literature also includes a number of simulated processes that I can use, such as the Tennessee Eastman Process. These also will provide a fallback if industrial data is not accessible.
 
 There could be technological concerns with the use of the Ahuora Digital Twin platform, if development of the required features is taking longer than expected. This can be mitigated through incremental development and managing scope. In this case, external tools such as the IDAES Process Modelling framework [@lee2021idaes] can be used in place of the Ahuora Digital Twin Platform. There is ample flexibility in the Ahuora Digital Twin platform to negotiate scope and prioritise features as required for our case studies, so it is unlikely that this will be an issue.
 

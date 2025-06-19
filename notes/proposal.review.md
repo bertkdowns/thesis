@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: null
-updated: 1748389142925
+updated: 1750311486996
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -84,7 +84,10 @@ However, as a brewery is a batched process, the major source of inefficiency is 
 
 ### Tissue Paper Mill
 
-A whitepaper by VTT on Process modelling and Simulation [@caro_vtt_process_modelling_whitepaper] outlines how an existing paper mill was retrofitted to cut water consuption. A reference model was able to provide a baseline of performance, and this could be validated using sensor data. This enabled greater visibility into the cause for problems, and helped narrow down the cause of water consumption so that improvements could be made. Design changes could be tested on the virtual systems before applying them to the physica systems.
+A whitepaper by VTT on Process modelling and Simulation [@caro_vtt_process_modelling_whitepaper] outlines how an existing paper mill was retrofitted to cut water consuption. 
+A reference model was able to provide a baseline of performance, and this could be validated using sensor data. 
+This enabled greater visibility into the cause for problems, and helped narrow down the cause of water consumption so that improvements could be made. 
+Design changes could be tested on the virtual systems before applying them to the physical systems.
 
 
 ### Thermoforming Machine

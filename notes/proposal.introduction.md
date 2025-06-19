@@ -2,7 +2,7 @@
 id: a4hbyhqg1kreohraq049sd7
 title: Introduction
 desc: ''
-updated: 1748469904366
+updated: 1750307368324
 created: 1743126139930
 ---
 
@@ -13,14 +13,15 @@ The major innovations of the industrial revolution were not new products. Textil
 Many other innovations have gone through similar cycles. Early websites were hand-crafted by a professional programmer, now a website builder can have something up and running in seconds. This because we have observed that most websites, just like most articles of clothing, are relatively similar, and so a standard set of tools and procedures has expedited the process.
 
 Digital Twin technology is at a similar state to the hand-produced goods of the early 19th century. It has been proven beneficial in a variety of industries, including the discipline of process engineering. 
+However, the cost to develop a digital twin system is high. They are hand-crafted systems, designed specifically for one factory. 
 
-However, the cost to develop a digital twin system is high. They are hand-crafted systems, designed specifically for one factory. Every factory is slightly different, but through generally-applicable methods and tools, building Digital Twins could become much simpler and quicker. This would make Process Digital Twin systems accessible to more factories, increasing process reliability and efficiency.
+The next step for Digital Twins is mass-manufacture. I propose that creating generally-applicable methods and tools specifically designed for Digital Twin technology will make building Digital Twins much simpler and quicker. This would make Process Digital Twin systems accessible to more factories, increasing process reliability and efficiency.
 
 ## Project Context
 
 "Project Ahuora" is a Ministry of Business, Innovation, and Employment funded project that aims to decarbonise the process heat sector, saving costs and reducing New Zealand's greenhouse gas emmissions. 
 
-As part of this effort, a Digital Twin Platform is being developed. This Web-Based platform allows a user to model a chemical process and simulate it in steady-state using IDAES-PSE [@lee2021idaes]. This allows a more user-friendly approach to access IDAES's powerful optimisation tools, which it is anticipated will enhance uptake in industry. 
+As part of this effort, we are building a Digital Twin Platform. This Web-Based platform allows a user to model a chemical process and simulate it in steady-state using IDAES-PSE [@lee2021idaes]. This allows a more user-friendly approach to access IDAES's powerful optimisation tools, which it is anticipated will enhance uptake in industry. 
 However, the objective is to expand this platform to include an exhaustive amount of information on the process, more than is required for a conventional process simulation. 
 This will enable further analysis methods to also be applied, such as Heat Exchanger Network Synthesis [@yee1990simultaneous] and Pinch Analysis [@walmsley2015pinch] without requiring a seperate tool.
 
