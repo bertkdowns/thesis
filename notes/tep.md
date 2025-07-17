@@ -2,7 +2,7 @@
 id: s68wvssdc9k5vwhgzqdz18x
 title: Tennessee Eastman Process
 desc: ''
-updated: 1752707131509
+updated: 1752730991133
 created: 1752645873149
 ---
 
@@ -37,3 +37,4 @@ PyTep includes a control system for the plant, but allows you to model the contr
 
 
 
+See also http://keepfloyding.github.io/posts/Ten-East-Proc-Intro/

@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: Proposal
 desc: Project Proposal
-updated: 1749686221188
+updated: 1752740574132
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -49,9 +49,31 @@ Details of methods, experiments, case studies, simulations, or theoretical frame
 Tools, data sources, analysis techniques.
 -->
 
-To understand how much a standardised framework can speed up the development process of new Process Digital Twins, a DT framework is needed. I have stated my hypothesis that building a DT will be easier with a framework that handles linking data sources, is built of existing control technologies, and uses machine learning techniques to create an adaptive behavioural model. To test this, these methods will be evaluated in terms of theoretical principles, implemented in the Ahuora Digital Twin Platform, and then evaluated in case studies. This follows a software engineering research methodology that is already present in existing literature, such as [@armstrong2003making]. It strikes a balance between logical reasoning, and concrete applications where real-world factors also affect the outcome. 
+I first need to build a framework for developing Process Digital Twins. Then I can evaluate how much it can speed up the development of new Process Digital Twins.
 
-All three of these research activities - theoretical analysis, implementation, and evaluation in case studies - will be conducted in parallel, enabling them to inform each other. 
+I hypothesize that a framework that:
+
+- makes it easy to link different data sources
+- is built of existing control technologies, and
+- uses machine learning techniques to create an adaptive behavioural model,
+
+will best reduce the complexity of implementing a Process Digital Twin.
+
+This of course leads to a number of sub-questions that I will need to answer as part of my research, such as:
+
+- How much complexity is involved in linking different data sources? What standard tools could we apply to reduce the time spent on this?
+- What level and types of control should a Digital Twin System implement to have maximum return on investment? What techniques are there to automate their setup?
+- How can machine learning methods be embedded within DT frameworks to enhance adaptability without increasing the DT's complexity? 
+
+To answer these questions and, each attribute of my framework will be 
+
+- evaluated in terms of theoretical principles
+- implemented in the Ahuora Digital Twin Platform, and 
+- evaluated in case studies. 
+
+This follows standard software engineering principles [@armstrong2003making]. It strikes a balance between logical reasoning, and concrete applications where real-world factors also affect the outcome. 
+
+All three of these research activities will be conducted in parallel as much as is possible, enabling them to inform each other and improve designs. 
 
 ### Theoretical analysis of system properties
 
