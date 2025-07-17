@@ -2,7 +2,7 @@
 id: 76xc8fam1ote5jgclx082dx
 title: Litreview
 desc: null
-updated: 1750311486996
+updated: 1752787056668
 created: 1743126179488
 bibliography: assets/refs.bib
 ---
@@ -241,10 +241,23 @@ Machine learning techniques provide an alternative to first-principles modelling
 Some problems with machine include unbalanced datasets - a factory will generate a lot of data on normal operating conditions, but much less data on unusual operating conditions. Careful design of the machine learning methodology can decrease this issue. Data sampling techniques such as COVERT [@SEVERINSEN20241] aim to mitigate this problem, and physics-informed techniques also improve generalisation in these areas [@raissi2019physics].
 
 
+Table: Summary of machine learning techniques relevant to Process Digital Twin Modelling
+
+ML Contribution Area | Problem it addresses | Relevance to Digital Twins
+-------------------- | -------------------- | --------------------------
+Surrogate Modelling  | Complex mathematical models can be expensive to solve, and may not capture the nuances of the real world. | Enables real-time prediction of the factory, and fine-tuning of models on real data.
+Physics Informed Machine Learning | Generalisation of models outside training data | Helps the Digital Twin behave sensibly in abnormal process conditions
+Online Learning | Models gradually becoming less accurate over time due to concept drift | Accounting for slow changes in the process, such as fouling or different qualities of source material
+Function/Sequence Learning | Modelling the effect of a function, or a sequence over time | Modelling dynamics in a process, for prediction or model predictive control
+
 #### Surrogate Modelling
 
 Another way machine learning is utilized is in surrogate modelling, where a mathematical model is used to generate data that a machine learning model can be trained on. This can be done for a variety of purposes. Surrogate modelling often reduces computational cost if the mathematical model is very complex, by using simpler functions and distilling it down into the most important aspects for the current problem. It also can make solving and optimisation easier, as a mathematical formulation that is not easily differentiable can be represented by a much easier to differentiate function. It can be used as a way to linearly approximate non-linear dynamics. Finally, surrogate models naturally lend themselves to fine tuning on real data, and are more flexible to adapt to nuances in real-world performance than a first-principles mathematical model, capturing behaviour that the mathematical model could not express [@costa2024adaptive].
 
+
+### Physics Informed Machine Learning
+
+Physics Informed Machine Learning is a regularisation technique that has become popular in recent years for scientific Machine Learning applications. The general method involves adding a term to the loss function to represent the physical properties of the system, such as that energy is conserved. If the model is trying to predict a result that does not follow the physical properties we would expect, the error will be large. The main application of this technique is to increase generalisation outside the generally avaliable training data [@LIdtbeyondroutineoperation]. This increases the robustness of the model, as it provides more assurance that it will perform in a sensible manner in abnormal conditions. It is likely a key technique required to increase trust the output of a Digital Twin based on Machine learning techniques.
 
 #### Online Learning
 

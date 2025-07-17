@@ -1299,3 +1299,17 @@ month=aug}
   pages={1025--1029},
   year={1992}
 }
+
+@article{LIdtbeyondroutineoperation,
+title = {Digital twins for accurate prediction beyond routine operation},
+journal = {Computers & Chemical Engineering},
+volume = {201},
+pages = {109211},
+year = {2025},
+issn = {0098-1354},
+doi = {https://doi.org/10.1016/j.compchemeng.2025.109211},
+url = {https://www.sciencedirect.com/science/article/pii/S0098135425002157},
+author = {Bryan Li and Isaac Severinsen and Wei Yu and Timothy Walmsley and Brent Young},
+keywords = {Physics-informed neural network, Meta-learning, Digital twin, Multilayer perceptron, Residual connection, Geothermal heat exchanger},
+abstract = {Non-routine operating conditions in process plants can hinder safe operation and effective control due to limited understanding of system behavior. Therefore, it is desirable that process digital twins are capable of accurately extrapolating system behavior beyond the scenarios typically encountered. Physics-informed neural networks, which integrate data-driven models with physics constraints, offer a promising solution to this challenge. However, the constraints often fail to accurately represent the physics of chemical engineering unit operations and rigorously enforcing these constraints throughout training may compromise predictive accuracy. Furthermore, many studies focus on complex scenarios that require detailed equations, which may not be available for industrial plants or may be in fact unnecessary depending on the specific behavior being modeled. This study presents a novel approach to training digital twins for extrapolation by combining physics-informed neural networks with meta-learning, enabling the model to dynamically change the weight term of each governing differential equation throughout training. This method is applied to data from an industrial geothermal heat exchanger, using only the governing mass and energy balance partial differential equations as a part of the loss functions and excluding detailed heat transfer processes. The proposed approach eliminates the need for complex heat transfer models in predicting the outlet temperatures of geothermal heat exchangers. The meta-learning physics-informed neural network performed significantly better for the case study situations tested in this work (R2=0.97), at the cost of nearly 30 times higher training time. The results highlight the potential of this approach to create high-fidelity digital twins for industrial applications.}
+}
