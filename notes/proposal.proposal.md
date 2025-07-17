@@ -2,7 +2,7 @@
 id: 7ge60f5z9a7qkmgh836qxdv
 title: Proposal
 desc: Project Proposal
-updated: 1752740574132
+updated: 1752787521481
 created: 1743126355038
 bibliography:
   - assets/refs.bib
@@ -77,7 +77,7 @@ All three of these research activities will be conducted in parallel as much as 
 
 ### Theoretical analysis of system properties
 
-Key patterns and structures have already been identified in the hypothesis and through the literature review. As the software project evolves over time, new development patterns will also be identified. These patterns in the software architecture can provide a different lens into the problem space of designing a Digital Twin. We can then ask: *"If this property was to be taken to its logical extreme, and strictly enforced across the Digital Twin, what consequences - both positive and negative - would emerge?"* This enables a deeper understanding of the trade-offs in adopting an architectural principle.
+I have already identified key patterns and structures the hypothesis and through the literature review. As the software project evolves over time, new development patterns will also be identified. These patterns in the software architecture can provide a different lens into the problem space of designing a Digital Twin. We can then ask: *"If this property was to be taken to its logical extreme, and strictly enforced across the Digital Twin, what consequences - both positive and negative - would emerge?"* This enables a deeper understanding of the trade-offs in adopting an architectural principle.
 
 For instance, if a technique for modularity emerges as a dominant pattern, one might ask: "What would a fully modular Digital Twin look like?" 
 It could lead to benefits such as improved testability, parallel development, and plug-and-play component integration. However, it might also introduce challenges around coordination, interface design, and performance due to increased abstraction boundaries. These factors could then be evaluated in greater detail, or implemented in the platform to provide concrete evidence through case studies.
