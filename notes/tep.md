@@ -2,7 +2,7 @@
 id: s68wvssdc9k5vwhgzqdz18x
 title: Tennessee Eastman Process
 desc: ''
-updated: 1752730991133
+updated: 1752809591776
 created: 1752645873149
 ---
 
@@ -38,3 +38,13 @@ PyTep includes a control system for the plant, but allows you to model the contr
 
 
 See also http://keepfloyding.github.io/posts/Ten-East-Proc-Intro/
+
+This paper has information on running it in modelica, and some (hopefully) useful assumptions, including that:
+
+- A, B, and C are the only gases, and they are not present as liquids at all.
+- G and H are non-volatile liquids
+- The gases follow the ideal gas law
+
+and some more stuff about the functions of the valve and compressor (but it'll be better to try learn those.)
+
+Modelica libraries are avaliable at http://www.euclides.dia.uned.es/
