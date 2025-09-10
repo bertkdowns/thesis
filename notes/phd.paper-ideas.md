@@ -2,7 +2,7 @@
 id: 48cec95ju5yug27kevetfw5
 title: Paper Ideas
 desc: ''
-updated: 1757381782495
+updated: 1757547389628
 created: 1757375179650
 ---
 
@@ -13,6 +13,8 @@ Present a novel way of squaring a mathematical problem, by choosing state vars a
 Discuss how this makes initialisation easier, as initialisation can use the guesses of the original state vars every time.
 
 Present an algorithm for figuring out if one degree of freedom can be replaced by another degree of freedom or if they are independent. (TODO) E.g why can I replace pressure with enthalpy, but not flow with enthalpy?
+
+How does this work for dynamics? How does this work for 1d?
 
 ## Related things to look into
 

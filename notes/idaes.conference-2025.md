@@ -2,7 +2,7 @@
 id: gyie50z9duxou24o6ntwm1t
 title: Conference 2025
 desc: ''
-updated: 1757482089551
+updated: 1757548186480
 created: 1757375197943
 ---
 
@@ -19,12 +19,32 @@ Another similar thing is optimisation based conceptual design - using superstruc
 [PDF showing an example of PyROS](https://www.osti.gov/servlets/purl/2328607)
 
 
+PyROS stuff can be parallelised well (I think because it's kinda solving very similar flowsheets a lot)
+
+I should look into the IDAES Sensitivity toolbox, its a more simple foundational tool before getting into the more complex pyros stuff.
+
+
+
+
 # Design of Experiments
 
 <!-- Josh Morgan EEMPA -->
 
-pilot scale plants using bayesian methods is one way to do design of experiments.
+using bayesian methods on pilot scale plants is one place design of experiments is used.
 
+
+## General DoE Workflow:
+
+- Do some initial test cases across the operating region (you can use hammersley sampling or something to get a good spread)
+- Make a simulation based on those test cases  (e.g a surrogate model/ML model, or rbf response surface) 
+- Figure out where the model is most uncertain in its predictions
+- Do more experiments there ( use the amount of uncertainty as weighting to chiose the next experiments)
+
+It's basically like the principles of adaptive sampling in ML, where you add in more samples in the areas that are less accurate.
+
+CCSI FoQUS has tools for design of experiements in a GUI.
+
+Parmest has an experiment class that might be good for this.
 
 # CCSI2 Unit operations
 
@@ -32,12 +52,17 @@ These include Absorbers, regerators, contactors, packing. We should look into in
 
 # CCSI2 FOQUS Software
 
+Has a UI where you can add nodes and write your equations to link inputs and outputs in each node.
 
+Has the ability to do tear guesses and lots of analysis tools for sampling, design of experiements, etc.
 
+Can link to aspen etc for simulation
 
+But you've got to provide your own models and your own state variables to pass between nodes.
 
-# CMR Wastewater Treatment - Prommis Flowsheet
+It's generally a bit lower level than our software, and we have a much better UI. we provide a lot more unit operation functionality "out of the box".
 
+However, there might be some things that we can take away from it.
 
 
 # Technology Readiness Levels
@@ -59,12 +84,26 @@ With Prommis/Critical Minerals, you need to be able to model very low concentrat
 
 # Reactoro Grey Box - Water Tap
 
+# MultiScale Modelling
+
+Scales include 
+- Operational dynamics
+- materials aging
+- equipment failure
+- energy market dynamics
+- seasonal demands
+- long term economic inscentives
+
+Modelling each of these are slightly different, but we can make models that can model both slow and fast time scales:
+
+- Couple the simulation together - the trigger conditions from slow and fast time scales,
+- Use variable period lengths in your DAE (potentially optimising the period lengths)
+- There is an example of a solid fuel oxide flowsheet that does this
+
+<!--- I think alex dowling might be good to talk about this (and design of experiements) --->
 
 
 # Digital Twins
-
-
-
 
 
 With minerals, the feedstock changes over time, this is one of the big things that digital twins can help with modelling what will happen downstream.
@@ -76,6 +115,8 @@ NAWI is working with WaterTap to create a protocol for digital twin implementati
 Another area of research: how flexible can a plant be - extracting different minerals at different times? How flexible is it to adapt a different digital twin to work on a different mineral/layout?
 
 Digital twins are good for responding to changes in the environment - e.g an adaptive control system that responds to variable electficity prices
+
+Using surrogates for MPC could be a good DT use case. Quadratic transformations of features in alamo is a reasonable way to start building a surrogate.
 
 ## Startup and Shutdown
 
@@ -184,6 +225,41 @@ Having more unit operations means that we can model a wider variety of flowsheet
 
 We need initialisation to better handle cases where things aren't quite feasible, but may be feasible on the final solve. This probably involves creating some relaxations of the unit models to allow things to solve to a good initial guess in more conditions.
 
+
+# IPOPT
+
+See [Larry's paper on IPOPT](https://link.springer.com/article/10.1007/S10107-004-0559-Y) 
+
+## Key learnings
+
+- There is primal infeasibility and dual infeasibility. Primal infeasibility is a measure of how close the equality constraints are to being satisfied, and dual infeasibility is how optimal the solution is. IPOPT tries to reduce either (or both) at the same time.
+- "Restoration Failed" means that it isn't able to find a feasible solution, and it's tried to relax the formulation a bit and then minimise the error in that relaxation, but it's got stuck at a local minimum and so it isn't able to get that error to zero.
+- IPOPT works good when the problem is not too tightly coupled. Think sparse matrices. If every variable is connected to many other variables (e.g in a neural network), it will take a very long time to get anywhere. That's where stochastic methods are better - they aren't really trying to find an optimum, they are just trying to find a generally low point in a sea of many low points ("somewhere in the bottom of the bathwater"). IPOPT is for finding a local optimum.
+- Sometimes, a local optimum is actually all you need, global solutions are not as helpful. (Why? IDK. maybe you initialised in a place that makes sense, the "global optimimum" might be in a place that doesn't really make physical sense)
+- If a matrix is singular, that means the rows (in the jacobian) are not all linearly independent. This is also considered a "low-rank" or rank-deficient matrix (I think). In IPOPT, you want all the variables to be linearly independent or you'll get problems quickly.
+
+In the Restoration phase, by looking at p and n then you can figure out why you're dying. If r is not disappearing restoration is not gonna succeed.
+
+Take advantage of sparsity, 2nd derivatives, globalisimg convergiance step, filter vs merit functions
+
+
+
+## Ideas/Some things to look into more:
+
+Could we auto-detect and remove zeros in the formulation? E.g if we see that the flow is going to zero, then rather than trying to continue to solve can we remove that (and anything else that depends on it) from the formulation, so that IPOPT stops worry about it, and then continue solving? Pyomo seems to have some tools to do similar stuff already. See [remove_zero_terms.RemoveZeroTerms](https://pyomo.readthedocs.io/en/stable/explanation/modeling_utils/preprocessing.html)
+
+The next gen solver might be [Uno](https://github.com/cvanaret/Uno/tree/main), according to Larry, because it allows you to pick and choose the appropriate technique for the domain.
+
+Scipy has some interesting algorithms.
+
+Andrew Lee and Larry wrote a [paper on complementary distillation columns with dry trays](https://www.osti.gov/servlets/purl/1924675), this also solved a lot of the zero problems with cubic equations of state. I think the general idea was to add a relaxation so that these things weren't fixed to zero originally, and then gradually increase the penalty of that relaxation so that the solutions got closer and closer to the true solution.  (When thinking about two phase stuff, you can think of phases as minimising gibbs free energy. The approach is to include only one phase solution as part of your problem.)
+
+Using Bayesian optimisation as an outer loop for global optimisation, and then having ipopt internally. This might be what other solvers do.
+
+# DAE condition numbers
+
+If you use IPOPT, the condition number of a DAE doesn't matter. However, if you try to solve with a numerical integrator like PETSC, then the fact that you have a very high condition number is very bad as the numerical integrator has to evaluate a bunch of other derivatives as well to determine the next step. 
+
 # Other Things
 
 WaterTap is starting an 8 Week course called WaterTap Acadamy to help people learn to use their stuff. Perhaps we could consider a similar thing for the Ahuora Platform.
@@ -196,5 +272,8 @@ We should show our playwright tests in more demonstrations, to show that we have
 
 Reproduction studies are good because it validates other peoples research. Maybe we should emphasise doing reproduction studies more.
 
+The Solid Oxide Cell flowsheet in IDAES is probably the best benchmark reliable flowsheet they have that we can use to test that the ahuora platform works well.
 
+
+Apparently Bonmin is a pretty good open source MINLP solver, maybe we should try add it.
 
