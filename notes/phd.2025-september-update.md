@@ -2,7 +2,7 @@
 id: 7g0ti4b43vwkcmmexys9msj
 title: 2025 September Update
 desc: ''
-updated: 1757550177174
+updated: 1757570119800
 created: 1757549858076
 ---
 
@@ -31,3 +31,8 @@ Learn how IPOPT works properly
 # 1d Unit Operations
 
 We need to be able to model 1d unit operations better in the platform. How do we do that?
+
+
+[[ahuora.1d]]
+
+[[ahuora.1d-proposal]]
