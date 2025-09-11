@@ -2,11 +2,15 @@
 id: 48cec95ju5yug27kevetfw5
 title: Paper Ideas
 desc: ''
-updated: 1757547389628
+updated: 1757630517912
 created: 1757375179650
 ---
 
 # Degrees of Freedom Modelling
+
+*What is the best way to define and maintain a square model for PSE optimsation?*
+
+*Can this be generalised beyond the unit model structure to the pyomo level? (Pyomo.network)*
 
 Present a novel way of squaring a mathematical problem, by choosing state vars and using replacement. 
 
@@ -15,6 +19,26 @@ Discuss how this makes initialisation easier, as initialisation can use the gues
 Present an algorithm for figuring out if one degree of freedom can be replaced by another degree of freedom or if they are independent. (TODO) E.g why can I replace pressure with enthalpy, but not flow with enthalpy?
 
 How does this work for dynamics? How does this work for 1d?
+
+
+
+```
+m = ConcreteModel()
+
+m.b = Block()
+#... define everything on the block
+m.b.state_vars = [m.b.heat_duty,m.b.efficiency]
+
+m.b.print_state_vars()
+
+m.b.replace_state_var(m.b.heat_duty, m.b.outlet_temp)
+
+
+m.b.replace_state_var(m.b.heat_duty, m.b.outlet_flow)
+# Error: Structural Singularity Found
+
+
+```
 
 ## Related things to look into
 
