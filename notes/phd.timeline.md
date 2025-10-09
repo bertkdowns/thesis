@@ -2,7 +2,7 @@
 id: ohvj7qmm9tzfxg960gbqygz
 title: Timeline
 desc: ''
-updated: 1759699490833
+updated: 1759699643088
 created: 1759695886502
 ---
 
@@ -22,6 +22,7 @@ There is so much to do in so little time. Planning is key now.
 - Summer Students
 - Work with other students on implementing live data processing and online learning frameworks
 - Update the unit operations system to allow adding more unit operations without as much code changes
+- Industry training day
 
 # 2026 Q2 - Case Studies round 2
 
@@ -48,6 +49,7 @@ There is so much to do in so little time. Planning is key now.
 - Summer Students - Additional analysis tools and UI improvements, better live data systems
 - Write a paper on the overall development and direction of the PhD, pretty much a whitepaper on the digital twin side of the platform.
 - Start looking into control strategies
+- Industry training day
 
 # 2027 Q2 - Businessman
 
