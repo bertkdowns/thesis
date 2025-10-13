@@ -2,7 +2,7 @@
 id: pfwd0ehfvrmgc91pl7afzb6
 title: Live Wishlist
 desc: ''
-updated: 1760321453808
+updated: 1760325240807
 created: 1760044323441
 ---
 
@@ -48,7 +48,72 @@ I'll try split the MVP into two parts, one for the live platform, one for the on
 
 - Python Package that takes a idaes_service Scenario file and a mapping of name-> propertyValue (e.g from mss), and solves the model, and allows storing the results in a internal history db/ opc-ua server, or sending on to a message-based system.  
 
+
+### Potential class Structure:
+
+```
+AhuoraLiveSolver Class:
+
+  init(file_name.json) -> AhuoraLiveSolver:
+    Constructor method, that creates the class and loads the JSON file in.
+    Validates that the scenario is correct and is a mult-steady-state scenario,
+    and creates a list of all the input parameters that need to be passed
+    in order to solve the model.
+
+  solve(data_dictionary) -> Results:
+    Loads in all the values from the key-value dictionary based on the mappings, 
+    validating to make sure that nothing is missing.
+    Initialises (if required e.g first time) and solves the model.
+    Returns the solve results in a suitable format, e.g the format that IDAES-service
+    sends to idaes_factory (or something different if that isn't the best)
+
+OPCIngestor Class:
+  Not sure exactly how this class should look, but it should be able to establish
+  a connection to an opc server, and get all the required data for the ahuora
+  live solver, either by subscribing to updates and maintaining state, or 
+  by re-requesting the data when a call to get the values is made.
+
+  dump_data_dictionary() -> data_dictionary:
+    Dumps all the required data in a dictionary of suitable format for passing to the AhuoraLiveSolver class
+
+OPCRecorder Class:
+  
+  store_data(Results):
+    Stores the results in the OPC server. Note that it should take the same input format as is outputted by the Solve method.
+
+We also need a way to trigger solves on a regular basis, which might require some thought. Should we trigger a
+solve every minute? Or should we trigger a solve every time a value changes? or every time an external service
+requests updated solve information?
+```
+
+
+
+
 ## Online Learning
 
 - Online learning model to predict the outputs of the entire flowsheet from the dataframe that comes in, using regression techniques
 - Automatic anomaly detection from the inputs & the outputs of the solve.
+- should interact with the Ahuora Live system.
+
+
+(maybe look at CapyMoa? That's the library that the online learning people use)
+
+# Potential class structure:
+
+```
+AhuoraOnline class:
+
+  predict(data_dictionary) -> Results, certainties:
+    based on the input data, it predicts what it thinks the most likely results will be if the solve was completed, and the certainties.
+    The idea is this should be pretty accurate but much faster than solving from first principles, especially for more complex models.
+    Note that the type (inputs and outputs) of this is the same as for the AHuoraLiveSovler class.
+
+  train(data_dictionary, Results):
+    updates the model to be better at predicting in future, from the results of an ahuora solve.
+
+Other methods could include:
+  - a method to determine if this data point is worth solving with ahuora and training on, or if the model is confident enough in its 
+    prediction that it doesn't need to solve it.
+  - a method to flag anomalies, if we get data coming in that is very different to what we expect the input data to be.
+```
+
