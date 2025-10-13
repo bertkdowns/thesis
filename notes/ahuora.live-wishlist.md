@@ -2,7 +2,7 @@
 id: pfwd0ehfvrmgc91pl7afzb6
 title: Live Wishlist
 desc: ''
-updated: 1760325240807
+updated: 1760386898619
 created: 1760044323441
 ---
 
@@ -86,6 +86,8 @@ solve every minute? Or should we trigger a solve every time a value changes? or 
 requests updated solve information?
 ```
 
+After we've made an OPC-UA version of this, it would be good to make one that works via MQTT or some other protocol too (maybe
+ask what they're using for the HMI in some of the factories near us)
 
 
 
@@ -98,7 +100,7 @@ requests updated solve information?
 
 (maybe look at CapyMoa? That's the library that the online learning people use)
 
-# Potential class structure:
+### Potential class structure:
 
 ```
 AhuoraOnline class:
@@ -116,4 +118,13 @@ Other methods could include:
     prediction that it doesn't need to solve it.
   - a method to flag anomalies, if we get data coming in that is very different to what we expect the input data to be.
 ```
+
+# What I can do
+
+Since these projects are intended to be done by others, I probably shouldn't try develop the core of it. However, I can do some related things:
+
+- Find/Make an OPCUA server for the Tennessee Eastman Process, or simulate one from the data I was given of the factory/geothermal plant.
+- Update the Ahuora platform to provide the json files with more of the scenario data
+- better define what the Results format should be out of each. Should you have to define what results you want as an input to the AhuoraLiveSolver? Possibly this is best, but does that limit its ability to be a digital twin? don't you want as much as possible? How does the AhuoraOnline know the data format to predict?
+
 

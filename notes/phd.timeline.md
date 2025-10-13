@@ -2,7 +2,7 @@
 id: ohvj7qmm9tzfxg960gbqygz
 title: Timeline
 desc: ''
-updated: 1759699643088
+updated: 1760386793408
 created: 1759695886502
 ---
 
@@ -29,6 +29,7 @@ There is so much to do in so little time. Planning is key now.
 - Evaluate live data processing and online learning frameworks on case studies
 - Identify the core principles/tenets that we should bake into the live data processing methodology
 - Update implementations based on the evaluations.
+- Write a paper on doing physics grounded ML by augmenting data from a parameter estimated model so it behaves sensibly outside the training region.
 
 
 # 2026 Q3 - Mid-PhD Hiatus
