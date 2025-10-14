@@ -2,7 +2,7 @@
 id: pfwd0ehfvrmgc91pl7afzb6
 title: Live Wishlist
 desc: ''
-updated: 1760386898619
+updated: 1760404060207
 created: 1760044323441
 ---
 
@@ -123,7 +123,7 @@ Other methods could include:
 
 Since these projects are intended to be done by others, I probably shouldn't try develop the core of it. However, I can do some related things:
 
-- Find/Make an OPCUA server for the Tennessee Eastman Process, or simulate one from the data I was given of the factory/geothermal plant.
+- Find/Make an OPCUA server for the Tennessee Eastman Process, or simulate one from the data I was given of the factory/geothermal plant. ([Done for geothermal](https://github.com/bertkdowns/geothermal))
 - Update the Ahuora platform to provide the json files with more of the scenario data
 - better define what the Results format should be out of each. Should you have to define what results you want as an input to the AhuoraLiveSolver? Possibly this is best, but does that limit its ability to be a digital twin? don't you want as much as possible? How does the AhuoraOnline know the data format to predict?
 
