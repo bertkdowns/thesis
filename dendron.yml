@@ -81,8 +81,8 @@ preview:
     enableKatex: true
     automaticallyShowPreview: false
 publishing:
-    siteUrl: bertkdowns.github.io
-    assetsPrefix: /thesis
+    siteUrl: /
+    assetsPrefix: /
     enableFMTitle: true
     enableNoteTitleForLink: true
     enablePrettyRefs: true
