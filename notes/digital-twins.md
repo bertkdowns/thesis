@@ -2,7 +2,7 @@
 id: b62gmeo8hftecfg146pqb0p
 title: Digital Twins
 desc: ''
-updated: 1762898670181
+updated: 1762899502069
 created: 1762895964500
 ---
 
@@ -15,7 +15,7 @@ There's papers that classify digital twins and digital shadows and modelling etc
 
 # How to build a digital twin for Process Engineering
 
-In [Isaac Severinsen's thesis](https://researchspace.auckland.ac.nz/items/32cb8003-2fa9-45cf-9faa-51fada7fba09), appendix D, there is a Digital Twin Recipe. This provides a good starting point for modelling a chemical system (at least in steady state). Some of his points include:
+In [Isaac Severinsen's thesis](https://hdl.handle.net/2292/70915), appendix D, there is a Digital Twin Recipe. This provides a good starting point for modelling a chemical system (at least in steady state). Some of his points include:
 
 - Explicitly specify the system boundaries as inputs and outputs (sensor readings or calculations)
 - Model the system using data driven modelling, surrogate modelling, or both
