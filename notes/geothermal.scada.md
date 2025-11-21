@@ -2,7 +2,7 @@
 id: bejge0p5wm2joaofjzcku27
 title: Scada
 desc: ''
-updated: 1763692962078
+updated: 1763693179427
 created: 1763691125523
 ---
 
@@ -26,4 +26,5 @@ We're adding the stuff in I. Severinsen's thesis discussed in [[digital-twins]].
 
 The other thing we could add is the virtualisation layer. Why should you only be able to use your scada systems on the plant? Could we make a version of the platform that emulates a real plant, so when you adjust controls on your scada system, it adjusts properties in our virtual ahuora "simulated plant" so we can play around with it in the same way? Could be good for testing what could happen in different situations. However, that might be a different project.
 
+*From this context, the fundamental question is* ***What is the easiest way for people to prepare live data to be used in real-time solving?***
 
