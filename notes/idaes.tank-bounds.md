@@ -26,7 +26,7 @@ To make it easier to set these in the platform, I have added a [Custom Tank Mode
 
 # Debugging
 
-There were some problems with my initial tank model - it was failing to solve. I tried to replicate the tank model in IDAES, but it always did solve - even when I added all the little "tricks" that we do - like [[ahuora.storing-previous-model-state]] and [[idaes.initialisation-with-custom-constraints]] and [[idaes.ph-formulation]].
+There were some problems with my initial tank model - it was failing to solve. I tried to replicate the tank model in IDAES, but it always did solve - even when I added all the little "tricks" that we do - like [[ahuora.initialisation-storing-previous-model-state]] and [[idaes.initialisation-with-custom-constraints]] and [[idaes.ph-formulation]].
 
 
 Eventually, we started debugging which part of initialisation was failing and why. I noticed that the holdup was negative after step 2:

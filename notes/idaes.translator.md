@@ -2,7 +2,7 @@
 id: ct6bsjiyzgylsjljsbnndzh
 title: Translator
 desc: ''
-updated: 1746760635931
+updated: 1764283434951
 created: 1746755197778
 ---
 
@@ -81,6 +81,6 @@ Maybe there's some way you could get around this, using some sort of regression 
 So, we've got to do things properly, by using [[idaes.reference-enthalpies]].
 
 
-The translator implementation is avaliable at (https://github.com/bertkdowns/direct_steam_injection)[https://github.com/bertkdowns/direct_steam_injection]
+The translator implementation is avaliable at [https://github.com/bertkdowns/direct_steam_injection](https://github.com/bertkdowns/direct_steam_injection)
 
 [[idaes.reference-enthalpies]]

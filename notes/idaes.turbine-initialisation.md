@@ -2,7 +2,7 @@
 id: 0ybttmupvqli2gw4en8kxwv
 title: Turbine Initialisation
 desc: ''
-updated: 1756336776416
+updated: 1764283368240
 created: 1754631586247
 ---
 
@@ -52,4 +52,4 @@ Now we focus on the constraint for `work_mechanical = work_isentropic * efficien
 We fixed this by removing the isothermal constraint and initialising without it.
 
 
-(PR)[https://github.com/waikato-ahuora-smart-energy-systems/Ahuora-Adaptive-Digital-Twin-Platform/pull/1588]
+[PR](https://github.com/waikato-ahuora-smart-energy-systems/Ahuora-Adaptive-Digital-Twin-Platform/pull/1588)

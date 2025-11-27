@@ -1,6 +1,6 @@
 ---
 id: i7fgoggwocwh9vpirl5y828
-title: Storing Previous Model State
+title: Initialisation Storing Previous Model State
 desc: ''
 updated: 1747260584622
 created: 1747200746572

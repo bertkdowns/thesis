@@ -2,7 +2,7 @@
 id: mqlzh63ghvhngtp1e8az3i1
 title: Plan
 desc: ''
-updated: 1743118007764
+updated: 1764121076972
 created: 1743117524949
 ---
 # PhD plan - next steps
@@ -83,8 +83,19 @@ I need to think about how to make this more cohesive - particularly the operator
 
 Other PhD dissertations on software engineering:
 https://www.sigsoft.org/dissertations.html
+
+# Reference theses
+
+Armstrong's thesis on erlang:
 https://erlang.org/download/armstrong_thesis_2003.pdf
 
+
+This thesis on variable-equation model simulation:
+https://www.research-collection.ethz.ch/server/api/core/bitstreams/835e7dde-8ba9-4f01-a71d-cf93e49cebcb/content
+Particularly 5.3 design principles, and section 6 evaluating how good it is.
+
+Masters thesis on embedding EO models in a process simulator:
+https://repository.tudelft.nl/file/File_e99fc563-2679-4b3a-a20a-3273f6ef45e1?preview=1
 
 # Things to Lit review
 

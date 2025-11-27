@@ -14,5 +14,5 @@ created: 1746047896742
 - With our current milk property package, from ahuora_compounds v0.0.25, the first generic milk property package, the dew/boiling point is way off for pure water, which means it doesn't work. 
 
 There were some problems with solving, where initialisation was failing even though the problem should be solvable. These problems were more prevalent in a big flowsheet. 
-This sparked a seperate investigation about [[ahuora.storing-previous-model-state]].
+This sparked a seperate investigation about [[ahuora.initialisation-storing-previous-model-state]].
 
