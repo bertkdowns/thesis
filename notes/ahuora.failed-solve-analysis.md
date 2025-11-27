@@ -1,6 +1,6 @@
 ---
 id: pzcsdy6dl29uuyjhn6enlnp
-title: Failed_solve_analysis
+title: Failed Solve Analysis
 desc: ''
 updated: 1759273631834
 created: 1759273510580

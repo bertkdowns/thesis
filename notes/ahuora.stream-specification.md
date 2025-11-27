@@ -1,6 +1,6 @@
 ---
 id: qm15j5oxr0cppx1veuop79o
-title: Stream_specification
+title: Stream Specification
 desc: ''
 updated: 1759273119863
 created: 1759272265661
