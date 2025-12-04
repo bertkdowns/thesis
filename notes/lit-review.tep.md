@@ -1,6 +1,6 @@
 ---
 id: s68wvssdc9k5vwhgzqdz18x
-title: Tennessee Eastman Process
+title: Tep
 desc: ''
 updated: 1752809591776
 created: 1752645873149

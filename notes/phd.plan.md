@@ -2,7 +2,7 @@
 id: mqlzh63ghvhngtp1e8az3i1
 title: Plan
 desc: ''
-updated: 1764121076972
+updated: 1764558579290
 created: 1743117524949
 ---
 # PhD plan - next steps
@@ -96,6 +96,13 @@ Particularly 5.3 design principles, and section 6 evaluating how good it is.
 
 Masters thesis on embedding EO models in a process simulator:
 https://repository.tudelft.nl/file/File_e99fc563-2679-4b3a-a20a-3273f6ef45e1?preview=1
+
+Victor Zavala - supervised by Larry Beigler - good domain specific example. There's some good stuff about how to build a digital twin.
+https://numero.cheme.cmu.edu/content/thesis/thesis_vzavala.pdf
+
+
+Computers & Chemical engineering best paper for 2024 - talks about a data structure for representing a flowsheet at different levels. https://www.sciencedirect.com/science/article/pii/S0098135423003757
+
 
 # Things to Lit review
 
