@@ -2,7 +2,7 @@
 id: 3co7slkgealz5qexf6nnwmq
 title: Biggest Bottlenecks
 desc: ''
-updated: 1768450689812
+updated: 1768515385075
 created: 1768445768989
 ---
 
@@ -30,9 +30,10 @@ We get data coming in via modbus, serial, third party data aquisition (DAQ) devi
 
 It can end up going through a bunch of different formats. You might then send that data to a relational or time-series database, e.g postgres or InfluxDB or clickhouse, and that might take another protocol or two (http, sql, MQTT, etc).
 
-This is a lot of work and a lot of different protocols to get through, and makes it much easier for something to go wrong. It would be nice to have a better solution but I don't know how to do that (other than enforcing e.g everything uses MQTT, or everything uses OPC-UA, or something. A standard toolkit for me would be good.)
+This is a lot of work and a lot of different protocols to get through, and makes it much easier for something to go wrong. It would be nice to have a better solution but I don't know how to do that (other than enforcing e.g everything uses MQTT, or everything uses OPC-UA, or something. A standard toolkit for me would be good.) The solution is somewhere around OPC-UA, or gleaning from OPENAPI for http (e.g AsyncAPI which does the same for event driven architectures). GRPC is another interesting one, because it has really good typing too.
 
-Another big thing around this is repeatability. How can we test our system? Can we just replay all MQTT events of data coming in from sensors - is that an appropriate level, effecively virtualising our factory from there up? Should we use our DT model to emulate the data of those sensors, sending MQTT events from 
+Another big thing around this is repeatability. How can we test our system? Can we just replay all MQTT events of data coming in from sensors - is that an appropriate level, effecively virtualising our factory from there up? Should we use our DT model to emulate the data of those sensors, sending MQTT events from the DT in the same way th sensor would?
+
 
 # The solver not always solving
 
