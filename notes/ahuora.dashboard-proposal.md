@@ -2,7 +2,7 @@
 id: sn41bw7k433lax7y5cotlou
 title: Dashboard Proposal
 desc: ''
-updated: 1764807578423
+updated: 1765328299295
 created: 1764792309428
 ---
 
@@ -25,6 +25,8 @@ We could just make it that whenever you press "Run" in the flowsheet on MSS, it 
 
 This means that you can use all the excel analysis tools, charts, pivot tables, whatever you like. This is also something that other people are already familiar with.
 
+
+*UPDATE:[We did this](https://github.com/waikato-ahuora-smart-energy-systems/Ahuora-Adaptive-Digital-Twin-Platform/pull/1850)*
 
 ## Include some sort of Business Intelligence (BI) Tool
 
