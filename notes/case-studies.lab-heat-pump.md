@@ -2,7 +2,7 @@
 id: cgyd9mdwfx8m3kscv1f7zei
 title: Lab Heat Pump
 desc: ''
-updated: 1769465708133
+updated: 1769468662833
 created: 1769457612229
 ---
 
@@ -23,3 +23,6 @@ This heat pump is setup as a simple testing rig, heating up water in a simple lo
 - I think generally, getting all data into the same format as fast as possible is really important. MQTT worked well for this, but if you had a different system, potentially you could just use a NI CDAQ data logger for everything for example. However, that is probably not realistic.
 - Home assistant actually worked really well for a simple control system. It has made me wonder about the need for conventional SCADA systems even. InfluxDB was also a really good data collection platform. Aparently Grafana is good for viewing the data too.
 
+![Heat pump InfluxDB dashboard](assets/influx-hp-visualisation.png)
+
+![Heat pump HomeAssistant Control](assets/homeassistant-control.png)
