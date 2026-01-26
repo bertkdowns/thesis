@@ -2,21 +2,20 @@
 id: ybtrcaddmxfv8rdm6yqqq52
 title: Todo
 desc: ''
-updated: 1769028031222
+updated: 1769468356417
 created: 1768442759192
 ---
 
 
 # LSL Heat Pump Digital Twin
 
-- Control - PyFirmata on the valve, connected to MQTT maybe?
-
 - What could we do to use the ahuora platform to DT it? What can we calculate?
 
-## Potential extras for Steam Generating Heat Pump
+# Platform Bugfixes
 
-- get a PLC and start programming a control system (later)
-
+- Water pipe model
+- dynamics with petsc sovler
+- cleaner interface for p&id control
 
 # Excel Integration
 
@@ -28,7 +27,7 @@ created: 1768442759192
 
 # Release Idaes-Service
 
-Release the core of idaes-service as ahuora-model-loader, so that other people can use ahuora models in their pyomo work. 
+Release the core of idaes-service as ahuora-model-loader, so that other people can use ahuora models in their pyomo work. At the same time, we can clean it up a bit - seperate the server stuff from the sdk, and seperate out the adapterLibrary file to maybe a directory or something.
 
 # Proposals
 
@@ -37,3 +36,6 @@ Release the core of idaes-service as ahuora-model-loader, so that other people c
 - Parameter Estimation - Write a proposal for a good methodology to do that as well. Surely we can test on the geothermal data pretty easily?
 - Machine learning  of property packages.
 
+# Custom property packages
+
+- merge in the branch!
