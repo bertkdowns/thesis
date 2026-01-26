@@ -2,22 +2,20 @@
 id: ybtrcaddmxfv8rdm6yqqq52
 title: Todo
 desc: ''
-updated: 1768509405672
+updated: 1769028031222
 created: 1768442759192
 ---
 
 
 # LSL Heat Pump Digital Twin
 
-- get a USB to TTL adapter and test that the modbus snooping script works (including uploading to MQTT)
-- Connect up all the sensors to the DAQ and read them into MQTT
-- Get a laptop to run all of that stuff down in the lab
+- Control - PyFirmata on the valve, connected to MQTT maybe?
 
 - What could we do to use the ahuora platform to DT it? What can we calculate?
 
 ## Potential extras for Steam Generating Heat Pump
 
-- get a PLC and start programming a control system
+- get a PLC and start programming a control system (later)
 
 
 # Excel Integration
