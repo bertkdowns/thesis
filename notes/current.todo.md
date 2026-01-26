@@ -2,7 +2,7 @@
 id: ybtrcaddmxfv8rdm6yqqq52
 title: Todo
 desc: ''
-updated: 1768509405672
+updated: 1768789888271
 created: 1768442759192
 ---
 
@@ -20,6 +20,12 @@ created: 1768442759192
 - get a PLC and start programming a control system
 
 
+# Platform Bugfixes
+
+- Water pipe model
+- dynamics with petsc sovler
+- cleaner interface for p&id control
+
 # Excel Integration
 
 - Setup keycloak access tokens
@@ -30,7 +36,7 @@ created: 1768442759192
 
 # Release Idaes-Service
 
-Release the core of idaes-service as ahuora-model-loader, so that other people can use ahuora models in their pyomo work. 
+Release the core of idaes-service as ahuora-model-loader, so that other people can use ahuora models in their pyomo work. At the same time, we can clean it up a bit - seperate the server stuff from the sdk, and seperate out the adapterLibrary file to maybe a directory or something.
 
 # Proposals
 
@@ -39,3 +45,6 @@ Release the core of idaes-service as ahuora-model-loader, so that other people c
 - Parameter Estimation - Write a proposal for a good methodology to do that as well. Surely we can test on the geothermal data pretty easily?
 - Machine learning  of property packages.
 
+# Custom property packages
+
+- merge in the branch!

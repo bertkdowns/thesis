@@ -2,7 +2,7 @@
 id: 3co7slkgealz5qexf6nnwmq
 title: Biggest Bottlenecks
 desc: ''
-updated: 1768515385075
+updated: 1768524959023
 created: 1768445768989
 ---
 
@@ -17,10 +17,10 @@ Okay, so digital twins obviously can be good for performance modelling, fault an
 
 Some more concrete ways can be:
 
-- Providing an up-to-date model for model predictive control
-- Providing better visibility into the system (calculating what normally isn't calculated)
+- Providing an up-to-date model for model predictive control 
+- Providing better visibility into the system (calculating what normally isn't calculated) 
 - Providing an up-to-date model to manually optimise to test out other potential scenarios
-- Providing a virtual copy that you can do whatever you like to (overriding live inputs) and see what happens
+- Providing a virtual copy that you can do whatever you like to (overriding live inputs) and see what happens (Tim's version)
 
 But even these are not particularly specific. Obviously, that's partly because we are talking in very general terms here. 
 
