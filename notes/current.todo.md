@@ -2,9 +2,12 @@
 id: ybtrcaddmxfv8rdm6yqqq52
 title: Todo
 desc: ''
-updated: 1769468356417
+updated: 1769486408227
 created: 1768442759192
 ---
+
+- Replacing parameters fixed by recycles
+- Downloading MSS tag mappings doesn't work
 
 
 # LSL Heat Pump Digital Twin
