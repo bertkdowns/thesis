@@ -2,7 +2,7 @@
 id: 8i241xukiluzw8u12s45xbm
 title: Data Streaming Architecture
 desc: ''
-updated: 1769575076445
+updated: 1769638440481
 created: 1769569753629
 ---
 
@@ -32,10 +32,33 @@ An alternative to the schema registry would be to use something like [AsyncAPI](
 # What do I care about in a DT data streaming platform?
 
 - Ability to get data from any source, and quickly add or remove sources
-- Ability to get historical data or live data easily 
+- Ability to get historical data or live data easily (also called replayability, or store & forward, or simply could be implemented throug a custom database)
 - Event driven
-- Strongly typed (ideally with type migration too) and checked into version control - easy to generate SDKs for whatever language or platform is needed.
+- Strongly typed (ideally with type migration too)- easy to generate SDKs for whatever language or platform is needed.
+- Able to check into Version Control (ideally version data/type migration, think protobuf)
 - Decent performance
 - Simple, unopinionated
 
-OPC doesnt really work
+OPC can kinda do this, but it is not as event based (though there is OPC pubSub) and it is quite heavy. I'm generally in favor of more lightweight tools. I'm also not sure how sold I am on the ontologies that OPC-UA provides: big specification documents aren't as good as libraries of types for me. maybe libraries of types do exist though. I generally find there's something that you always want to do that's a bit different and doesn't fit into an ontology very well.
+
+To be honest, redpanda or kafka/confluent seem to fit the requirements pretty well. Kinda annoying for me, as I'm not sure what this leaves me to add - probably I can focus on delivering novelty in the following areas:
+- the simulation methods and regression methods
+- a more formal way of how to use kafka (how to integrate it with sensor data, SCADA systems, simulation platforms, control systems, process historians)
+- the interaction between the simulation programs and the data streaming platform
+
+## other things that are kind of important
+
+but to me these are just naturally important, like pretty easy to implement and pretty much everything should have anyway
+
+- Security (I think the simplest way is just wrap everything in a vpn like wireguard or tailscale)
+- An ontology? I don't know how important these are, but OPC has specific confgiruations for many types of devices that can make devices interoperable with the same systems. As an alternative MQTT is often used with Unified Namespace Systems (UNS) which defines how topic names should be so that you can access all your data in the same format. This could be really useful, or might not be. I'm always reluctant as what if you have something which doesn't fit the ontology? however it may be a useful view of the data.
+- Monitoring - Just forward stuff to grafana or whatever
+- Robustness/fallback strategies - this could be implemented in the application layer, or in some lower network layer. though some such as mqtt have this built in. Additionally, individual control systems can have fallbacks too, e.g valves could be set to fail-open or fail-closed.
+
+# Other resources
+
+[Building a robust MQtt architecture to scale across dozens of sites](https://www.youtube.com/watch?v=XORNY2gTl3o)
+
+[Architecting Scalable IoT systems with MQTT and Kafka](https://www.youtube.com/watch?v=-5duMAuleJA)
+
+and probably a hundred others
