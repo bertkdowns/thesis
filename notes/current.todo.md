@@ -2,12 +2,12 @@
 id: ybtrcaddmxfv8rdm6yqqq52
 title: Todo
 desc: ''
-updated: 1769486408227
+updated: 1769997447957
 created: 1768442759192
 ---
 
 - Replacing parameters fixed by recycles
-- Downloading MSS tag mappings doesn't work
+- Downloading MSS tag mappings doesn't work if something is not defined
 
 
 # LSL Heat Pump Digital Twin
@@ -19,7 +19,12 @@ created: 1768442759192
 - Water pipe model
 - dynamics with petsc sovler
 - cleaner interface for p&id control
+- adjusting the values of guesses (variable replacement for guesses that are fixed)
 
+
+# Failed solve visualisation
+
+Show the values of variables on their way to being solved. this might help to see where the errors are.
 # Excel Integration
 
 - Setup keycloak access tokens
