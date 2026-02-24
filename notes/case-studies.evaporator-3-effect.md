@@ -2,7 +2,7 @@
 id: l12ssot4gt0512ycbssgj9k
 title: Evaporator 3 Effect
 desc: ''
-updated: 1771909417443
+updated: 1771909840401
 created: 1771879960753
 ---
 
@@ -31,4 +31,4 @@ There are some nodes that are connected to many other nodes. I think these are l
 
 [Area in the graph where many nodes are connected to similar things](assets/graph-simarly-connected.png)
 
-<iframe src="assets/flowsheet-graph.html" style="width:100%;height:650px"></iframe>
+<iframe src="https://bertkdowns.github.io/thesis/assets/flowsheet-graph.html" style="width:100%;height:650px"></iframe>
