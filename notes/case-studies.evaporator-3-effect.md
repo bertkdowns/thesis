@@ -2,7 +2,7 @@
 id: l12ssot4gt0512ycbssgj9k
 title: Evaporator 3 Effect
 desc: ''
-updated: 1771964430765
+updated: 1771964542846
 created: 1771879960753
 ---
 
@@ -42,3 +42,6 @@ The below graph does not show the fixed variables. These are basically just cons
 
 
 <iframe src="https://bertkdowns.github.io/thesis/assets/evaporator-graph-only-unfixed.html" style="width:100%;height:600px"></iframe>
+
+
+This could be used as a visualisation tool to debug failed solves. Potentially, including scaling factors on the variables and constraints could show where variables are wildly off scaled too.
