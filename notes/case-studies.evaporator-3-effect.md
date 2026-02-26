@@ -2,7 +2,7 @@
 id: l12ssot4gt0512ycbssgj9k
 title: Evaporator 3 Effect
 desc: ''
-updated: 1771964542846
+updated: 1772053726465
 created: 1771879960753
 ---
 
@@ -44,4 +44,14 @@ The below graph does not show the fixed variables. These are basically just cons
 <iframe src="https://bertkdowns.github.io/thesis/assets/evaporator-graph-only-unfixed.html" style="width:100%;height:600px"></iframe>
 
 
-This could be used as a visualisation tool to debug failed solves. Potentially, including scaling factors on the variables and constraints could show where variables are wildly off scaled too.
+This could be used as a visualisation tool to debug failed solves. 
+
+Adding scaling factors also is interesting. In the below model, I have scaled everything using the autoscaler, and it shows that the constraints with the biggest
+problems are the Phase Fraction constraints (everything else is actually pretty good).
+
+
+<iframe src="https://bertkdowns.github.io/thesis/assets/graph-scaled.html" style="width:100%;height:600px"></iframe>
+
+
+Oh, and by the way, these graphs are just for one effect. A model with 3 effects is wayy more complex, as there is a lot more variables and a lot more recycling going on. 
+It doesn't separate very cleanly in 2d, but you can view it [here](https://bertkdowns.github.io/thesis/assets/graph-full-evaporator.html) (beware it might take a while to load).
