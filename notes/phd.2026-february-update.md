@@ -2,7 +2,7 @@
 id: c3le5xbabefr0v0v9fiza9g
 title: 2026 February Update
 desc: ''
-updated: 1771906419867
+updated: 1772483485764
 created: 1771819099133
 ---
 
@@ -34,6 +34,8 @@ With building the [[case-studies.evaporator-3-effect]] flowsheet, the model woul
 
 ### phasing between model complexity levels
 
+
+[[ideas.blending-property-packages]]
 
 ## How do we actually link up a model to live data?
 
