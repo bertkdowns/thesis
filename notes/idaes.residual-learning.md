@@ -2,7 +2,7 @@
 id: s0yomhm114bnvus6rypqdt9
 title: Residual Learning
 desc: ''
-updated: 1776912379121
+updated: 1777336991806
 created: 1776894351366
 ---
 
@@ -84,4 +84,4 @@ Fundamentally, the only thing we have changed is the location of the residual.
 
 This basically shows that updating a variable based on a residual can be implemented by adding another variable to represent the variation into the formulation, and training a model to predict that.  The main difficulty is in figuring out where in your system to add the flexibility to represent the variation. Once a variable has been added to represent the residual, there is fundamentally no difference between learning a residual and a new property.
 
-Machine learning can also be seen as a more advanced version of parameter estimation, where instead of learning a constant value for a parameter/variable, a function for the parameter/variable is learned instead.
+Machine learning can also be seen as a more advanced version of [idaes.parameter-estimation], where instead of learning a constant value for a parameter/variable, a function for the parameter/variable is learned instead.
