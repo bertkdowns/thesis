@@ -2,7 +2,7 @@
 id: cgyd9mdwfx8m3kscv1f7zei
 title: Lab Heat Pump
 desc: ''
-updated: 1769471588797
+updated: 1769569742738
 created: 1769457612229
 ---
 
@@ -59,3 +59,10 @@ You could treat the entire thing as a parameter estimation problem, where you ba
 
 How can we add reproducibility and testibility? recording mqtt sessions so you can virtualise the input data? could we virtualise the plant and end up with a playground, where the live data isn't used, but the correlations or control system alone is used, with ml to predict what we think the live data would do in response?
 
+One good way to do this is MQTT recording - we can replay the mqtt events to replay the session.
+
+
+What if we got a AI/ML method to predict what we thought the next MQTT message was for each channel, based on all the previous messaged that we've recieved? potentially we could have some really interesting flow on effects from one model using anothers predictions to get some dynamic behaviour. 
+
+
+This has kinda led to my [[digital-twins.data-streaming-architecture]]

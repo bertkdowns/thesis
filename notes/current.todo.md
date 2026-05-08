@@ -2,9 +2,12 @@
 id: ybtrcaddmxfv8rdm6yqqq52
 title: Todo
 desc: ''
-updated: 1769468356417
+updated: 1770152614871
 created: 1768442759192
 ---
+
+- Replacing parameters fixed by recycles
+- Downloading MSS tag mappings doesn't work if something is not defined
 
 
 # LSL Heat Pump Digital Twin
@@ -16,6 +19,8 @@ created: 1768442759192
 - Water pipe model
 - dynamics with petsc sovler
 - cleaner interface for p&id control
+
+
 
 # Excel Integration
 
