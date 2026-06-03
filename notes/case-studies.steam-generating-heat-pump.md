@@ -2,7 +2,7 @@
 id: 2ic55zb4xauos9xnvjtny5l
 title: Steam Generating Heat Pump
 desc: ''
-updated: 1780455259356
+updated: 1780455977843
 created: 1780368695399
 ---
 
@@ -26,7 +26,7 @@ PLCS make building PID controllers pretty easy, and linking up lots of different
 
 However working with ladder is painful for complex logic. I think PLCs are definitely best for input mapping - getting the physical inputs to a semantic tag and range that makes sense (e.g voltage to temperature conversion, etc). It's best to then get them to talk over MQTT to offload more complex logic. It's nice that they support a range of protocols (at least unilogic's one does) though if they didn't I'd probably standardise on MQTT anyway and then have some sort of bridge service to convert to/from.
 
-![Tagging Properties of an outlet module](assets/tagging-properties.png)
+![Tagging Properties of an outlet module](assets/tagging-outputs.png)
 
 The tag system works well for this. Giving each variable a unique tag makes it easy to reference it anywhere you need, and then it's just a matter of mapping the input readings to those tags, defining appropriate ranges etc. Likewise, data is recieved from MQTT and stored in a tag, or sent over MQTT based on the tag.
 
@@ -62,7 +62,7 @@ A full explanation of Ladder code is avaliable in the [UniLogic Manual](https://
 
 ## PID Control
 
-![View of the PLC control screen](assets/plc-control-screen.png)
+![View of the PLC control screen](assets/pid-control-screen.png)
 
 We added screens to the PLC to update the PID control parameters. These do not work exactly as I expected: P controls the porportional band, and so a higher number actually makes it respond slower. I controls the integral response time, so it's a measure how how many seconds you expect it'll take to reach steady state (so again, higher means the controller reacts slower.) I have the digital twin calculating once every 10 seconds, so I had to make the response quite slow in order to get it to be stable. 
 
