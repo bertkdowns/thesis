@@ -2,7 +2,7 @@
 id: 378sgodzyllwhqkkvh2qli2
 title: Process to Build a Digital Twin
 desc: ''
-updated: 1780539414047
+updated: 1780607578271
 created: 1780379686064
 ---
 
@@ -48,3 +48,5 @@ We need to show what it gives out - what does all this work give you? E.g pinch 
 - Converting from a Steady State model to a dynamic model (defining what dynamic context is required etc, switching from DOF replacement to PID control, etc.)
 
 I've got the live data stuff pretty down now.
+
+Another thing we could look at later (but may not be needed right now) is process family design - when you have specific HX sizes etc and you want to decide which one to use.
