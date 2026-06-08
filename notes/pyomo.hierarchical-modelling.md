@@ -1,14 +1,12 @@
 ---
 id: t596jttoggoomwdkmhktemv
-title: Hierarchical Modelling
+title: Adaptive fidelity selection for multi-scale process modelling
 desc: ''
-updated: 1780957960899
+updated: 1780958308753
 created: 1778276705805
 ---
 
-# Adaptive fidelity selection for multi-scale process modelling
-
-This research investigates methods for automatically selecting the appropriate fidelity of process submodels during simulation and optimisation. The goal is to minimise computational cost while maintaining sufficient accuracy by dynamically determining which components of a system require detailed representation and which can be represented using simpler abstractions.
+This research investigates methods for automatically selecting the appropriate fidelity of process sub-models during simulation and optimisation. The goal is to minimise computational cost while maintaining sufficient accuracy by dynamically determining which components of a system require detailed representation and which can be represented using simpler abstractions.
 
 # Background
 
@@ -25,7 +23,7 @@ Likewise, there are different levels of detail we model an energy system at, dep
 
 ![Various levels of process detail: Molecular properties, 1d unit operation, subsystem/ process section, plant/facility, region](assets/hierarchical-modelling.drawio.png)
 
-Each of these model scales can be represented in an Equation Oriented Model. Typically, each of these levels of fidelity are modelled completely seperately. 
+Each of these model scales can be represented in an Equation Oriented Model. Typically, each of these levels of fidelity are modelled completely separately. 
 I present an alternative solution: An extremely large, high-fidelity equation oriented model of a region, built over time, combining the different simpler models into one. 
 For each case study, a modeller would choose a level of detail and system boundary appropriate for their problem, extracting a sub-model they can feasibly solve. 
 This would create a multi-level Digital Twin, and provide better insight into the constraints present on a larger or smaller scale that may be limiting factors in finding an optimal solution.
@@ -42,9 +40,9 @@ My research would investigate how to build a system architecture that supports t
 The second part would focus on automatically increasing fidelity of models in an optimisation problem. 
 Improved convergence in optimisation problems could result from first optimising using low fidelity approximations, then increasing fidelity to further refine the objective.
 Automatic methods could be developed to identify which sub-models the objective is most sensitive to, so that higher fidelity models can be used in their place. 
-Sub-models that the objective is not senstive to can be left low-fidelity, to reduce the mathematical complexity of solving.
+Sub-models that the objective is not sensitive to can be left low-fidelity, to reduce the mathematical complexity of solving.
 
-This would likely involve analysing the jacobian of the surrogate model or performing sensitivity analysis to determine if the objective is sufficiently senstive to warrant using a higher fidelity approximation. Heuristic methods could be developed or a secondary optimisation problem could be solved to minimise inaccuracies for a given level of model complexity.
+This would likely involve analysing the jacobian of the surrogate model or performing sensitivity analysis to determine if the objective is sufficiently sensitive to warrant using a higher fidelity approximation. Heuristic methods could be developed or a secondary optimisation problem could be solved to minimise inaccuracies for a given level of model complexity.
 
 ![](assets/hierarchical-modelling-enable-tree.drawio.png)
 
@@ -55,4 +53,4 @@ This would likely involve analysing the jacobian of the surrogate model or perfo
 
 *Initialising Hierarchical Models.* Having a low-fidelity and high-fidelity model of each part of the system may help create reusable, standardised initialisation routines. This may improve solving reliability
 
-*Diagnosining problems in a multi-level model*. If a model fails to solve and we can identify which sub-model is the constraining factor, we can then inspect inside the sub-model to identify why it is a problem. We can also easily replace a sub-model with its approximation to see if there is some degeneracy or infeasibility in the sub-model that the approximation smooths over. This may make multi-level models more maintainable.
+*Diagnosing problems in a multi-level model*. If a model fails to solve and we can identify which sub-model is the constraining factor, we can then inspect inside the sub-model to identify why it is a problem. We can also easily replace a sub-model with its approximation to see if there is some degeneracy or infeasibility in the sub-model that the approximation smooths over. This may make multi-level models more maintainable.
