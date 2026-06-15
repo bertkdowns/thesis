@@ -2,7 +2,7 @@
 id: p2b63onupzh26xhdv40pz5h
 title: "Towards Lifecycle-complete Rapid Digital Twins: Case study of a Butane Steam-Generating Heat Pump for Design and Virtual Commissioning in the Ahuora Digital Twin Platform"
 desc: ''
-updated: 1781240392057
+updated: 1781496631824
 created: 1781040524556
 bibliography:
   - assets/gl-refs.bib
@@ -10,24 +10,48 @@ bibliography:
 
 # Abstract
 
-One of the core ideas behind Digital Twins  is that a model is complete enough to be analysed in many different ways. However, most literature discussing building Digital Twins only uses the resulting model for a single purpose. 
+One of the core ideas behind Digital Twins is that a model is complete enough to be analysed in many different ways. However, most literature discussing building Digital Twins only uses the resulting model for a single purpose. 
 This paper introduces and standardises a workflow to rapidly build Process Digital Twins that can be used across the entire life cycle of the equipment, from design, to commissioning, to operation. 
 We explore the creation of a Butane Steam-Generating Heat Pump Digital Twin in the Ahuora Digital Twin Platform, demonstrating how the platform enables rapid construction of Digital Twin models. The model is used for equipment sizing, testing how the heat pump will perform in a variety of conditions using a multi-steady-state analysis. This model is then adapted with minimal changes to be used for virtual commissioning, using hardware-in-the-loop testing to validate the control systems of the PLC.
 The results show that the Ahuora Digital Twin Platform can significantly reduce duplication of effort through features that allow design-time models to be easily adapted to also work in commissioning tasks and beyond. We discuss how the workflow presented here can practicably be employed on other cases in the future. 
 
 # Introduction
 
-Digital Twins have become a very common research area over the last 10 years, including in the process engineering sector [@tao2024advancements]. Literature covers how Digital Twins provide value across the life cycle of the product, including the design phase, construction and commissioning, operation and maintenance, and reconfiguration and retrofit. This has definitely been proven in the case of building, architecture, and robotics. In the process engineering sector however, most digital twins focus on a specific part of the lifecycle, rather than aiming to be applicable to the lifecycle as a whole [@ors2020conceptual]. Data driven digital twins usually cannot be used in design time, as they require the process to be operational in order to produce the historical data required for modelling. The most common style of DT that can be used across the product lifecycle is one that is based on process simulation technologies, such as modelica [@yin2026system].
+Digital Twins have become a very common research area over the last decade, including in the process engineering sector [@tao2024advancements]. Literature covers how Digital Twins provide value across the life cycle of the product, including the design phase, construction and commissioning, operation and maintenance, and reconfiguration and retrofit. 
 
-The Ahuora Digital Twin Platform is a process simulation platform built by the University of Waikato, based on the IDAES equation-oriented modelling framework [@beattie2024idaes]. The Ahuora Platform provides a simple drag-and-drop user interface to lower the barrier to entry to working with equation oriented simulators, helping to avoid common problems users may have with constructing a model. Currently, it supports steady-state modelling, multi-steady state analysis, and has experimental dynamic simulation functionality. On top of the core modelling functionality, additional features have been developed to assist with connecting to real-time systems, perform pinch analysis and heat exchanger network analysis, calculate capital and operating costs. These enhance the usefulness of the model.
+In theory, the idea of a Digital Twin is that one system representation, the "Digital Twin," can be used to help solve a variety of problems. 
+Reusing a model for multiple applications is a powerful concept, as the cost of developing the model can be amortized across the value added by each use.
+This benefit of digital twins is not always made clear in research, as most papers on Digital Twins focus on one specific application  [@ors2020conceptual]. Reusing the model is often harder than expected, as the model or modelling software may only have been designed with one purpose in mind. Different applications often require a slightly different "view" of the Digital Twin.
 
-The contributions of this work include:
+This paper introduces a procedure for real-time simulation using models built in the Ahuora Digital Twin Platform. The Ahuora Digital Twin Platform is a process simulation platform built by the University of Waikato, based on the IDAES equation-oriented modelling framework [@beattie2024idaes]. The Ahuora Platform provides a simple drag-and-drop user interface to lower the barrier to entry to working with equation oriented simulators, helping to avoid common problems users may have with constructing a model. Currently, it supports steady-state modelling, multi-steady state analysis, and has experimental dynamic simulation functionality. In keeping with the prinicple of model reuse, additional features have been developed to use the same models for pinch analysis and heat exchanger analyisis, and costing. However, no real-time functionalities exist. In developing this method, we seek to minimise the amount of work required to create a real-time simulation model from an existing steady-state process flowsheet in the Ahuora Digital Twin Platform. 
 
-1. A model of a Steam-Generating Butane Heat Pump in the Ahuora Digital Twin Platform, and applications for that model to design-time sizing problems, and virtual commissioning with a hardware-in-the-loop PLC,
-2. A reusable framework for integrating models built in the Ahuora Digital Twin Platform with external systems for real-time analysis or optimisation,
-3. A method of adjusting a steady-state model to include first-order pipe dynamics to enable it to be used in virtual commissioning or prediction scenarios with minimal extra model development.
+The procedure we propose is as follows:
+- Use the Ahuora Platform's Variable Replacement technique to reformulate the model to calculate what you are trying to predict in real time;
+- Simulate first-order dynamics in a system by replacing equality constraints between unit operations with exponential smoothing filters;
+- Tag model inputs and outputs in a manner consistent with existing data collection systems;
+- Use our Ahuora-Live integration tool to connect the model to an existing SCADA or PLC system. This is a simple, reusable MQTT Client to recieve inputs fron the industrial SCADA/PLC system, solve the model, maintain the current state, and return results back to the SCADA/PLC system or process historian.
+
+To validate the effectiveness of this procedure, we implement it using a model of a Butane Steam-Generating Heat Pump, for hardware-in-the-loop testing of the PLC's control system and data logging functionality. 
+This allows us to build and test the PLC's systems while the physical heat pump is still under construction. We show that the Digital Twin shows similar enough behaviour to the real system to test the PLC's operation and use the PLC's PID controllers to control the Digital Twin to steady state conditions. 
+We then evaluate the procedure we have proposed to identify how effectively it reduces the work required to convert an existing steady-state model in the Ahuora Platform into a real-time simulation integrated with external industrial systems. We also discuss limitations of approach we have proposed, and how it could be improved further to be simpler and more generally applicable.
+
+
+## Literature Review
+
+
+The most common style of DT that can be used across the product lifecycle is one that is based on process simulation technologies, such as modelica [@yin2026system].
+
+
 
 # System Description and Model
+
+
+
+
+
+
+
+
 
 <!-- E -->
 
