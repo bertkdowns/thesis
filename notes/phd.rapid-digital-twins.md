@@ -2,10 +2,10 @@
 id: p2b63onupzh26xhdv40pz5h
 title: "Towards Lifecycle-complete Rapid Digital Twins: Case study of a Butane Steam-Generating Heat Pump for Design and Virtual Commissioning in the Ahuora Digital Twin Platform"
 desc: ''
-updated: 1781581847606
+updated: 1781645948809
 created: 1781040524556
-bibliography:
-  - assets/gl-refs.bib
+bibliography: assets/gl-refs.bib
+csl: assets/custom-style.csl
 ---
 
 # Abstract
@@ -106,7 +106,7 @@ The user should assign tag names and units to model variables and calculated pro
 
 Once this is done, the reconfigured model and tags should be exported from the Ahuora Platform. These are combined with the user's configuration for dynamic response, and can be loaded into the Ahuora-Live integration tool. This software system acts as an MQTT client that receives input values from the SCADA or PLC system, updates the model state, solves the model, and publishes calculated outputs back via MQTT. The SCADA, PLC, or process historian can then subscribe to the appropriately tagged MQTT topics to recieve the results of the simulation.
 
-MQTT is supported by a very broad range of industrial systems, either directly or via an edge gateway or add-on. A brief summary of some of these is included in the appendix. 
+MQTT is supported by a very broad range of industrial systems, either directly or via an edge gateway or add-on [@BabayigitMQTT]. A brief summary of some of these is included in the appendix. 
 By appropriately configuring the external industrial system to publish and subscribe to the required inputs and outputs, it should be possible to connect the Ahuora-Live model to virtually any industrial system.
 Where the physical control system does not use MQTT directly, an appropriate protocol translation layer may be required.
 
@@ -230,7 +230,6 @@ This enhances the value these models provide and unlock greater understanding of
 # Appendix 
 
 ## MQTT Use across Process Systems
-
 | Vendor / system                                             |                                                                                                     MQTT support | Notes                                                                                                                                                                                                                                                                                                                             |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Unitronics UniStream / UniLogic**                         |                                                                                         Native PLC configuration | UniLogic supports MQTT broker connections plus publications/subscriptions [@unitronics_unilogic_mqtt].                                                                                                                                                                                                                            |
