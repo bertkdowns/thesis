@@ -2,7 +2,7 @@
 id: p2b63onupzh26xhdv40pz5h
 title: "Towards Lifecycle-complete Rapid Digital Twins: Case study of a Butane Steam-Generating Heat Pump for Design and Virtual Commissioning in the Ahuora Digital Twin Platform"
 desc: ''
-updated: 1781498540763
+updated: 1781581847606
 created: 1781040524556
 bibliography:
   - assets/gl-refs.bib
@@ -17,23 +17,18 @@ The results show that the Ahuora Digital Twin Platform can significantly reduce 
 
 # Introduction
 
-Digital Twins have become a very common research area over the last decade, including in the process engineering sector [@tao2024advancements]. Literature covers how Digital Twins provide value across the life cycle of the product, including the design phase, construction and commissioning, operation and maintenance, and reconfiguration and retrofit. 
-
-In theory, the idea of a Digital Twin is that one system representation, the "Digital Twin," can be used to help solve a variety of problems. 
-Reusing a model for multiple applications is a powerful concept, as the cost of developing the model can be amortized across the value added by each use.
-This benefit of digital twins is not always made clear in research, as most papers on Digital Twins focus on one specific application  [@ors2020conceptual]. Reusing the model is often harder than expected, as the model or modelling software may only have been designed with one purpose in mind. Different applications often require a slightly different "view" of the Digital Twin.
 
 This paper introduces a procedure for real-time simulation using models built in the Ahuora Digital Twin Platform. 
 The Ahuora Digital Twin Platform is a process simulation platform built by the University of Waikato, based on the IDAES equation-oriented modelling framework [@beattie2024idaes]. 
 The Ahuora Platform provides a simple drag-and-drop user interface to lower the barrier to entry to working with equation oriented simulators, helping to avoid common problems users may have with constructing a model. Currently, it supports steady-state modelling, multi-steady state analysis, and has experimental dynamic simulation functionality. 
-In keeping with the prinicple of model reuse, additional features have been developed to use the same models for pinch analysis and heat exchanger analyisis, and costing. However, no real-time functionalities exist. 
+In keeping with the principle of model reuse, additional features have been developed to use the same models for pinch analysis and heat exchanger analysis, and costing. However, no real-time functionalities exist. 
 In developing this method, we seek to minimise the amount of work required to create a real-time simulation model from an existing steady-state process flowsheet in the Ahuora Digital Twin Platform. 
 
 The procedure we propose is as follows:
 - Use the Ahuora Platform's Variable Replacement technique to reformulate the model to calculate what you are trying to predict in real time;
 - Simulate first-order dynamics in a system by replacing equality constraints between unit operations with exponential smoothing filters;
 - Tag model inputs and outputs in a manner consistent with existing data collection systems;
-- Use our Ahuora-Live integration tool to connect the model to an existing SCADA or PLC system. This is a simple, reusable MQTT Client to recieve inputs fron the industrial SCADA/PLC system, solve the model, maintain the current state, and return results back to the SCADA/PLC system or process historian.
+- Use our Ahuora-Live integration tool to connect the model to an existing SCADA or PLC system. This is a simple, reusable MQTT Client to receive inputs from the industrial SCADA/PLC system, solve the model, maintain the current state, and return results back to the SCADA/PLC system or process historian.
 
 To validate the effectiveness of this procedure, we implement it using a model of a Butane Steam-Generating Heat Pump, for hardware-in-the-loop testing of the PLC's control system and data logging functionality. 
 This allows us to build and test the PLC's systems while the physical heat pump is still under construction. We show that the Digital Twin shows similar enough behaviour to the real system to test the PLC's operation and use the PLC's PID controllers to control the Digital Twin to steady state conditions. 
@@ -41,47 +36,83 @@ We then evaluate the procedure we have proposed to identify how effectively it r
 We also discuss limitations of approach we have proposed, and how it could be improved further to be simpler and more generally applicable.
 
 
-## Literature Review
+## Background
 
+Digital Twins have become a very common research area over the last decade, including in the process engineering sector [@tao2024advancements]. Literature covers how Digital Twins provide value across the life cycle of the product, including the design phase, construction and commissioning, operation and maintenance, and reconfiguration and retrofit.
 
-The most common style of DT that can be used across the product lifecycle is one that is based on process simulation technologies, such as modelica [@yin2026system].
+In theory, the grand vision of a Digital Twin is that one system representation, the "Digital Twin," can be used to help solve a variety of problems by combining up-to-date data with a currently existing model[@Wright2020ModelVsTwin]. 
+In practice, most digital twins in literature only focus on one specific application [@ors2020conceptual], likely because this best fits the narrative flow of an academic article. 
+However, reusing a model for multiple applications allows the cost of developing the model to be amortized across the value added by each use.
+In order to do so for different applications, tools need to be developed to extract a model from the system representation that is appropriate for each purpose [@birk2022automatic].
+
+Ferle et al. [@Ferle2026ContinuedVCUse] discuss an area where this can be used, in adjusting models built for Virtual Commissioning during the product engineering phase to also deliver benefits in the operational phase. 
+Their approach follows the insight of Birk et al. [@birk2022automatic], discussing how the validated models they already had for virtual commissioning could be used for applications such as training human operators, collision avoidance of mechanical systems, and testing new control software. 
+They concluded that real-time applications typically require more development, because data aquisition and synchronisation and alignment all needs to be accounted for, but also significant benefit in efficiency, output or quality.
+As they started with a virtual commissioning model, their use cases were skewed towards those that are easist to adapt a virtual commissioning model to. 
+
+While the idea of applying a model to a different case is similar to what is discussed in Ferle et al.'s paper, this work starts from a steady-state design-time simulation model. Existing commercial simulation technologies, such as gPROMS, Simulink, or Aspen, include some ways of repurposing models. 
+Aspen HYSYS and gPROMS include workflows to convert steady-state models to dynamic process simulation models [@AspenHYSYSDynamics][@SiemensgPROMS], a feature which is currently in development in the Ahuora Digital Twin Platform. 
+Simulink is built from the ground up for dynamics, and due to its integration with MATLAB, is best positioned for integration with PLCs and external systems [@MathWorksVirtualCommissioning]. 
+
+Yin et al. discuss a use case of this, where a system-level dynamic model built in Simulink/Modelica is used for pinch analysis of a Power-to-Gas system in design-time, and then for model predictive control during plant operation [@yin2026system]. 
+To adjust the model for real-time operations, MATLAB's system identification toolbox is used to estimate system transfer functions and allow a simpler model reformulation. 
+An objective for optimal control is also added, and resolved in regular intervals.
+In a similar way, our method will need to provide tools to reformulate the model to a more reliably solvable formulation, change the objectives of the model, and re-solve at regular intervals with the latest real-time data. 
 
 # Method
 
-- Begin with an existing steady-state flowsheet in the Ahuora Digital Twin Platform.
-- Use the Ahuora Platform's variable replacement functionality to reformulate the model for the target real-time simulation task. In the virtual commissioning context, this means calculating sensor-like quantities, such as temperatures, pressures, and flow rates, from actuator or controller outputs.
-- Assign tag names to model variables and calculated properties using conventions that are consistent with the external control or data acquisition system.
-- Export the reconfigured model from the Ahuora Platform for execution outside the platform environment.
-- Connect the exported model to the external system using the Ahuora-Live integration tool. This tool acts as an MQTT client that receives input values from the SCADA or PLC system, updates the model state, solves the model, and publishes calculated outputs back to the SCADA, PLC, or process historian.
-- To introduce approximate dynamics into a steady-state model, select streams between unit operations and remove the equality constraints that require outlet and inlet states to be identical. The downstream inlet properties are then fixed directly.
-- Solve the model at the fixed inlet conditions.
-- At the next timestep, update the fixed inlet values using the corresponding calculated outlet values. These values may be copied directly to represent a fast response, or updated using an exponential smoothing filter to represent first-order dynamics.
-- The smoothing factor can be related to the desired time constant using:
+This section explains the procedure one would apply to adjust a steady state model built in the Ahuora Digital Twin Platform for use in a real-time application.
+
+## Reformulating the model
+
+This methodology assumes one already has an existing existing steady-state flowsheet in the Ahuora Digital Twin Platform. 
+This model may have been set up for some design-time use case, such as Pinch Analysis, equipment sizing, or equipment rating. 
+
+The model in the Ahuora Platform will be formulated to calculate the properties required for the design-time use case. 
+To adjust the model to be suitable for a real-time application, the Ahuora Platform's Variable Replacement functionality can be used to reformulate the model for the target real-time simulation task. 
+In the virtual commissioning context, this means calculating sensor-like quantities, such as temperatures, pressures, and flow rates, from actuator or controller outputs.
+
+The Ahuora Platform ensures that the base model always has zero degrees of freedom, by ensuring that any extra variable specified must also free an existing variable. Reformulating the model from a design case to a control or virtual commissioning model will not change the number of things that need to be specified, unless the model itself is fundamentally changed [@luyben1996design]. 
+
+Some cases may require the model to be added. For example, additional model fidelity may be required, or additional properties may need to be calculated that were not on the existing model. (One example of this we saw is calculating the mechanical work of a pump from the VSD speed.) This can be added to the Ahuora model using conventional simulation tools and custom expressions and variables, and should be done in conjunction with the model reformulation. 
+
+When equality constraints are removed, the model is also checked for structural degeneracy. Degeneracy can occur when an upstream unit operation is specified by a condition downstream of the selected breakpoint. 
+A useful diagnostic is to examine whether a variable in the Ahuora Digital Twin Platform has been replaced "across" the breakpoint. 
+If this is the case, the user may need to adjust their formulation to specify different variables in the equation oriented model, or change which intermediate stream dynamics is added to[@leeidaes].
+
+## Supporting Dynamics
+
+A software tool has been created to emulate dynamic response across subsequent solves of a steady state model built using the Ahuora Platform.
+
+It requires the user to select streams between unit operations where dynamic response is to be represented. The tool removes the equality constraints that require outlet and inlet states to be identical. This decouples the unit operations in the equation oriented model. The downstream inlet properties are then specified directly, and the model is solved at the fixed inlet conditions. 
+
+The user is also required to specify a transfer function to represent the gradual effect of upstream changes propagating through downstream unit operations. 
+This can be specified for each property that is passed between streams (pressure, enthalpy, composition, and flow rate).
+The easiest way to do so for first-order responses is by using an exponential smoothing filter. The smoothing factor can be related to the desired first-order time constant using:
 
 $$\alpha = 1 - e^{-\frac{\Delta t}{\tau}}$$
 
-- A buffer of previous values may also be used to approximate transport delay through the system.
-- When equality constraints are removed, check the model for structural degeneracy. Degeneracy can occur when an upstream unit operation is specified by a condition downstream of the selected breakpoint. A useful diagnostic is to examine whether a variable has been replaced "across" the breakpoint.
-- IDAES and the Ahuora Platform include tools that can assist in identifying structurally problematic points, after which the model can be manually reformulated.
-- After integration with the external system, use logged MQTT messages or another data ingestion pipeline to inspect the interaction between the model and the controller over time.
-- For virtual commissioning, use the real controller where possible, but map simulated measurements into standard memory addresses or communication tags rather than physical analogue input addresses.
-- Where the physical control system does not use MQTT directly, an appropriate protocol translation layer may be required.
+A buffer of previous values may also be used to approximate transport delay through the system, to allow a First order plus time-delay response.
+
+At the next timestep, the inlet values are updated based on the previously calculated outlet values and the transfer function, and the model is resolved. This is repeated for every timestep.
 
 
+## Connecting to live data
 
+Virtually every process will have a naming system to define all the equipment and equipment properties that can be accessed [@meier2026control]. This is usually defined in the Piping & Instrumentation Diagrams. This provides a simple way to map data across a variety of systems. 
 
+A feature has been developed in the Ahuora Platform to allow the user to assign an alphanumeric tag to individual properties in a flowsheet. 
+The user should assign tag names and units to model variables and calculated properties using conventions that are consistent with and meaningful to the external control or data acquisition systems.
 
+Once this is done, the reconfigured model and tags should be exported from the Ahuora Platform. These are combined with the user's configuration for dynamic response, and can be loaded into the Ahuora-Live integration tool. This software system acts as an MQTT client that receives input values from the SCADA or PLC system, updates the model state, solves the model, and publishes calculated outputs back via MQTT. The SCADA, PLC, or process historian can then subscribe to the appropriately tagged MQTT topics to recieve the results of the simulation.
 
+MQTT is supported by a very broad range of industrial systems, either directly or via an edge gateway or add-on. A brief summary of some of these is included in the appendix. 
+By appropriately configuring the external industrial system to publish and subscribe to the required inputs and outputs, it should be possible to connect the Ahuora-Live model to virtually any industrial system.
+Where the physical control system does not use MQTT directly, an appropriate protocol translation layer may be required.
 
+IDAES and the Ahuora Platform include tools that can assist in identifying structurally problematic points, after which the model can be manually reformulated.
 
-# System Description and Model
-
-
-
-
-
-
-
+# Case Study: Butane Steam-Generating Heat Pump
 
 
 <!-- E -->
@@ -100,12 +131,6 @@ N-butane and water were modelled using Helmholtz energy formulations [@wagner200
 Pipe pressure losses were represented using valves with fixed coefficients and fixed positions, allowing the pumps to determine the flow rate through the system.
 
 ![Steam Generating Heat Pump Built in the Ahuora Platform](assets/sghp-ahuora-platform.png)
-
-# Design-time Analysis Case
-
-<!-- Explain how variable replacement makes it easy to switch the model from an initial design to a rating mode case, possibly take some content from the variable replacement paper. -->
-
-
 
 # Hardware-in-the-loop Virtual Commissioning
 
@@ -174,18 +199,54 @@ One limitation of this approach is that mathematical process models may become u
 
 # Discussion
 
-<!-- Argue that the variable replacement and the recycling system outlined here can easily be applied to other models. -->
-The approach used in this butane heat pump case study can be applied to other process models built in the Ahuora Platform. 
-Variable replacement is a generic technique already used across models in the Ahuora Platform, and it enables a single model to be adapted to different analysis scenarios. 
-Similarly, removing stream constraints between unit operations and manually recycling values at each timestep provides a simple method for introducing approximate dynamics without requiring specialised dynamic model configuration.
+<!--
 
-<!-- Argue that the mqtt workflow etc will pretty much work for whatever case you have. -->
-At a fundamental level, real-time model execution requires setting the appropriate variable values, solving the model, and publishing the calculated results. 
-The MQTT layer provides a useful abstraction for shaping and exchanging these data. 
-Although not all industrial systems are configured to use MQTT directly, protocol translation layers are commonly available to convert between MQTT and other industrial communication protocols, making the approach compatible with a wide range of data collection and control systems.
+What limitations are there of this approach and this case study?
+
+Where could you go next? e.g more complex dynamics, system identification like the matlab system identificaiton toolbox (we don't have real data to estimate from)
+
+-->
+
+The Butane Heat Pump case study shows the validity of this approach to adjust a steady-state flowsheet built in the Ahuora Platform to a real-time use case.
+It is reasonable to assume that a similar procedure could be used for a different model, as nothing in the method is explicitly tied to the Butane Heat Pump use case.  
+However, to verify this, future work should implement this methodology in other conditions to verify if the approach is generic enough to work in many different scenarios.
+
+There are a few other limitations to this case study.
+This paper discusses applying the steady state model to a real-time hardware-in-the-loop commissioning use case, and the way the problem needs to be reformulated would be different for a soft sensor or real-time optimisation or control problem.
+It also does not investigate the complexities of missing or incorrect real-time data. Literature suggests that additional layers for model calibration and data validation may be required for this [@birk2022automatic].
+
+Future work could also add automatic tools for system identification, such as identifying which transfer function best models the dynamics of the system. 
+This is already a well established field [@tan2019industrial], but tools that integrate well with the Ahuora Digital Twin Platform would simplify the process.
 
 
-# Conclusions
+# Conclusion
+
+
+By applying the methods outlined in this paper, users of the Ahuora Digital Twin Platform will be able to reuse existing steady-state models for a variety of real-time applications. 
+This enhances the value these models provide and unlock greater understanding of the process, bringing new meaning to the concept of a "Digital Twin" in process engineering.
+
+
+
+# Appendix 
+
+## MQTT Use across Process Systems
+
+| Vendor / system                                             |                                                                                                     MQTT support | Notes                                                                                                                                                                                                                                                                                                                             |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Unitronics UniStream / UniLogic**                         |                                                                                         Native PLC configuration | UniLogic supports MQTT broker connections plus publications/subscriptions [@unitronics_unilogic_mqtt].                                                                                                                                                                                                                            |
+| **Siemens SIMATIC S7-1200 / S7-1500**                       |                                                                                                      PLC library | Siemens’ LMQTT library implements MQTT client function blocks for S7-1200/1500, including publish/subscribe and TLS [@siemens_lmqtt_s71200_s71500].                                                                                                                                                                              |
+| **Schneider Electric Modicon / EcoStruxure Machine Expert** |                                                                                              PLC library/example | Schneider documents an MQTT Handling library/example for controller applications in EcoStruxure Machine Expert [@schneider_mqtt_handling].                                                                                                                                                                                         |
+| **ABB AC500 / CP600**                                       |                                                                       PLC/HMI support via ABB libraries/examples | ABB documents AC500 MQTT libraries and examples; FAQ notes AC500 V2 PM556+ and AC500 V3 PM5032+ support, and active CP600 panels support MQTT [@abb_ac500_mqtt].                                                                                                                                                                 |
+| **Beckhoff TwinCAT 3**                                      |                                                                                             PLC library/function | TwinCAT TF6701 “IoT Communication” provides MQTT send/receive directly from the controller, with TLS support [@beckhoff_tf6701].                                                                                                                                                                                                  |
+| **CODESYS-based PLCs**                                      |                                                                                             Portable IEC library | CODESYS MQTT Client / IIoT Libraries link a CODESYS controller to a broker for publish/subscribe by topic. This matters because many OEM PLCs are CODESYS-based [@codesys_mqtt_client].                                                                                                                                          |
+| **Phoenix Contact PLCnext**                                 |                                                                                           Firmware/app ecosystem | PLCnext firmware 2024.0 LTS and newer includes MQTT client capability to communicate with any MQTT broker; PLCnext Store apps are another route [@phoenix_plcnext_mqtt].                                                                                                                                                          |
+| **Opto 22 groov EPIC / groov RIO**                          |                                                                                      Native edge/controller MQTT | groov EPIC/RIO include MQTT for IIoT with string and Sparkplug payloads; docs also describe groov Manage, Node-RED, and Ignition Edge routes [@opto22_groov_mqtt].                                                                                                                                                               |
+| **Rockwell Automation / Allen-Bradley ecosystem**           |                                                         Usually via FactoryTalk Optix, edge software, or gateway | Rockwell shows MQTT with FactoryTalk Optix and Studio 5000/CompactLogix; this is more integration-oriented than native Logix-controller MQTT [@rockwell_factorytalk_optix_mqtt].                                                                                                                                                 |
+| **Inductive Automation Ignition + Cirrus Link**             |                                                                                      SCADA/MQTT platform modules | Ignition IIoT uses MQTT with Ignition; Cirrus Link modules provide MQTT Engine/Transmission/Distributor and Sparkplug support [@inductive_ignition_iiot_mqtt; @cirruslink_mqtt_modules].                                                                                                                                          |
+| **AVEVA System Platform / Communication Drivers / DataHub** |                                                                              SCADA driver/broker/adapter support | AVEVA has a standalone MQTT Communication Driver; DataHub can aggregate/standardize MQTT and supports JSON and Sparkplug B [@aveva_mqtt_driver; @aveva_datahub_mqtt_broker].                                                                                                                                                      |
+| **PTC Kepware KEPServerEX**                                 |                                                                                                      MQTT driver | Kepware’s MQTT Client Driver exchanges data between MQTT devices/brokers and client applications/OPC tags [@ptc_kepware_mqtt_client].                                                                                                                                                                                            |
+| **Emerson DeltaV SaaS SCADA**                               |                                                                                       Cloud SCADA data streaming | Emerson documents DeltaV SaaS SCADA data streaming via MQTT Sparkplug B or JSON, using Emerson broker-as-a-service or a customer broker [@emerson_deltav_saas_mqtt].                                                                                                                                                             |
+| **Honeywell Experion / ControlEdge**                        | Mixed: SCADA/RTU protocol ecosystem; MQTT appears in training/docs, less clearly as a general native MQTT driver | Honeywell Experion SCADA is positioned as open SCADA with many RTU/PLC drivers; Honeywell ControlEdge RTU/PLC training references MQTT protocol knowledge and MQTT-based HART-IP connectivity. I would verify exact MQTT driver/module availability with Honeywell for a specific Experion/ControlEdge release [@honeywell_experion_scada_pin; @honeywell_controledge_training_mqtt]. |
 
 
 # Bibliography
