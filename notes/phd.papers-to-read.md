@@ -2,7 +2,7 @@
 id: 3cpsihp2v9t496z3wjt7o2r
 title: Papers to Read
 desc: ''
-updated: 1779327741343
+updated: 1781573183522
 created: 1772577650188
 ---
 
@@ -19,3 +19,14 @@ Discusses how aspen works and their equation oriented methods. could be used in 
 
 https://www.sciencedirect.com/science/article/pii/S0098135421000302
 vision for what could be next
+
+Virtual Commissioning - Used in [[phd.rapid-digital-twins]] - Discusses a variety of case studies the same model is used for
+https://link.springer.com/article/10.1007/s00170-025-17195-y
+
+
+https://www.sciencedirect.com/science/article/pii/S0360544226002562 - Using a digital twin for both design and operation - also used in [[phd.rapid-digital-twins]]
+
+
+## How to write a good software research article
+
+https://www.cs.cmu.edu/~Compose/shaw-icse03.pdf 

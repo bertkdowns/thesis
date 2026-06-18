@@ -2,7 +2,7 @@
 id: 378sgodzyllwhqkkvh2qli2
 title: Process to Build a Digital Twin
 desc: ''
-updated: 1780457153539
+updated: 1780607578271
 created: 1780379686064
 ---
 
@@ -12,6 +12,14 @@ created: 1780379686064
 
 ## Gathering Sources
 
+Piping and Instrumentation Diagrams can be used to figure out how unit operations connect together. This could potentially be done automatically, but it can be hard to know
+the level of detail that you need.
+
+Plant data is required for determining or validating the characteristics of individual unit operations. Machine learning can also be used to model the unit operations directly from the plant data.
+
+Typically, there are some plant design specifications that are constants that also need to be specified. This could include feed conditions, or equipment properties (e.g heat exchanger area).
+
+Depending on the compounds present in the plant, there may already be property models, if not, property data needs to be collected to regress coefficients or a data-driven model for them.
 
 ## Building Blocks
 
@@ -40,3 +48,5 @@ We need to show what it gives out - what does all this work give you? E.g pinch 
 - Converting from a Steady State model to a dynamic model (defining what dynamic context is required etc, switching from DOF replacement to PID control, etc.)
 
 I've got the live data stuff pretty down now.
+
+Another thing we could look at later (but may not be needed right now) is process family design - when you have specific HX sizes etc and you want to decide which one to use.
