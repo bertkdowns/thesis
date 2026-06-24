@@ -2,7 +2,7 @@
 id: wz9jb5o3tztmz3br577dy43
 title: Oss
 desc: ''
-updated: 1779163885040
+updated: 1782163710120
 created: 1779148327322
 ---
 
@@ -107,6 +107,27 @@ I think our real value comes in the ecosystem, and being the person that control
 all while maintaining our consulting businesses on top of that. Just because the platform is open source does not mean everything else we do is open source.
 
 I personally think we either start with MPL and then transition to AGPL when we have adoption, or start with AGPL immediately. The best chance we have for survival long term is to become something that people rely on.
+
+
+# Proposal
+
+
+Ahuora Unit Operations & Property Packages: MPL/MIT. Allows others to use/modify our unit operations. Companies can make their own unit models and use them with the platform, and do what they want with them - including they could sell their custom unit model libraries. (We expect companies making their own unit ops will be pretty common and allow most companies to us the software for free.)
+
+Main Ahuora Platform - AGPL3. If companies make changes, they need to make them public. We require contributors to our main repository to sign a CLA. If companies want to make a modified version that they keep closed source, they need to get a license with us.
+
+## Example use cases:
+
+A salt factory uses our platform and existing models, they self host in AWS. They can do so without any legal issues as they are not modifying it.
+
+A pharmaceutical company uses our platform and creates new/modified unit operations and property packages for their proprietary compounds. They can do so perfectly fine as the operations and property packages are licensed under MIT, without any involvement from us. 
+
+The pharmaceutical company later wants to make a custom GUI to analyse medical properties. They contact us to recieve a closed-source license.
+
+A University Researcher creates an Exergy Analysis GUI module. They contribute it back and sign the CLA. It is then part of our main ahuora repository.
+
+Another research institution creates an Energy Modelling GUI module. They comply with the terms of the AGPL3 and publish it, but they do not sign the CLA to contribute it back to our main repository. We cannot relicence it, and companies would have to seek permission from them (as well as us) to receive a closed source licence to their Energy Modelling version.
+
 
 
 # Related Content
