@@ -2,7 +2,7 @@
 id: 3cpsihp2v9t496z3wjt7o2r
 title: Papers to Read
 desc: ''
-updated: 1781573183522
+updated: 1781649013275
 created: 1772577650188
 ---
 
@@ -30,3 +30,12 @@ https://www.sciencedirect.com/science/article/pii/S0360544226002562 - Using a di
 ## How to write a good software research article
 
 https://www.cs.cmu.edu/~Compose/shaw-icse03.pdf 
+
+## Examples of published software research articles
+
+HybridML platform 
+
+https://www.sciencedirect.com/science/article/pii/S0098135422000771?via%3Dihub
+
+
+https://www.nature.com/articles/s44286-026-00392-1

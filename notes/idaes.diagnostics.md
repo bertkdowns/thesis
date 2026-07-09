@@ -2,7 +2,7 @@
 id: 9szxg244zp02ngrhxps2pbr
 title: Diagnostics
 desc: ''
-updated: 1776382360489
+updated: 1783579806076
 created: 1776376169027
 ---
 
@@ -38,6 +38,13 @@ Compressor | Doesn't work on liquid | Liquids are incompressible.  | Make sure t
 Splitter | Not enough flow to split | If you fix a certain flow rate on the outlet, and that is more than the flow rate on the inlet, it's impossible | fix a different flow rate or provide more inlet flow
 
 
+# Implementation
+
+These problems are specific to unit operations. Typically, you only get an error "Termination Condition: Infeasible" when any of these errors occour. Looking at the results to see what exactly is infeasible can sometimes be hard to interpret, but as often the problem fits into one of these types mentioned above, it can be possible to make diagnostics methods to show these. A few PRs implement this in the Ahuora Digital Twin Platform:
+
+[This is the original PR that implemented per-unit operation diagnostics](https://github.com/waikato-ahuora-smart-energy-systems/Ahuora-Adaptive-Digital-Twin-Platform/pull/2049). It also prints when a variable in the model changes by a significant percentage (this may signify that there is a problem there, but it also might not. Typically, variables that didn't change much during the solve are pretty fine though.)
+[This PR implements compressor diagnostics methods](https://github.com/waikato-ahuora-smart-energy-systems/Ahuora-Adaptive-Digital-Twin-Platform/pull/2050). Many other prs add more diagnostics methods for other unit operation.
+[This PR implements the frontend UI](https://github.com/waikato-ahuora-smart-energy-systems/Ahuora-Adaptive-Digital-Twin-Platform/pull/2171/changes). It also includes some methods to print what the most infeasible constraints are as well.
 
 
 

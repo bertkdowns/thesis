@@ -2,7 +2,7 @@
 id: t596jttoggoomwdkmhktemv
 title: Adaptive fidelity selection for multi-scale process modelling
 desc: ''
-updated: 1780958308753
+updated: 1782098059171
 created: 1778276705805
 ---
 
@@ -54,3 +54,8 @@ This would likely involve analysing the jacobian of the surrogate model or perfo
 *Initialising Hierarchical Models.* Having a low-fidelity and high-fidelity model of each part of the system may help create reusable, standardised initialisation routines. This may improve solving reliability
 
 *Diagnosing problems in a multi-level model*. If a model fails to solve and we can identify which sub-model is the constraining factor, we can then inspect inside the sub-model to identify why it is a problem. We can also easily replace a sub-model with its approximation to see if there is some degeneracy or infeasibility in the sub-model that the approximation smooths over. This may make multi-level models more maintainable.
+
+# Related papers
+
+
+https://aiche.onlinelibrary.wiley.com/doi/full/10.1002/aic.17705 
