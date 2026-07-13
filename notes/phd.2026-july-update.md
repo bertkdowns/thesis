@@ -2,7 +2,7 @@
 id: wibkdkfh6mghi8n11iimmf2
 title: 2026 July Update
 desc: ''
-updated: 1783582465213
+updated: 1783583069203
 created: 1783550831705
 ---
 
@@ -33,6 +33,8 @@ Next steps could be either:
 ## Hierarchal modelling
 
 The current protoype for [[pyomo.hierarchical-modelling]] that i've made, [pyomo-levels](https://github.com/bertkdowns/pyomo-levels), is not really great. It has some cool tools for auto-generation of a surrogate model, but figuring out the exact interface for building a model that you can switch between different things is ugly. I kind of think i should flesh out my variable replacement library first, come up with a really clean implementation for that, and then rebuild pyomo-levels on top of it.
+
+I also am not using my variable replacement library. It would be nice to figure out the best way to write my variable replacement library, and then actually use it within ahuora-builder. Currently it implements its own replacement logic. This would be very nice. Ahuora-builder (the renamed idaes_service) has a lot of cool things in it too, such as being able to fix non-state variables, and it would be really good to make them accessible to those developing pure idaes flowsheets as well - any time I try test stuff in idaes I immediately get really frustrated with initialisation not working, not knowing what variables to specify, not being able to set flow mass instead of flow mol, etc. Plus, a refactor of ahuora-builder would be a good chance for me to test out how refactoring with agents goes.
 
 
 # Fun side projects
